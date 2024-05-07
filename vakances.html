@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style_main.css">
+    <title>Document</title>
+</head>
+<body>
+    <section id="searchbar-container">
+        <div class="default-container">
+            <form method="POST" id="serchbar-form" class="default-borders">
+                <!-- 1st row -->
+                <input type="text" class="default-input default-borders" name="atslegvards" placeholder="Atslēgvārds">
+                <label>Vieta
+                <select name="vieta"> <!-- mb change labels later -->
+                    <option value="liepaja">Liepāja</option>
+                    <option value="riga">Rīga</option>
+                </select>
+                </label>
+                <label>Kompānija <!-- mb change labels later -->
+                <select name="kompanija">
+                    <option value="123">123</option>
+                    <option value="312">312</option>
+                </select>
+                </label>
+                <button type="submit" class="default-button">Meklēt</button>
+                <!-- 2nd row -->
+                <label for="kartot">Kārtot</label>
+                <select name="kartot">
+                    <option value="alfabetiski">Alfabetiski</option>
+                    <option value="datums">Pēc datuma</option>
+                </select>
+                <p>Darba vieta</p>
+                <input type="radio" name="attalinati" value="attalinati" class="default-input-radio">
+                <label for="attalinati">Attālināti</label><br>
+                <input type="radio" name="klatiene" value="klatiene" class="default-input-radio">
+                <label for="klatiene">Klātiene</label><br>
+            </form>
+
+        </div>
+    </section>
+</body>
+</html>

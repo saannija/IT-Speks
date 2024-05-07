@@ -1,6 +1,7 @@
 :root{
     --yellow: #fbc000;
     --dark-yellow: #c99a00;
+    --white: #fafafa;
     --border: .1rem solid rgba(0,0,0,10%);
     --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,10%);
     --radius: .5rem;
@@ -15,3 +16,46 @@
     border: none;
     transition: all .3s ease-out;
 }
+
+.default-borders{
+    border: var(--border);
+    border-radius: var(--radius);
+}
+
+.default-input, select{
+    padding: .5rem;
+    margin: .3rem;
+    font-size: 1rem;
+}
+
+.default-button{
+    background: var(--yellow);
+    border: var(--border);
+    border-radius: var(--radius);
+    color: var(--white);
+    padding: .1rem 4rem;
+    font-size: 1rem;
+}
+
+#searchbar-container{
+    display: flex;
+    background: var(--yellow);
+    align-items: center;
+    justify-content: center;
+}
+
+#serchbar-form{
+    display: flex;
+    background: var(--white);
+    margin: .8rem;
+    padding: .8rem;
+}
+
+#searchbar-container label, #searchbar-container p{
+    font-size: 1.2rem;
+}
+
+#searchbar-container input, #searchbar-container select{
+    width: 10rem;
+}
+
