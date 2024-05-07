@@ -22,6 +22,7 @@
     </header>
 
     <section id="header">
+<<<<<<< HEAD
         <div class="left">
             <h1>Atrodiet <span>savu nākotnes</span> darbu IT jomā Latvijā!</h1>
             <div class="search">form input select button</div>
@@ -30,6 +31,11 @@
         <div class="right">
             
         </div>
+=======
+        <h1>Atrodiet <span>savu nākotnes</span> darbu IT jomā Latvijā!</h1>
+        <div class="search">form input select button</div>
+        <p>Izvēlēties no vairāk nekā 120 piedāvājumiem!</p>
+>>>>>>> 53620c3191630453ea7fd664bb2917e5096116ff
     </section>
 
     <section id="statistics">
@@ -51,6 +57,7 @@
     </section>
 
     <section id="services">
+<<<<<<< HEAD
         <h2>Mūsu pakalpojumi</h2>
         <div class="circles">
             <div class="circle">
@@ -67,6 +74,20 @@
             </div>
         </div>
         
+=======
+        <div class="circle">
+            <h3>Piesakies vakancēm</h3>
+        </div>
+        <!-- kaut ka tos aplus kas ir aiz main apliem attēlot -->
+        <div class="circle-back"></div>
+        <div class="circle">
+            <h3>Uzzini jaunumus IT jomā</h3>
+        </div>
+        <div class="circle-back"></div>
+        <div class="circle">
+            <h3>Publicē sava uzņēmuma vakances</h3>
+        </div>
+>>>>>>> 53620c3191630453ea7fd664bb2917e5096116ff
     </section>
 
     <section id="about">
