@@ -13,7 +13,7 @@
         <a href="#" class="logo">IT Spēks</a>
         <nav id="navbar">
             <a href="#">Sākumlapa</a>
-            <a href="#">Pakalpojumi</a>
+            <a href="#services">Pakalpojumi</a>
             <a href="#">Vakances</a>
             <a href="#">Jaunumi</a>
             <a href="#">Kontakti</a>
@@ -25,26 +25,24 @@
         <div class="left">
             <h1>Atrodiet <span>savu nākotnes</span> darbu IT jomā Latvijā!</h1>
             <div class="search">form input select button</div>
-            <p>Izvēlēties no vairāk kā 120 piedāvājumiem!</p>
+            <p>Izvēlies no vairāk kā 120 piedāvājumiem!</p>
         </div>
-        <div class="right">
-            
-        </div>
+        <div class="right"></div>
     </section>
 
     <section id="statistics">
         <h2>Mūsu aģentūras statistika</h2>
         <div class="stats">
             <div class="stat">
-                <p>34</p>
+                <p class="num">34</p>
                 <p>Vakances</p>
             </div>
             <div class="stat">
-                <p>15</p>
+                <p class="num">15</p>
                 <p>Kompānijas</p>
             </div>
             <div class="stat">
-                <p>100+</p>
+                <p class="num">100+</p>
                 <p>Pieteikumi</p>
             </div>
         </div>
@@ -52,20 +50,25 @@
 
     <section id="services">
         <h2>Mūsu pakalpojumi</h2>
-        <div class="circles">
-            <div class="circle">
-                <h3>Piesakies vakancēm</h3>
+        <div class="circles-all">
+            <div class="circles">
+                <div class="circle">
+                    <h3>Piesakies vakancēm</h3>
+                </div>
+                <div class="circle">
+                    <h3>Uzzini jaunumus IT jomā</h3>
+                </div>
+                <div class="circle">
+                    <h3>Publicē sava uzņēmuma vakances</h3>
+                </div>
             </div>
-            <!-- kaut ka tos aplus kas ir aiz main apliem attēlot -->
-            <div class="circle-back"></div>
-            <div class="circle">
-                <h3>Uzzini jaunumus IT jomā</h3>
-            </div>
-            <div class="circle-back"></div>
-            <div class="circle">
-                <h3>Publicē sava uzņēmuma vakances</h3>
+            <div class="circles-back">
+                <div class="circle-back"></div>
+                <div class="circle-back invis"></div>
+                <div class="circle-back"></div>
             </div>
         </div>
+        
     </section>
 
     <section id="about">
@@ -85,24 +88,21 @@
     </section>
 
     <footer>
-        <div id="footer">
-            <div class="contacts">
-                <div class="info">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p>Adrese 123, Liepāja</p>
-                </div>
-                <div class="info">
-                    <i class="fas fa-envelope"></i>
-                    <p>epasts@epasts.lv</p>
-                </div>
-                <div class="info">
-                    <i class="fas fa-phone"></i>
-                    <p>+371 21234567</p>
-                </div>
+        <div id="contacts">
+            <div class="info">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Adrese 123, Liepāja</p>
             </div>
-            IT Spēks &copy; 2024
+            <div class="info">
+                <i class="fas fa-envelope"></i>
+                <p>epasts@epasts.lv</p>
+            </div>
+            <div class="info">
+                <i class="fas fa-phone"></i>
+                <p>+371 21234567</p>
+            </div>
         </div>
-       
+        IT Spēks &copy; 2024
     </footer>
 </body>
 </html>

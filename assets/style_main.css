@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 :root{
     --yellow: #fbc000;
     --dark-yellow: #c99a00;
@@ -8,6 +10,7 @@
 }
 
 * {
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -38,16 +41,17 @@
 }
 
 section{
-    padding: 2rem 9%;
+    padding: 2rem 9% !important;
 }
 
 header{
     position: sticky;
-    background: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem 9%;
+    z-index: 1;
+    background: var(--white);
 }
 
 #navbar{
@@ -56,28 +60,55 @@ header{
     width: 80%;
 }
 
+.logo{
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #000;
+}
+
+nav a{
+    font-size: 1.2rem;
+    color: #000;
+}
+
+nav a:hover{
+    color: var(--yellow);
+}
+
 /* -----------SAKUMLAPA------------------------------------------------------------------- */
+
+/* headeris */
 
 #header{
     margin: 15rem 0 5rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left, .right{
+    width: 50%;
+}
+
+h1{
+    font-size: 3rem;
+    padding-bottom: 2rem;
 }
 
 h1 span{
     color: var(--yellow);
+    font-weight: bolder;
 }
 
-.left{
-    width: 50%;
-}
-
-.right{
-    width: 50%;
-    float: right;
+.search{
+    padding: 2rem 0;
 }
 
 h2{
     text-align: center;
+    font-size: 2.2rem;
 }
+
+/* statistika */
 
 #statistics{
     background-color: var(--yellow);
@@ -88,14 +119,120 @@ h2{
 .stats{
     display: flex;
     justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 3.5rem 0 2rem 0;
 }
 
 .stat{
-    margin: 2rem;
+    margin: 0 4rem;
+    text-align: center;
+}
+
+.stat .num{
+    padding: .4rem 0;
+    font-size: 2rem;
+}
+
+/* pakalpojumi */
+
+#services{
+    padding: 3rem 0;
 }
 
 #services h2{
     color: var(--yellow);
+}
+
+.circles-all{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.circles{
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.circle{
+    padding: 5rem;
+    background: var(--yellow);
+    border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.circle h3{
+    color: #fff;
+    font-size: 1.7rem;
+}
+
+.circles-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+}
+
+.circle-back{
+    border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 3px dashed var(--yellow);
+}
+
+.invis{
+    border: none;
+    width: 11rem;
+    height: 11rem;
+}
+
+/* par mums */
+
+#about{
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* footeris */
+
+footer{
+    background: var(--yellow);
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    padding: 2rem;
+}
+
+#contacts{
+    color: #000;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info{
+    display: flex;
+    padding: 2rem;
+}
+
+.info i{
+    margin-right: 1rem;
 }
 
 /* -----------VAKANCES------------------------------------------------------------------- */
