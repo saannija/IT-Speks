@@ -416,6 +416,12 @@ input[type="radio"]:hover + .radio-button{
     text-align: justify;
 }
 
+/* -----------VAKANCE------------------------------------------------------------------- */
+/* Header */
+#vacancy-header{
+    background: #ddd;
+}
+
 @media (max-width: 1125px){
     html{
         font-size: 80%;
