@@ -14,8 +14,8 @@
         <nav id="navbar">
             <a href="#">Sākumlapa</a>
             <a href="#services">Pakalpojumi</a>
-            <a href="#">Vakances</a>
-            <a href="#">Jaunumi</a>
+            <a href="vakances.html">Vakances</a>
+            <a href="jaunumi.php">Jaunumi</a>
             <a href="#">Kontakti</a>
             <a href="#">Autorizācija</a>
         </nav>
@@ -75,10 +75,10 @@
         <div class="left">
             <h1><span>Sazinies</span> ar mums!</h1>
             <form action="">
-                <input type="text" placeholder="Vārds">
-                <input type="email" placeholder="E-pasts">
-                <input type="tel" placeholder="Tālrunis">
-                <textarea name="" placeholder="Jūsu komentāri" required></textarea>
+                <input type="text" placeholder="Vārds" class="box">
+                <input type="email" placeholder="E-pasts" class="box">
+                <input type="tel" placeholder="Tālrunis" class="box">
+                <textarea name="" placeholder="Jūsu komentāri" required class="box"></textarea>
                 <button type="submit" name="sendMsg" class="btn">Sazināties</button>
             </form>
         </div>

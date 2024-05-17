@@ -100,8 +100,22 @@ nav a:hover{
     justify-content: space-between;
 }
 
+#headerSimple{
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+}
+
 .left, .right{
     width: 50%;
+}
+
+.left{
+    margin-right: 2rem;
+}
+
+.right{
+    margin-left: 2rem;
 }
 
 h1{
@@ -128,7 +142,7 @@ h2{
 #statistics{
     background-color: var(--yellow);
     color: #fff;
-    padding: 3rem 0;
+    padding: 4rem 0;
 }
 
 .stats{
@@ -211,8 +225,8 @@ h2{
 
 .invis{
     border: none;
-    width: 11rem;
-    height: 11rem;
+    width: 17rem;
+    height: 17rem;
 }
 
 /* par mums */
@@ -221,6 +235,57 @@ h2{
     padding: 3rem 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+/* kontakti */
+
+form, .map{
+    padding: 1rem;
+    border: var(--border);
+    border-radius: var(--radius);
+    background: #f7f7f7;
+    width: 100%;
+}
+
+form .box{
+    margin: .7rem 0;
+    padding: .7rem;
+    font-size: 1.2rem;
+    color: var(--black);
+    border: var(--border);
+    border-radius: var(--radius);
+    background: #fff;
+    width: 100%;
+}
+
+form .box:focus{
+    background: var(--bg);
+}
+
+form textarea{
+    height: 15rem;
+    resize: none;
+}
+
+.btn{
+    margin-top: .7rem;
+    display: inline-block;
+    padding: .8rem 2.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background: var(--yellow);
+    border-radius: var(--radius);
+    box-shadow: var(--box-shadow);
+    border: .1rem solid var(--dark-yellow);
+    position: relative;
+    z-index: 1;
+}
+
+.btn:hover{
+    background: var(--black);
 }
 
 /* footeris */
@@ -243,11 +308,24 @@ footer{
 
 .info{
     display: flex;
-    padding: 2rem;
+    padding: 2rem 4rem;
 }
 
 .info i{
     margin-right: 1rem;
+}
+
+/* -----------JAUNUMI------------------------------------------------------------------- */
+
+#latestNews{
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+}
+
+#latestNews img{
+    height: 20rem;
+    width: 100%;
 }
 
 /* -----------VAKANCES------------------------------------------------------------------- */
