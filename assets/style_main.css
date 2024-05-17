@@ -420,6 +420,69 @@ input[type="radio"]:hover + .radio-button{
 /* Header */
 #vacancy-header{
     background: #ddd;
+    height: 10rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+#vacancy-header h2{
+    color: var(--yellow);
+    font-size: 3rem;
+}
+
+/* Main section */
+#vacancy-section{
+    background: #eee;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+    gap: 1.2rem;
+}
+
+#vacancy-section .element, .element .wrapper-column{
+    display: flex;
+    flex-direction: column;
+}
+
+#vacancy-section h3{
+    color: var(--dark-yellow);
+    font-weight: normal;
+    font-size: 1.6rem;
+}
+
+/* Section elements */
+.element .wrapper{
+    padding: 0 1.5rem;
+}
+
+.wrapper-column{
+    height: 12rem;
+}
+
+.wrapper ul{
+    padding: .7rem 1.7rem;
+}
+
+#apply-form .wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="file"]{
+    display: none;
+}
+  
+.cv-upload{
+    color: var(--dark-yellow);
+    background: #fff;
+    border: var(--dark-yellow) 1px solid;
+    border-radius: var(--radius);
+    cursor: pointer;
+    padding: .6rem .9rem;
+}
+
+.cv-upload:hover{
+    color: var(#fff);
+    background: var(--dark-yellow);
 }
 
 @media (max-width: 1125px){

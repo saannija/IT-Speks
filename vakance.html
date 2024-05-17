@@ -17,21 +17,67 @@
         <h2>Nosaukums</h2>
     </header>
 
-    <section id="vacancy-container">
-        <div class="element">Apraksts</div>
-
-        <div class="element"> <!-- summary -->
-            <div class="info-container">
-                <p><i class="fa-solid fa-location-dot"></i> Atr. vieta</p>
-                <p><i class="fa-solid fa-building"></i> Kopm Nosaukums</p>
-                <p><i class="fa-solid fa-clock"></i> Slodze</p>
-                <p><i class="fa-solid fa-house-laptop"></i> Darba vieta</p>
+    <section id="vacancy-section">
+        <div class="element"> <!-- description -->
+            <div class="wrapper">
+                <h3>Vakances apraksts</h3>
+                <p>qwe</p>
             </div>
+
+            <div class="wrapper">
+                <h3>Prasības</h3>
+                <ul>
+                    <li>qwe</li>
+                    <li>qwe</li>
+                </ul>
+            </div>
+
+            <div class="wrapper">
+                <h3>Mēs piedāvājam</h3>
+                <ul>
+                    <li>qwe</li>
+                    <li>qwe</li>
+                </ul>
+            </div>
+
         </div>
 
-        <div class="element">pieteikties</div>
+        <div class="element"> <!-- summary -->
+            <h3>Vakances kopsavilkums</h3>
+            <ul id="summary">
+                <li><strong>Publicēts:</strong> </li>
+                <li><strong>Alga:</strong> </li>
+                <li><strong>Atrašanās vieta:</strong> </li>
+                <li><strong>Darba veids:</strong> </li>
+            </ul>
+        </div>
 
-        <div class="element">map</div>
+        <div class="element"> <!-- application -->
+            <h3>Piesakieties darbam</h3>
+            <form method="POST" id="apply-form">
+                <div class="wrapper-column">
+                    <input type="text" class="defalut-input defalut-borders" name="vards" placeholder="Vārds">
+                    <input type="text" class="defalut-input defalut-borders" name="uzvards" placeholder="Uzvārds">
+                    <input type="text" class="defalut-input defalut-borders" name="talrunis" placeholder="Tālrunis">
+                    <input type="text" class="defalut-input defalut-borders" name="epasts" placeholder="E-pasts">
+                </div>
+
+                <input id="comment-input" type="text" class="defalut-input defalut-borders" name="Komentars" placeholder="Komentāri">
+                
+                <div class="wrapper">
+                    <label for="cv" class="cv-upload">
+                        Augšupielādēt CV
+                    </label>
+                    <input id="cv" name="cv" type="file">
+                    <button type="submit" class="default-button">Pieteikties</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="element"> <!-- map -->
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17601.485656897643!2d21.01436780494168!3d56.533447208670836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46faa7ccb271be93%3A0xf9d1bf3406ae7d9d!2sLiep%C4%81jas%20Valsts%20tehnikums!5e0!3m2!1sen!2slv!4v1712747037508!5m2!1sen!2slv" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
 
     </section>
     
