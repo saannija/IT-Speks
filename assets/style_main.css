@@ -42,7 +42,7 @@ select option[value=""]{
 .default-button{
     background: var(--yellow);
     border-radius: var(--radius);
-    color: var(--white);
+    color: #fff;
     padding: .6rem .9rem;
     font-size: 1rem;
     border: 1px solid;
@@ -50,7 +50,7 @@ select option[value=""]{
 
 .default-button:hover{
     color: var(--yellow);
-    background: none;
+    background: #fff;
     border: 1px solid var(--yellow);
     cursor: pointer;
 }
@@ -504,7 +504,7 @@ input[type="radio"]:hover + .radio-button{
 }
 
 #vacancy-header h2{
-    color: var(--yellow);
+    color: var(--dark-yellow);
     font-size: 3rem;
 }
 
@@ -512,11 +512,12 @@ input[type="radio"]:hover + .radio-button{
 #vacancy-section{
     background: #eee;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
     gap: 1.2rem;
 }
 
-#vacancy-section .element, .element .wrapper-column{
+#vacancy-section .element, .element .wrapper-column, .element .wrapper{
     display: flex;
     flex-direction: column;
 }
@@ -528,21 +529,59 @@ input[type="radio"]:hover + .radio-button{
 }
 
 /* Section elements */
-.element .wrapper{
-    padding: 0 1.5rem;
+#vacancy-section .element{
+    padding: 1.7rem;
 }
 
 .wrapper-column{
     height: 12rem;
 }
 
-.wrapper ul{
+ul{
     padding: .7rem 1.7rem;
+    word-wrap: normal;
+}
+
+#description{
+    grid-row: span 2;
+}
+
+#description .wrapper{
+    margin: 0 0 1rem 0;
+}
+
+#description p{
+    word-wrap: break-word;
+    text-align: justify;
+    margin-top: .7rem;
+}
+
+#apply-form{
+    margin-top: .7rem;
+    border: none;
+}
+
+#apply-form .wrapper-input{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+}
+
+#apply-form input{
+    margin: 0;
+    width: 100%;
 }
 
 #apply-form .wrapper{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    padding: 0;
+}
+
+#apply-form textarea{
+    margin-top: .5rem;
+    width: 100%;
 }
 
 input[type="file"]{
@@ -559,7 +598,7 @@ input[type="file"]{
 }
 
 .cv-upload:hover{
-    color: var(#fff);
+    color: #fff;
     background: var(--dark-yellow);
 }
 
@@ -625,14 +664,18 @@ input[type="file"]{
         justify-content: space-between;
         width: 100%;
     }
-    
 
-    #vacancy-container{
+    #vacancy-container, #vacancy-section{
         padding: 1.2rem !important;
     }
 
     #toggle-panel{
         display: block;
+    }
+
+    /* VAKANCE */
+    #application{
+        grid-column: span 2;
     }
 }
 
@@ -644,6 +687,12 @@ input[type="file"]{
         display: flex;
         flex-direction: column;
     }
+
+    /* VAKANCE */
+    #vacancy-section{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 590px){
@@ -652,6 +701,16 @@ input[type="file"]{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
         gap: 1rem;
+    }
+
+    /* VAKANCE */
+    #apply-form .wrapper-input, #apply-form .wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #apply-form label{
+        margin-bottom: .7rem;
     }
 }
 
