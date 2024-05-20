@@ -75,12 +75,12 @@ header{
     padding: 1rem 9%;
     z-index: 3;
     background: var(--white);
+    box-shadow: var(--box-shadow);
 }
 
 #navbar{
     display: flex;
-    justify-content: space-between;
-    width: 80%;
+    gap: 2.6rem;
 }
 
 .logo{
@@ -96,6 +96,10 @@ header a, #nav-content a{
 
 header a:hover, #nav-content a:hover{
     color: var(--main-color);
+}
+
+.toggle-btn{
+    display: none;
 }
 
 /* -----------SAKUMLAPA------------------------------------------------------------------- */
@@ -170,7 +174,7 @@ h2{
     color: var(--white);
 }
 
-select[name="vieta"]{
+#search-form select[name="vieta"]{
     padding: .6rem;
     margin: 0;
     width: 40%;
@@ -181,7 +185,7 @@ select[name="vieta"]:hover{
     cursor: pointer;
 }
 
-#header input[name="atslegvardsIndex"]{
+#search-form input[name="atslegvardsIndex"]{
     border: 1px solid var(--main-color);
     margin: 0;
     width: 40%;
@@ -196,7 +200,7 @@ select[name="vieta"]:hover{
         flex-direction: column;
     }
 
-    #header input[name="atslegvardsIndex"], select[name="vieta"]{
+    #header input[name="atslegvardsIndex"], #search-form select[name="vieta"]{
         width: 100%;
         margin-bottom: 1rem;
     }
@@ -222,7 +226,7 @@ select[name="vieta"]:hover{
         align-items: center;
     }
 
-    #header input[name="atslegvardsIndex"], select[name="vieta"]{
+    #search-form input[name="atslegvardsIndex"], #search-form select[name="vieta"]{
         width: 40%;
         margin-bottom: 0;
     }
@@ -739,10 +743,11 @@ hr{
 /* Sticky searchbar */
 #searchbar-container{
     position: fixed;
-    top: 4.2rem;
+    top: 3rem;
     left: 0;
     display: flex;
     padding-top: 1.2rem;
+    height: 100%;
 }
 
 #serchbar-form{
@@ -750,7 +755,8 @@ hr{
     flex-direction: column;
     background: var(--white);
     padding: .8rem;
-    border-radius: 0 .5rem .5rem 0;
+    border-radius: 0;
+    border: none;
 }
 
 .wrapper{
@@ -808,13 +814,18 @@ input[type="radio"]:hover + .radio-button{
 }
 
 #toggle-panel{
-    margin-top: 4.2rem;
     display: none;
     width: 100%;
     border: 1px solid var(--main-color);
     border-radius: 0;
     padding: 1.2rem;
     font-size: 1.2rem;
+}
+/* header */
+#headerSimple-vacancies{
+    padding: 7rem 0 1.2rem 19rem !important;
+    display: flex;
+    justify-content: center;
 }
 
 /* Main section */
@@ -823,7 +834,7 @@ input[type="radio"]:hover + .radio-button{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
     gap: 1.2rem;
-    padding: 5.4rem 1.2rem 1.2rem 20.5rem !important;
+    padding: 1.2rem 1.2rem 1.2rem 20.5rem !important;
 }
 
 /* Elements */
@@ -914,6 +925,7 @@ input[type="radio"]:hover + .radio-button{
     position: relative;
     margin-top: 4.2rem;
     z-index: 1;
+    box-shadow: none;
 }
 
 #vacancy-header h2{
@@ -1023,7 +1035,7 @@ input[type="file"]{
     align-items: center;
 }
 
-#admin-header div{
+#admin-header-content{
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -1057,8 +1069,12 @@ input[type="file"]{
     border-bottom: var(--border);
 }
 
+#admin-header-content .toggle-btn{
+    display: block;
+}
+
 .toggle-btn{
-    z-index: 1;
+    z-index: 3;
 }
 
 #nav-content a{
@@ -1160,6 +1176,13 @@ tr:hover{
     background: #eee;
 }
 
+@media(max-width: 1320px){
+    /* VAKANCES */
+    #headerSimple-vacancies{
+        text-align: center;
+    }
+}
+
 @media (max-width: 1125px){
     html{
         font-size: 80%;
@@ -1179,8 +1202,37 @@ tr:hover{
 
 }
 
+@media(max-width: 916px){
+    /* HEADER */
+    #navbar{
+        display: none;
+    }
+
+    .toggle-btn{
+        display: block;
+    }
+
+    #navbar.expanded{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 115%;
+        right: 2rem;
+        background: #fff;
+        box-shadow: var(--box-shadow);
+        border: var(--border);
+        border-radius: var(--radius);
+        width: 20rem;
+        padding: 2rem;
+    }
+}
+
 @media (max-width: 876px){
     /* VAKANCES */
+    #headerSimple-vacancies{
+        padding: 8rem .5rem 2rem .5rem!important;
+    }
+
     #searchbar-container{
         display: none;
         top: 0;

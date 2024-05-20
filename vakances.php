@@ -11,8 +11,13 @@
 </head>
 <body>
     <?php
+        $page = "vakances";
         require "assets/header.php";
     ?>
+
+    <section id="headerSimple-vacancies">
+        <h1>Izvēlies no vairāk kā <span>120</span> piedāvājumiem!</h1>
+    </section>
 
     <div class="search-wrapper">
         <button onclick="togglePanel('searchbar-container')" class="default-button" id="toggle-panel"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -67,7 +72,7 @@
     </div>
 
     <section id="vacancy-container">
-        <a href="#">
+        <a href="vakance.php">
             <div class="element">
                 <div class="logo-container">
                     <!-- <img src="images/example.jpg" class="default-borders"> -->
@@ -94,7 +99,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="vakance.php">
             <div class="element">
                 <div class="logo-container">
                     <img src="images/example.jpg" class="default-borders">
@@ -120,7 +125,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="vakance.php">
             <div class="element">
                 <div class="logo-container">
                     <img src="images/example.jpg" class="default-borders">
@@ -146,7 +151,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="vakance.php">
             <div class="element">
                 <div class="logo-container">
                     <img src="images/example.jpg" class="default-borders">
@@ -172,7 +177,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="vakance.php">
             <div class="element">
                 <div class="logo-container">
                     <img src="images/example.jpg" class="default-borders">
@@ -198,7 +203,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="vakance.php">
             <div class="element">
                 <div class="logo-container">
                     <img src="images/example.jpg" class="default-borders">
@@ -224,7 +229,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="vakance.php">
             <div class="element">
                 <div class="logo-container">
                     <img src="images/example.jpg" class="default-borders">

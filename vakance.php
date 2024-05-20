@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php
+        $page = "vakances";
         require "assets/header.php";
     ?>
 

@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php
+        $page = "jaunumi";
         require "assets/header.php";
     ?>
 

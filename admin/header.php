@@ -13,7 +13,7 @@
 </head>
 <body>
     <header id="admin-header">
-        <div>
+        <div id="admin-header-content">
             <button class="toggle-btn default-button" onclick="togglePanel('nav-content')">
                 <i class="fas fa-bars"></i>
             </button>
