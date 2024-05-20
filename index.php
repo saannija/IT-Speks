@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Spēks</title>
     <link rel="stylesheet" href="assets/style_main.css">
+    <script src="assets/script.js" defer></script>
     <!-- <link rel="shortcut icon" href="images/lvt.png" type="image/x-icon"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
@@ -16,8 +17,28 @@
     <section id="header">
         <div class="left">
             <h1>Atrodiet <span>savu nākotnes</span> darbu IT jomā Latvijā!</h1>
-            <div class="search">form input select button</div>
-            <p>Izvēlies no vairāk kā 120 piedāvājumiem!</p>
+
+            <div class="searchbar">
+                <!-- <button onclick="togglePanel('searchbar-container')" class="default-button" id="toggle-panel"><i class="fa-solid fa-magnifying-glass"></i></button> -->
+    
+                <div id="search-container">
+                    <form method="POST" id="search-form">
+                        
+                        <input type="text" class="default-input default-borders" name="atslegvardsIndex" placeholder="Atslēgvārds">
+                        
+                        <select name="vieta">
+                            <option value="" disabled selected>Vieta</option>
+                            <option value="liepaja">Liepāja</option>
+                            <option value="riga">Rīga</option>
+                        </select>
+
+                        <button type="submit" id="search-btn" class="default-button">Meklēt</button>
+                    
+                    </form>
+                </div>
+            </div>
+
+            <p class="info-text">Izvēlies no vairāk kā <span>120</span> piedāvājumiem!</p>
         </div>
         <div class="right"></div>
     </section>
@@ -43,6 +64,7 @@
     <section id="services">
         <h2>Mūsu pakalpojumi</h2>
         <div class="circles-all">
+            <!-- pievienot clicable links ()))))))))) -->
             <div class="circles">
                 <div class="circle">
                     <h3>Piesakies vakancēm</h3>
@@ -56,7 +78,6 @@
             </div>
             <div class="circles-back">
                 <div class="circle-back"></div>
-                <div class="circle-back invis"></div>
                 <div class="circle-back"></div>
             </div>
         </div>
@@ -70,7 +91,7 @@
                 <input type="text" placeholder="Vārds" class="box">
                 <input type="email" placeholder="E-pasts" class="box">
                 <input type="tel" placeholder="Tālrunis" class="box">
-                <textarea name="" placeholder="Jūsu komentāri" required class="box"></textarea>
+                <textarea name="" placeholder="Jūsu ziņa..." required class="box"></textarea>
                 <button type="submit" name="sendMsg" class="btn">Sazināties</button>
             </form>
         </div>
