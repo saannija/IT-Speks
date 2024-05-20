@@ -35,6 +35,10 @@
             
             </table>
     </section>
+
+    <?php
+        require "../assets/footer.php"
+    ?>
 </body>
 </html>
 

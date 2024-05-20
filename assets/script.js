@@ -9,13 +9,11 @@ function togglePanel(element) {
     let panel = document.getElementById(element);
     panel.classList.toggle("expanded");
 
-    // if(element == "nav-content'"){
-    //     section.style.padding = "1.2rem 1.2rem 1.2rem 21rem !important";
-    // }
-
     let icon = document.querySelector('.toggle-btn .fas');
     icon.classList.toggle("fa-times");
+
 }
+
 
 const ctx = document.getElementById('vacancy-chart').getContext('2d');
 const myChart = new Chart(ctx, {

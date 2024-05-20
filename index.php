@@ -11,6 +11,7 @@
 </head>
 <body>
     <?php
+        $page = "sakums";
         require "assets/header.php";
     ?>
 
