@@ -128,7 +128,7 @@ h1{
     padding-bottom: 2rem;
 }
 
-h1 span{
+h1 span, #admin-section span{
     color: var(--main-color);
     font-weight: bolder;
 }
@@ -543,7 +543,7 @@ footer{
 /* Sticky searchbar */
 #searchbar-container{
     position: fixed;
-    top: 0;
+    top: 6.6rem;
     left: 0;
     display: flex;
     padding-top: 1.2rem;
@@ -560,6 +560,8 @@ footer{
 .wrapper{
     display: flex;
     margin: 1rem 0;
+    justify-content: flex-start;
+    width: 100%;
 }
 
 .buttons-wrapper{
@@ -817,7 +819,7 @@ input[type="file"]{
 /* Navigation */
 #nav-content{
     position: fixed;
-    top: 0;
+    top: 6.6rem;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -845,7 +847,7 @@ input[type="file"]{
 
 .toggle-btn{
     position: absolute;
-    top: 10px;
+    top: 7.3rem;
     left: 10px;
     z-index: 1;
 }
@@ -858,6 +860,73 @@ input[type="file"]{
     background: #eee;
 }
 
+/* Homepage */
+#admin-section{
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem 4rem !important;
+}
+
+#admin-section h2{
+    text-align: start;
+    font-size: 1.6rem;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    margin: 1.2rem 0;
+}
+
+.wrapper .container{
+    display: flex;
+    flex-direction: column;
+}
+
+#admin-section .wrapper{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+/* elements */
+.stat-box{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    margin-right: 1.2rem;
+    width: 100%;
+}
+
+.stat-box span{
+    font-size: 1.8rem;
+    padding-bottom: .5rem;
+}
+
+/* table */
+#admin-section table{
+    background: #fff;
+    width: 100%;
+}
+
+.table-heading{
+    padding: 1.5rem;
+    background: #f7f7f7;
+}
+
+th, td{
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: var(--border);
+}
+
+tr:hover{
+    background: #eee;
+}
 
 @media (max-width: 1125px){
     html{
@@ -904,14 +973,8 @@ input[type="file"]{
         width: 100%;
     }
 
-    .wrapper{
-        justify-content: flex-start;
-        width: 100%;
-    }
-
     .wrapper:last-child{
         justify-content: flex-end;
-        width: 100%;
     }
 
     .buttons-wrapper{
