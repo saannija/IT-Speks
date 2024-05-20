@@ -10,9 +10,9 @@
     <title>Vakances</title>
 </head>
 <body>
-    <!-- <?php
+    <?php
         require "assets/header.php";
-    ?> -->
+    ?>
 
     <div class="search-wrapper">
         <button onclick="togglePanel('searchbar-container')" class="default-button" id="toggle-panel"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -251,8 +251,8 @@
         </a>
     </section>
 
-    <!-- <?php
+    <?php
         require "assets/footer.php";
-    ?> -->
+    ?>
 </body>
 </html>

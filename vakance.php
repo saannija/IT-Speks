@@ -9,9 +9,9 @@
     <title>Vakances</title>
 </head>
 <body>
-    <!-- <?php
+    <?php
         require "assets/header.php";
-    ?> -->
+    ?>
 
     <header id="vacancy-header"> 
         <h2>Nosaukums</h2>
@@ -81,8 +81,8 @@
 
     </section>
     
-    <!-- <?php
+    <?php
         require "assets/footer.php";
-    ?> -->
+    ?>
 </body>
 </html>
