@@ -78,7 +78,6 @@
             </div>
             <div class="circles-back">
                 <div class="circle-back"></div>
-                <div class="circle-back invis"></div>
                 <div class="circle-back"></div>
             </div>
         </div>

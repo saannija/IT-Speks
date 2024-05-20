@@ -128,7 +128,7 @@ h1{
     padding-bottom: 2rem;
 }
 
-h1 span, #admin-section span{
+h1 span, #admin-section span, span{
     color: var(--main-color);
     font-weight: bolder;
 }
@@ -170,6 +170,8 @@ h2{
 select[name="vieta"]{
     padding: .6rem;
     margin: 0;
+    width: 40%;
+    background: #fff;
 }
 
 select[name="vieta"]:hover{
@@ -179,10 +181,50 @@ select[name="vieta"]:hover{
 #header input[name="atslegvardsIndex"]{
     border: 1px solid var(--main-color);
     margin: 0;
+    width: 40%;
 }
 
 .info-text{
     margin-top: 2rem;
+}
+
+@media (max-width: 1400px){
+    #search-form{
+        flex-direction: column;
+    }
+
+    #header input[name="atslegvardsIndex"], select[name="vieta"]{
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    #header #search-btn{
+        padding: .5rem 2rem;
+    }
+}
+
+@media (max-width: 900px){
+    .right{
+        display: none;
+    }
+
+    .left{
+        width: 100%;
+    }
+
+    #search-form{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #header input[name="atslegvardsIndex"], select[name="vieta"]{
+        width: 40%;
+        margin-bottom: 0;
+    }
+
+    #header #search-btn{
+        padding: .5rem 1.2rem;
+    }
 }
 
 /* statistika */
@@ -211,74 +253,118 @@ select[name="vieta"]:hover{
     font-size: 2rem;
 }
 
+@media (max-width: 700px){
+    .stat{
+        margin: 0 1rem;
+    }
+}
+
 /* pakalpojumi */
 
-#services{
+#services {
     margin: 5rem 0;
 }
 
-#services h2, #news h2{
+#services h2, #news h2 {
     color: var(--main-color);
 }
 
-.circles-all{
+#services h2{
+    margin-bottom: 3rem;
+}
+
+.circles-all {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.circles{
-    padding: 3rem 0;
+.circles {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    z-index: 2;
 }
 
-.circle{
+.circle {
     padding: 5rem;
     background: var(--main-color);
     border-radius: 50%;
-    width: 15rem;
-    height: 15rem;
+    width: 17rem;
+    height: 17rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    z-index: 1;
+    z-index: 2;
 }
 
-.circle:hover{
+.circle:hover {
     cursor: pointer;
 }
 
-.circle h3{
+.circle h3 {
     color: var(--white);
     font-size: 1.7rem;
 }
 
-.circles-back{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.circles-back {
     position: absolute;
+    top: 50%;
+    left: 50%;
     width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
-.circle-back{
+.circle-back {
     border-radius: 50%;
-    width: 15rem;
-    height: 15rem;
+    width: 17rem;
+    height: 17rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     border: 3px dashed var(--main-color);
+    position: absolute;
 }
 
-.invis{
-    border: none;
-    width: 17rem;
-    height: 17rem;
+.circle-back:nth-child(1) {
+    position: absolute;
+    left: 25%;
+}
+
+.circle-back:nth-child(2) {
+    position: absolute;
+    right: 25%;
+}
+
+
+@media (max-width: 1000px){
+    .circle-back{
+        display: none;
+    }
+
+    .circle{
+        width: 14rem;
+        height: 14rem;
+    }
+}
+
+@media (max-width: 700px){
+    .circles{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .circle{
+        margin-bottom: 2rem;
+    }
 }
 
 /* par mums */
@@ -307,7 +393,7 @@ form .box{
     color: var(--black);
     border: var(--border);
     border-radius: var(--radius);
-    background: var(--white);
+    background: #fff;
     width: 100%;
 }
 
