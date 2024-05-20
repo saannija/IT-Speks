@@ -5,9 +5,6 @@ if ( window.history.replaceState ) {
 let button = document.getElementsByClassName("toggle-btn");
 let section = document.getElementById("admin-section");
 
-google.charts.load('current',{packages:['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
 function togglePanel(element) {
     let panel = document.getElementById(element);
     panel.classList.toggle("expanded");
@@ -20,25 +17,58 @@ function togglePanel(element) {
     icon.classList.toggle("fa-times");
 }
 
-// function drawChart() {
+const ctx = document.getElementById('vacancy-chart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'pie', // or 'bar', 'pie', etc.
+    data: {
+        labels: ['Software Developer', 'Web Developer', 'System Administrator'],
+        datasets: [{
+            label: 'Skaits',
+            data: [65, 59, 80],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)', // ill change colors later
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)', 
+                'rgba(153, 102, 255, 0.2)', 
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1,      
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
 
-//     // Set Data
-//     const data = google.visualization.arrayToDataTable([
-//       ['Contry', 'Mhl'],
-//       ['Italy', 55],
-//       ['France', 49],
-//       ['Spain', 44],
-//       ['USA', 24],
-//       ['Argentina', 15]
-//     ]);
-    
-//     // Set Options
-//     const options = {
-//       title: 'World Wide Wine Production'
-//     };
-    
-//     // Draw
-//     const chart = new google.visualization.BarChart(document.getElementById('myChart'));
-//     chart.draw(data, options);
-    
-//     }
+        plugins: {
+            legend: {
+                display: true,
+                position: 'right',
+            },
+
+            datalabels: {
+                formatter: (value, ctx) => {
+                    let sum = 0;
+                    let dataArr = ctx.chart.data.datasets[0].data;
+                    dataArr.map(data => {
+                        sum += data;
+                    });
+                    let percentage = (value*100 / sum).toFixed(2)+"%";
+                    return percentage;
+                },
+                color: '#000',
+            }
+        }
+    },
+    plugins: [ChartDataLabels],
+});

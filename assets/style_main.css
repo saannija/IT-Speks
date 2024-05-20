@@ -56,16 +56,19 @@ select option[value=""]{
 }
 
 section{
-    padding: 2rem 9% !important;
+    padding: 5.6rem 9% 2rem 9%!important;
 }
 
 header{
-    position: sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 9%;
-    z-index: 1;
+    padding: 1rem 9%;
+    z-index: 2;
     background: var(--white);
 }
 
@@ -76,17 +79,17 @@ header{
 }
 
 .logo{
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #000;
 }
 
-nav a{
+header a, #nav-content a{
     font-size: 1.2rem;
     color: #000;
 }
 
-nav a:hover{
+header a:hover, #nav-content a:hover{
     color: var(--main-color);
 }
 
@@ -332,7 +335,7 @@ footer{
 /* Sticky searchbar */
 #searchbar-container{
     position: fixed;
-    top: 6.6rem;
+    top: 4.2rem;
     left: 0;
     display: flex;
     padding-top: 1.2rem;
@@ -401,6 +404,7 @@ input[type="radio"]:hover + .radio-button{
 }
 
 #toggle-panel{
+    margin-top: 4.2rem;
     display: none;
     width: 100%;
     border: 1px solid var(--main-color);
@@ -415,7 +419,7 @@ input[type="radio"]:hover + .radio-button{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
     gap: 1.2rem;
-    padding: 1.2rem 1.2rem 1.2rem 20.5rem !important;
+    padding: 5.4rem 1.2rem 1.2rem 20.5rem !important;
 }
 
 /* Elements */
@@ -503,6 +507,9 @@ input[type="radio"]:hover + .radio-button{
     height: 10rem;
     display: flex;
     align-items: flex-end;
+    position: relative;
+    margin-top: 4.2rem;
+    z-index: 1;
 }
 
 #vacancy-header h2{
@@ -517,6 +524,7 @@ input[type="radio"]:hover + .radio-button{
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
     gap: 1.2rem;
+    padding: 2rem 9% !important;
 }
 
 #vacancy-section .element, .element .wrapper-column, .element .wrapper{
@@ -605,10 +613,22 @@ input[type="file"]{
 }
 
 /* -----------ADMIN------------------------------------------------------------------- */
+/* Header */
+#admin-header{
+    padding: 1rem;
+    align-items: center;
+}
+
+#admin-header div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 /* Navigation */
 #nav-content{
     position: fixed;
-    top: 6.6rem;
+    top: 4.2rem;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -629,16 +649,16 @@ input[type="file"]{
 }
 
 #nav-content strong{
-    text-align: right;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     border-bottom: var(--border);
 }
 
 .toggle-btn{
-    position: absolute;
-    top: 7.3rem;
-    left: 10px;
     z-index: 1;
+}
+
+#nav-content a{
+    font-size: 1rem;
 }
 
 #nav-content a, #nav-content strong{
@@ -654,7 +674,8 @@ input[type="file"]{
     background: #eee;
     display: flex;
     flex-direction: column;
-    padding: 1.2rem 4rem !important;
+    padding: 5.6rem 4rem 1.2rem 4rem !important;
+    height: 100%;
 }
 
 #admin-section h2{
@@ -666,16 +687,32 @@ input[type="file"]{
     display: flex;
     flex-direction: row;
     margin: 1.2rem 0;
+    gap: 1.5rem;
 }
 
 .wrapper .container{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    flex: 1 1;
 }
 
 #admin-section .wrapper{
-    display: grid;
-    grid-template-columns: auto auto;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.wrapper .chart-container{
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    max-height: 28rem;
+    width: 100%;
+}
+
+#vacancy-chart{
+    background: #fff;
+    padding: 1rem;
 }
 
 /* elements */
@@ -687,8 +724,8 @@ input[type="file"]{
     align-items: center;
     border-radius: var(--radius);
     padding: 1.2rem;
-    margin-right: 1.2rem;
     width: 100%;
+    text-align: center;
 }
 
 .stat-box span{
@@ -709,8 +746,9 @@ input[type="file"]{
 
 th, td{
     text-align: center;
-    padding: 1rem 0;
+    padding: .7rem 0;
     border-bottom: var(--border);
+    font-size: .8rem;
 }
 
 tr:hover{
@@ -762,7 +800,7 @@ tr:hover{
         width: 100%;
     }
 
-    .wrapper:last-child{
+    .buttons-wrapper .wrapper:last-child{
         justify-content: flex-end;
     }
 
@@ -785,6 +823,11 @@ tr:hover{
     /* VAKANCE */
     #application{
         grid-column: span 2;
+    }
+
+    /* ADMIN INDEX */
+    #admin-section .wrapper{
+        flex-direction: column;
     }
 }
 
@@ -820,6 +863,19 @@ tr:hover{
 
     #apply-form label{
         margin-bottom: .7rem;
+    }
+
+    /* ADMIN INDEX */
+    #admin-section{
+        padding: 5.6rem 1.2rem 1.2rem 1.2rem !important;
+    }
+
+    #admin-section h2{
+        text-align: center;
+    }
+
+    .content{
+        flex-wrap: wrap;
     }
 }
 
