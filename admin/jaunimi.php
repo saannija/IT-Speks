@@ -16,9 +16,9 @@
     <section id="admin-section">
         <div class="table-heading">...aktualitātes</div>
         <table>
+            <th>Āttels</th>
             <th>Virsraksts</th>
             <th>Saturs</th>
-            <th>Āttels</th>
             <th>Datums</th>
             <th></th>
         </table>

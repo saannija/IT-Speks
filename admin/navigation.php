@@ -5,9 +5,10 @@
         <div id="nav-content">
             <strong>Administrators</strong> <!-- user role from database -->
             <a href="#">Sākumlapa</a>
-            <a href="#">Vakances</a>
-            <a href="#">Jaunimi</a>
-            <a href="#">Pieteikumi</a>
-            <a href="#">Darbinieki</a>
+            <a href="vakances.php">Vakances</a>
+            <a href="jaunumi.php">Jaunimi</a>
+            <a href="pieteikumi.php">Pieteikumi</a>
+            <a href="darbinieki.php">Darbinieki</a>
+            <a href="../" target="_blank">Uz galveno vietni</a>
         </div>
     </nav>
