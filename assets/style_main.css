@@ -302,6 +302,7 @@ select[name="vieta"]:hover{
 
 .circle:hover {
     cursor: pointer;
+    background: var(--main-color-dark);
 }
 
 .circle h3 {
@@ -451,6 +452,16 @@ footer{
 
 .info i{
     margin-right: 1rem;
+}
+
+@media (max-width: 800px){
+    #contacts{
+        flex-direction: column;
+    }
+
+    .info{
+        padding: 1rem 0;
+    }
 }
 
 /* -----------JAUNUMI------------------------------------------------------------------- */
@@ -614,15 +625,73 @@ footer{
     margin-bottom: .5rem;
 }
 
-/* PROBLEMA AR OVERFLOW */
-.content .text{
+.content{
     padding: 2rem;
-    max-width: 30rem;
+}
+
+.content .text{
+    max-width: 27rem;
     line-height: 1.5;
-    overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* -----------JAUNUMS (1)------------------------------------------------------------------- */
+
+#headerNew{
+    color: var(--main-color);
+    text-align: center;
+}
+
+#headerNew h1{
+    padding-bottom: 0;
+}
+
+#new, #footerNew{
+    padding: 2rem 15% !important;
+}
+
+#new{
+    line-height: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#new img{
+    max-height: 40rem;
+    margin-bottom: 3rem;
+    border: .2rem solid var(--main-color);
+    border-radius: var(--radius);
+}
+
+hr{
+    border: .2rem solid var(--main-color);
+    width: 70%;
+    margin: 1.5rem auto;
+}
+
+#footerNew{
+    color: var(--main-color-dark);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 800px){
+    #new img{
+        max-height: 30rem;
+    }
+}
+
+@media (max-width: 500px){
+    #new img{
+        max-height: 20rem;
+    }
 }
 
 /* -----------VAKANCES------------------------------------------------------------------- */
