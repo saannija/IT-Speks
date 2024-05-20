@@ -213,6 +213,8 @@ select[name="vieta"]:hover{
 
     .left{
         width: 100%;
+        text-align: center;
+        justify-content: center;
     }
 
     #search-form{
@@ -368,6 +370,12 @@ select[name="vieta"]:hover{
 
     .circle{
         margin-bottom: 2rem;
+        width: 17rem;
+        height: 17rem;
+    }
+
+    .circle h3 {
+        font-size: 2rem;
     }
 }
 
@@ -377,7 +385,7 @@ select[name="vieta"]:hover{
     padding: 3rem 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
 }
 
 /* kontakti */
@@ -388,6 +396,16 @@ form, .map{
     border-radius: var(--radius);
     background: #f7f7f7;
     width: 100%;
+}
+
+.map{
+    height: 570px;
+}
+
+@media (max-width: 1135px){
+    .map{
+        height: 450px;
+    }
 }
 
 form .box{
@@ -478,14 +496,33 @@ footer{
 }
 
 .bg{
-    left: 20rem;
+    left: 17%;
     bottom: 0;
 }
 
 .bg0{
     background: var(--main-color);
-    left: 15rem;
-    bottom: 10rem;
+    left: 12%;
+    bottom: 25%;
+}
+
+@media (max-width: 1600px){
+    .bg{
+        left: 12%;
+    }
+    
+    .bg0{
+        left: 9%;
+    }
+}
+
+@media (max-width: 1400px){
+    .bg{
+        display: none;
+    }
+    .bg0{
+        display: none;
+    }
 }
 
 #latestNews{
@@ -493,6 +530,7 @@ footer{
     display: flex;
     justify-content: center;
     position: relative;
+    padding-bottom: 4rem !important;
 }
 
 #latestNews img{
