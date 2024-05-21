@@ -1172,8 +1172,34 @@ th, td{
     font-size: .8rem;
 }
 
+#vacancies-table td{
+    padding: 0;
+}
+
 tr:hover{
     background: #eee;
+}
+
+#image{
+    max-width: 2.5rem;
+}
+
+td img{
+    max-width: 4rem;
+}
+
+td .logo-container{
+    height: 4rem;
+    width: 4rem;
+    background: none;
+}
+
+td form{
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    width: 100%;
 }
 
 @media(max-width: 1320px){
@@ -1198,6 +1224,11 @@ tr:hover{
     .logo-container i{
         font-size: 3rem;
         padding: 1.5rem 1.8rem;
+    }
+
+    /* ADMIN TABLE */
+    td .logo-container{
+        min-width: 4rem;
     }
 
 }
