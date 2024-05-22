@@ -754,13 +754,30 @@ hr{
 }
 
 /* -----------VAKANCES------------------------------------------------------------------- */
-/* Sticky searchbar */
+/* Searchbar */
 #searchbar-container{
     position: fixed;
-    top: 3rem;
+    top: 8rem;
     left: 0;
     display: flex;
-    padding-top: 1.2rem;
+    flex-direction: column;
+    background: var(--white);
+    height: 100%;
+    width: 20rem;
+    transform: translateX(-20rem);
+    z-index: 2;
+    box-shadow:  0 .5rem 1.8rem rgba(0,0,0,20%);;
+    border-radius: var(--radius);
+}
+    
+#searchbar-container.expanded{
+    transform: translateX(0);
+}
+
+#toggle-panel{
+    position: fixed;
+    top: 5rem;
+    left: .5rem;
 }
 
 #serchbar-form{
@@ -826,7 +843,7 @@ input[type="radio"]:hover + .radio-button{
     margin: 0 .2rem;
 }
 
-#toggle-panel{
+#toggle-panel-minimized{
     display: none;
     width: 100%;
     border: 1px solid var(--main-color);
@@ -836,7 +853,7 @@ input[type="radio"]:hover + .radio-button{
 }
 /* header */
 #headerSimple-vacancies{
-    padding: 7rem 0 1.2rem 19rem !important;
+    padding: 7rem 0 1.2rem 0 !important;
     display: flex;
     justify-content: center;
 }
@@ -847,7 +864,7 @@ input[type="radio"]:hover + .radio-button{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
     gap: 1.2rem;
-    padding: 1.2rem 1.2rem 1.2rem 20.5rem !important;
+    padding: 1.2rem !important;
 }
 
 /* Elements */
@@ -1355,6 +1372,14 @@ td form{
         padding: 1.5rem 1.8rem;
     }
 
+    #toggle-panel{
+        top: 5.8rem;
+    }
+
+    #searchbar-container{
+        top: 8.8rem;
+    }
+
     /* ADMIN TABLE */
     td .logo-container{
         min-width: 4rem;
@@ -1409,7 +1434,7 @@ td form{
         grid-column: span 2;
 
     }
-    
+
     #admin-section{
         padding-top: 9rem !important;
     }
@@ -1418,12 +1443,13 @@ td form{
 @media (max-width: 876px){
     /* VAKANCES */
     #headerSimple-vacancies{
-        padding: 8rem .5rem 2rem .5rem!important;
+        padding: 8rem .5rem 2rem .5rem !important;
     }
 
     #searchbar-container{
         display: none;
         top: 0;
+        width: 100%;
     }
 
     #searchbar-container.expanded{
@@ -1462,8 +1488,12 @@ td form{
         padding: 1.2rem !important;
     }
 
-    #toggle-panel{
+    #toggle-panel-minimized{
         display: block;
+    }
+
+    #toggle-panel{
+        display: none;
     }
 
     /* VAKANCE */

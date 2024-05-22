@@ -21,8 +21,12 @@
     </section>
 
     <div class="search-wrapper">
-        <button onclick="togglePanel('searchbar-container')" class="default-button" id="toggle-panel"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button onclick="togglePanel('searchbar-container')" class="default-button" id="toggle-panel-minimized"><i class="fa-solid fa-magnifying-glass"></i></button>
         
+        <button class="toggle-btn default-button" id="toggle-panel" onclick="togglePanel('searchbar-container')">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
         <div id="searchbar-container">
             <form method="POST" id="serchbar-form">
                 <div class="wrapper">
