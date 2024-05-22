@@ -45,18 +45,21 @@ function createNewItem(itemList) {
 const fileInput = document.getElementById('image-input');
 const previewImage = document.getElementById('preview-image');
 
-fileInput.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            previewImage.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
-});
+if(fileInput){
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+}
 
-// Create chart
+
+//Create chart
 const ctx = document.getElementById('vacancy-chart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'pie', // or 'bar', 'pie', etc.
