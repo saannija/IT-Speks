@@ -6,7 +6,7 @@
     <title>IT Spēks</title>
     <link rel="stylesheet" href="assets/style_main.css">
     <script src="assets/script.js" defer></script>
-    <!-- <link rel="shortcut icon" href="images/lvt.png" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>

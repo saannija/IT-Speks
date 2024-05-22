@@ -102,7 +102,7 @@ header a:hover, #nav-content a:hover{
     color: var(--main-color);
 }
 
-.toggle-btn{
+#main .toggle-btn{
     display: none;
 }
 
@@ -195,6 +195,16 @@ select[name="vieta"]:hover{
     width: 40%;
 }
 
+.img-work-container{
+    display: flex;
+    align-items: end;
+}
+
+.img-work{
+    width: 100%;
+    height: auto;
+}
+
 .info-text{
     margin-top: 2rem;
 }
@@ -253,7 +263,7 @@ select[name="vieta"]:hover{
     justify-content: center;
     font-size: 1.5rem;
     font-weight: bold;
-    padding: 3.5rem 0 2rem 0;
+    padding: 4rem 0 2rem 0;
 }
 
 .stat{
@@ -1274,7 +1284,7 @@ td form{
 }
   
 #login-window.show{
-    transform: translate(-50%,-80%);
+    transform: translate(-50%,-40%);
 }
 
 #login-window .row{
@@ -1306,6 +1316,7 @@ td form{
 
 #login-window p{
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 #background-overlay {
@@ -1362,7 +1373,7 @@ td form{
         display: none;
     }
 
-    .toggle-btn{
+    #main .toggle-btn, .toggle-btn{
         display: block;
     }
 
@@ -1396,6 +1407,11 @@ td form{
 
     #save-button{
         grid-column: span 2;
+
+    }
+    
+    #admin-section{
+        padding-top: 9rem !important;
     }
 }
 
@@ -1497,7 +1513,7 @@ td form{
 
     /* ADMIN INDEX */
     #admin-section{
-        padding: 5.6rem 1.2rem 1.2rem 1.2rem !important;
+        padding: 9rem 1.2rem 1.2rem 1.2rem !important;
     }
 
     #admin-section h2{
