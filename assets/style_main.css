@@ -802,14 +802,30 @@ hr{
 }
 
 /* -----------VAKANCES------------------------------------------------------------------- */
-/* Sticky searchbar */
+/* Searchbar */
 #searchbar-container{
     position: fixed;
-    top: 3rem;
+    top: 8rem;
     left: 0;
     display: flex;
-    padding-top: 1.2rem;
+    flex-direction: column;
+    background: var(--white);
     height: 100%;
+    width: 20rem;
+    transform: translateX(-20rem);
+    z-index: 2;
+    box-shadow:  0 .5rem 1.8rem rgba(0,0,0,20%);;
+    border-radius: var(--radius);
+}
+    
+#searchbar-container.expanded{
+    transform: translateX(0);
+}
+
+#toggle-panel{
+    position: fixed;
+    top: 5rem;
+    left: .5rem;
 }
 
 #serchbar-form{
@@ -875,7 +891,7 @@ input[type="radio"]:hover + .radio-button{
     margin: 0 .2rem;
 }
 
-#toggle-panel{
+#toggle-panel-minimized{
     display: none;
     width: 100%;
     border: 1px solid var(--main-color);
@@ -885,7 +901,7 @@ input[type="radio"]:hover + .radio-button{
 }
 /* header */
 #headerSimple-vacancies{
-    padding: 7rem 0 1.2rem 19rem !important;
+    padding: 7rem 0 1.2rem 0 !important;
     display: flex;
     justify-content: center;
 }
@@ -896,7 +912,7 @@ input[type="radio"]:hover + .radio-button{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
     gap: 1.2rem;
-    padding: 1.2rem 1.2rem 1.2rem 20.5rem !important;
+    padding: 1.2rem !important;
 }
 
 /* Elements */
@@ -1076,7 +1092,7 @@ input[type="file"]{
     display: none;
 }
 
-.cv-upload{
+.upload{
     color: var(--main-color-dark);
     background: var(--white);
     border: var(--main-color-dark) 1px solid;
@@ -1085,7 +1101,7 @@ input[type="file"]{
     padding: .6rem .9rem;
 }
 
-.cv-upload:hover{
+.upload:hover{
     color: var(--white);
     background: var(--main-color-dark);
 }
@@ -1257,20 +1273,29 @@ td form{
 #vacancy-input-form{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
 #vacancy-input-form .content{
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+    flex-direction: column;
     margin: 0;
 }
 
+.content .container{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.content textarea{
+    width: 100%;
+}
+
 .image-upload{
-    display: inline-block;
-    width: 300px;
-    height: 300px;
+    display: block;
+    max-width: 500px;
+    max-height: 500px;
     overflow: hidden;
-    cursor: pointer;
 }
   
 #preview-image{
@@ -1282,23 +1307,30 @@ td form{
 .column{
     display: flex;
     flex-direction: column;
+    width: 100%;
+
 }
 
 .row{
     display: flex;
-    flex-direction: column;
+    gap: 2rem;
 }
 
-.row input, .row select, #login-window input{
+.content input, .content select, #login-window input{
     width: 100%;
 }
 
 .row label{
-    margin-top: 1rem;
+    margin-top: .8rem;
 }
 
-.row{
-    grid-column: 1 / span 2;
+.row label:first-child{
+    margin: 0;
+}
+
+#save-button{
+    margin-top: 2rem;
+    grid-column: 2 / 3;
 }
 
 /* -----------LOGIN------------------------------------------------------------------- */
@@ -1388,6 +1420,14 @@ td form{
         padding: 1.5rem 1.8rem;
     }
 
+    #toggle-panel{
+        top: 5.8rem;
+    }
+
+    #searchbar-container{
+        top: 8.8rem;
+    }
+
     /* ADMIN TABLE */
     td .logo-container{
         min-width: 4rem;
@@ -1433,6 +1473,16 @@ td form{
         transform: translate(-50%,-100%);
     }
 
+    /* EDIT/ADD VACANCY */
+    #vacancy-input-form{
+        grid-template-columns: 1fr;
+    }
+
+    #save-button{
+        grid-column: span 2;
+
+    }
+
     #admin-section{
         padding-top: 9rem !important;
     }
@@ -1441,12 +1491,13 @@ td form{
 @media (max-width: 876px){
     /* VAKANCES */
     #headerSimple-vacancies{
-        padding: 8rem .5rem 2rem .5rem!important;
+        padding: 8rem .5rem 2rem .5rem !important;
     }
 
     #searchbar-container{
         display: none;
         top: 0;
+        width: 100%;
     }
 
     #searchbar-container.expanded{
@@ -1485,8 +1536,12 @@ td form{
         padding: 1.2rem !important;
     }
 
-    #toggle-panel{
+    #toggle-panel-minimized{
         display: block;
+    }
+
+    #toggle-panel{
+        display: none;
     }
 
     /* VAKANCE */
@@ -1552,6 +1607,31 @@ td form{
     /* LOGIN */
     #login-window h2{
         font-size: 1.8rem;
+    }
+
+    /* EDIT/ADD VACANCY */
+    #vacancy-input-form .row{
+        display: block;
+    }
+
+    .row label:first-child{
+        margin-top: .8rem;
+    }
+
+    #vacancy-input-form .container{
+        display: block;
+    }
+
+    #vacancy-input-form .container #list-container{
+        margin-bottom: 1rem;
+    }
+
+    #vacancy-input-form ul{
+        padding: .7rem 0 .7rem 1.7rem;
+    }
+
+    #vacancy-input-form button{
+        width: 100%;
     }
 }
 

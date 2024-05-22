@@ -71,7 +71,7 @@
                 <textarea name="komentars" placeholder="Komentāri" id="" class="default-input defalut-borders"></textarea>
                 
                 <div class="wrapper">
-                    <label for="cv" class="cv-upload">
+                    <label for="cv" class="upload">
                         Augšupielādēt CV
                     </label>
                     <input id="cv" name="cv" type="file">

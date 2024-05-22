@@ -64,6 +64,7 @@ window.nextPage = nextPage;
 let button = document.getElementsByClassName("toggle-btn");
 let section = document.getElementById("admin-section");
 
+// Show | hide navigation
 function togglePanel(element) {
     let panel = document.getElementById(element);
     panel.classList.toggle("expanded");
@@ -73,6 +74,7 @@ function togglePanel(element) {
 
 }
 
+// Show | hide login window
 let loginWindow = document.getElementById("login-window");
 let backgroundOverlay = document.getElementById("background-overlay");
 
@@ -88,7 +90,35 @@ function hideLoginWindow(){
     document.body.style.overflow = "auto";
 }
 
+// Create new item int the list add/edit page
+function createNewItem(itemList) {
+    let list = document.getElementById(itemList);
+  
+    let newListItem = document.createElement("li");
+    let newInputField = document.createElement("input");
 
+    newInputField.className = "default-input";
+    newInputField.type = "text";
+
+    newListItem.appendChild(newInputField);
+    list.appendChild(newListItem);
+}
+
+const fileInput = document.getElementById('image-input');
+const previewImage = document.getElementById('preview-image');
+
+fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewImage.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Create chart
 const ctx = document.getElementById('vacancy-chart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'pie', // or 'bar', 'pie', etc.
