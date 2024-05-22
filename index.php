@@ -11,8 +11,8 @@
 </head>
 <body>
     <?php
-        $page = "sakums";
         require "assets/header.php";
+        require "assets/login.php";
     ?>
 
     <section id="header">

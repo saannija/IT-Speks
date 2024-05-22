@@ -6,6 +6,10 @@
     <section id="admin-section">
         <div class="table-heading">Pieteikumu saraksts</div>
             <table>
+            <colgroup>
+                <col><col><col><col><col><col><col><col><col><col><col style="width: 5rem;"><col style="width: 5rem;">
+            </colgroup>
+
                 <th>Vārds</th>
                 <th>Uzvārds</th>
                 <th>Tālrunis</th>
@@ -18,21 +22,35 @@
                 <th>Statuss</th>
                 <th></th>
 
-                <!-- <td>
-                    <select name="stautss">
-                        <option value="neapskatits">Neapskatīts</option>
-                        <option value="apstrade">Apstradē</option>
-                        <option value="izpildits">Izpildīts</option>
-                    </select>
-                </td> -->
-
-        <!-- <td>
-                <form method='post' action='vakance.php'>
-                    <button type='submit' name='edit' class='btn' value='{$piet['Audzeknis_ID']}'><i class='fas fa-edit'></i></button>
-                    <button type='submit' name='detele' class='btn' value='{$piet['Audzeknis_ID']}'><i class='fas fa-times'></i></button>
-                </form>
-            </td> -->
-            
+                <?php
+            for($i = 0; $i < 9; $i++){
+                echo "
+                    <tr>
+                        <td>Vārds</td>
+                        <td>Uzvārds</td>
+                        <td>Tālrunis</td>
+                        <td>E-pasts</td>
+                        <td>Komentāri</td>
+                        <td>CV</td>
+                        <td>Izglītība</td>
+                        <td>Darba pieredze</td>
+                        <td>Datums</td>
+                        <td>Statuss</td>
+                        <td>
+                            <form method='post' action='vakance.php'>
+                                <button type='submit' name='edit' class='default-button'><i class='fas fa-edit'></i></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method='post' action='vakance.php'>
+                                <button type='submit' name='detele' class='default-button'><i class='fas fa-times'></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                ";
+            }
+        
+        ?>
             </table>
     </section>
 

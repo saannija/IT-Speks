@@ -11,8 +11,8 @@
 </head>
 <body>
     <?php
-        $page = "vakances";
         require "assets/header.php";
+        require "assets/login.php";
     ?>
 
     <section id="headerSimple-vacancies">

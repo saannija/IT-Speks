@@ -14,6 +14,21 @@ function togglePanel(element) {
 
 }
 
+let loginWindow = document.getElementById("login-window");
+let backgroundOverlay = document.getElementById("background-overlay");
+
+function showLoginWindow(){
+    loginWindow.classList.add("show");
+    backgroundOverlay.style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+function hideLoginWindow(){
+    loginWindow.classList.remove("show");
+    backgroundOverlay.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
 
 const ctx = document.getElementById('vacancy-chart').getContext('2d');
 const myChart = new Chart(ctx, {

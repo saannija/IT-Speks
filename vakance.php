@@ -10,8 +10,8 @@
 </head>
 <body>
     <?php
-        $page = "vakances";
         require "assets/header.php";
+        require "assets/login.php";
     ?>
 
     <header id="vacancy-header"> 

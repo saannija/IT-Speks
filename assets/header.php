@@ -6,8 +6,7 @@
             <a href="vakances.php">Vakances</a>
             <a href="jaunumi.php">Jaunumi</a>
             <a href="index.php#about">Kontakti</a>
-            <a href="#">Autorizācija</a>
-
+            <button class="default-button" onclick="showLoginWindow()">Autorizācija</button>
 
         </nav>
         <button class="toggle-btn default-button" onclick="togglePanel('navbar')">
