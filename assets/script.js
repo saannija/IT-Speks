@@ -2,6 +2,65 @@ if ( window.history.replaceState ) {
     window.history.replaceState( null, null, window.location.href );
 }
 
+const itemsPerPage = 3;
+const cards = document.querySelectorAll(".card");
+const totalItems = cards.length;
+const totalPages = Math.ceil(totalItems / itemsPerPage);
+let currentPage = 1;
+
+function showPage(page) {
+    currentPage = page;
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    cards.forEach((card, index) => {
+        if (index >= start && index < end) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    document.getElementById("page-number").textContent = `Lapa ${currentPage} no ${totalPages}`;
+    updatePaginationButtons();
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        showPage(currentPage - 1);
+    }
+}
+
+function nextPage() {
+    if (currentPage < totalPages) {
+        showPage(currentPage + 1);
+    }
+}
+
+function updatePaginationButtons() {
+    const prevButton = document.querySelector(".pagination .prev");
+    const nextButton = document.querySelector(".pagination .next");
+
+    if (currentPage === 1) {
+        prevButton.style.display = "none";
+    } else {
+        prevButton.style.display = "inline-block";
+    }
+
+    if (currentPage === totalPages) {
+        nextButton.style.display = "none";
+    } else {
+        nextButton.style.display = "inline-block";
+    }
+}
+
+showPage(1);
+
+window.prevPage = prevPage;
+window.nextPage = nextPage;
+
+//
+
 let button = document.getElementsByClassName("toggle-btn");
 let section = document.getElementById("admin-section");
 

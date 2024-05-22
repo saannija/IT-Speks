@@ -33,45 +33,72 @@
    <section id="news">
         <h2>Šī mēneša jaunumi</h2>
         <div class="cards">
-            <div class="card">
-                <img src="images/example2.jpg" alt="pic">
-                <h3 class="title">Virsraksts</h3>
-                <!-- vajag clickable, kur aizsuta uz to article -->
-                <div class="content"> 
+            <a href="jaunums.php">
+                <div class="card">
+                    <img src="images/example2.jpg" alt="pic">
                     <h3 class="title">Virsraksts</h3>
-                    <hr class="line">
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
+                    <!-- vajag clickable, kur aizsuta uz to article (ar forms velak) -->
+                    <div class="content"> 
+                        <h3 class="title">Virsraksts</h3>
+                        <hr class="line">
+                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="images/example2.jpg" alt="pic">
-                <h3 class="title">Virsraksts</h3>
-                <div class="content">
+            </a>
+            <a href="jaunums.php">
+                <div class="card">
+                    <img src="images/example2.jpg" alt="pic">
                     <h3 class="title">Virsraksts</h3>
-                    <hr class="line">
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
+                    <!-- vajag clickable, kur aizsuta uz to article (ar forms velak) -->
+                    <div class="content"> 
+                        <h3 class="title">Virsraksts</h3>
+                        <hr class="line">
+                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="images/example2.jpg" alt="pic">
-                <h3 class="title">Virsraksts</h3>
-                <div class="content">
+            </a>
+            <a href="jaunums.php">
+                <div class="card">
+                    <img src="images/example2.jpg" alt="pic">
                     <h3 class="title">Virsraksts</h3>
-                    <hr class="line">
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
+                    <!-- vajag clickable, kur aizsuta uz to article (ar forms velak) -->
+                    <div class="content"> 
+                        <h3 class="title">Virsraksts</h3>
+                        <hr class="line">
+                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="images/example2.jpg" alt="pic">
-                <h3 class="title">Virsraksts</h3>
-                <div class="content">
+            </a>
+            <a href="jaunums.php">
+                <div class="card">
+                    <img src="images/example2.jpg" alt="pic">
                     <h3 class="title">Virsraksts</h3>
-                    <hr class="line">
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
+                    <!-- vajag clickable, kur aizsuta uz to article (ar forms velak) -->
+                    <div class="content"> 
+                        <h3 class="title">Virsraksts</h3>
+                        <hr class="line">
+                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
+                    </div>
                 </div>
-            </div>
+            </a>
+            <a href="jaunums.php">
+                <div class="card">
+                    <img src="images/example2.jpg" alt="pic">
+                    <h3 class="title">Virsraksts</h3>
+                    <!-- vajag clickable, kur aizsuta uz to article (ar forms velak) -->
+                    <div class="content"> 
+                        <h3 class="title">Virsraksts</h3>
+                        <hr class="line">
+                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
+                    </div>
+                </div>
+            </a>
         </div>
-        
+        <div class="pagination">
+            <button class="prev" onclick="prevPage()"><i class="fa-solid fa-backward-step"></i></button>
+            <span id="page-number"></span>
+            <button class="next" onclick="nextPage()"><i class="fa-solid fa-forward-step"></i></button>
+        </div>
    </section>
 
    <?php

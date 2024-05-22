@@ -20,6 +20,10 @@
     transition: all .3s ease-out;
 }
 
+a{
+    color: #000;
+}
+
 *::selection{
     background: var(--main-color);
     color: var(--white);
@@ -597,6 +601,12 @@ footer{
     font-weight: 700;
 }
 
+.read-more:hover{
+    background: var(--main-color);
+    color: var(--white);
+    border: .13rem solid var(--main-color-dark);
+}
+
 .news h1{
     text-align: center;
     margin: 3rem 0;
@@ -618,8 +628,8 @@ footer{
     border-radius: var(--radius);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center !important;
+    align-items: center !important;
     height: 27rem;
     position: relative;
     overflow: hidden;
@@ -669,9 +679,9 @@ footer{
     top: 0;
     left: 0;
     content: '';
-    background: rgba(255, 255, 255, 80%);
+    background: rgba(255, 255, 255, 0.8);
     clip-path: circle(0% at 50% 0);
-    transition: linear .3s;
+    transition: trans .3s linear;
 }
 
 .card:hover::before{
@@ -698,11 +708,49 @@ footer{
     overflow: hidden;
 }
 
+.pagination{
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.pagination button{
+    background: none;
+}
+
+.pagination button:hover{
+    cursor: pointer;
+    color: var(--main-color-dark);
+}
+
+.pagination i{
+    font-size: 1.2rem;
+    color: var(--main-color);
+    padding: 0 .3rem;
+}
+
 /* -----------JAUNUMS (1)------------------------------------------------------------------- */
 
 #headerNew{
     color: var(--main-color);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headerNew i{
+    margin-left: 4rem;
+    background: var(--main-color);
+    font-size: 1.5rem;
+    padding: .7rem;
+    color: var(--white);
+    border-radius: var(--radius);
+    border: var(--border);
+}
+
+#headerNew i:hover{
+    cursor: pointer;
+    background: var(--main-color-dark);
 }
 
 #headerNew h1{
