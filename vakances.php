@@ -17,7 +17,7 @@
     ?>
 
     <section id="headerSimple-vacancies">
-        <h1>Izvēlies no vairāk kā <span>120</span> piedāvājumiem!</h1>
+        <h1>Izvēlies no vairāk kā <span class="count">120</span> piedāvājumiem!</h1>
     </section>
 
     <div class="search-wrapper">

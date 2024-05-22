@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <p class="info-text">Izvēlies no vairāk kā <span>120</span> piedāvājumiem!</p>
+            <p class="info-text">Izvēlies no vairāk kā <span class="count">120</span> piedāvājumiem!</p>
         </div>
         <div class="right img-work-container">
             <img src="images/work.svg" alt="work" class="img-work">
@@ -50,15 +50,15 @@
         <h2>Mūsu aģentūras statistika</h2>
         <div class="stats">
             <div class="stat">
-                <p class="num">34</p>
+                <p class="num count">34</p>
                 <p>Vakances</p>
             </div>
             <div class="stat">
-                <p class="num">15</p>
+                <p class="num count">15</p>
                 <p>Kompānijas</p>
             </div>
             <div class="stat">
-                <p class="num">100+</p>
+                <p class="num count">100+</p>
                 <p>Pieteikumi</p>
             </div>
         </div>
