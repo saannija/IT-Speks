@@ -2,6 +2,7 @@ if ( window.history.replaceState ) {
     window.history.replaceState( null, null, window.location.href );
 }
 
+// pagination
 const itemsPerPage = 3;
 const cards = document.querySelectorAll(".card");
 const totalItems = cards.length;
@@ -21,8 +22,12 @@ function showPage(page) {
         }
     });
 
-    document.getElementById("page-number").textContent = `Lapa ${currentPage} no ${totalPages}`;
-    updatePaginationButtons();
+    pageNumber = document.getElementById("page-number")
+    if(pageNumber){
+        pageNumber.textContent = `Lapa ${currentPage} no ${totalPages}`;
+        updatePaginationButtons();
+    }
+
 }
 
 function prevPage() {
@@ -59,7 +64,8 @@ showPage(1);
 window.prevPage = prevPage;
 window.nextPage = nextPage;
 
-//
+
+// kartinam
 var cardsContainer = document.querySelector('.cards');
 var cardCount = cardsContainer.querySelectorAll('.card').length;
 
@@ -84,16 +90,19 @@ function togglePanel(element) {
 }
 
 // Show | hide login window
-let loginWindow = document.getElementById("login-window");
-let backgroundOverlay = document.getElementById("background-overlay");
-
 function showLoginWindow(){
+    let loginWindow = document.getElementById("login-window");
+    let backgroundOverlay = document.getElementById("background-overlay");
+
     loginWindow.classList.add("show");
     backgroundOverlay.style.display = "block";
     document.body.style.overflow = "hidden";
 }
 
 function hideLoginWindow(){
+    let loginWindow = document.getElementById("login-window");
+    let backgroundOverlay = document.getElementById("background-overlay");
+
     loginWindow.classList.remove("show");
     backgroundOverlay.style.display = "none";
     document.body.style.overflow = "auto";
@@ -113,73 +122,106 @@ function createNewItem(itemList) {
     list.appendChild(newListItem);
 }
 
+// Load image
 const fileInput = document.getElementById('image-input');
 const previewImage = document.getElementById('preview-image');
 
-fileInput.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            previewImage.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
-});
-
-// Create chart
-const ctx = document.getElementById('vacancy-chart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'pie', // or 'bar', 'pie', etc.
-    data: {
-        labels: ['Software Developer', 'Web Developer', 'System Administrator'],
-        datasets: [{
-            label: 'Skaits',
-            data: [65, 59, 80],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)', // ill change colors later
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)', 
-                'rgba(153, 102, 255, 0.2)', 
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 99, 132, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 99, 132, 1)'
-            ],
-            borderWidth: 1,      
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-
-        plugins: {
-            legend: {
-                display: true,
-                position: 'right',
-            },
-
-            datalabels: {
-                formatter: (value, ctx) => {
-                    let sum = 0;
-                    let dataArr = ctx.chart.data.datasets[0].data;
-                    dataArr.map(data => {
-                        sum += data;
-                    });
-                    let percentage = (value*100 / sum).toFixed(2)+"%";
-                    return percentage;
-                },
-                color: '#000',
-            }
+if(fileInput){
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
         }
-    },
-    plugins: [ChartDataLabels],
+    });
+}
+
+// Animated numbers
+const countElements = document.querySelectorAll('.count');
+
+countElements.forEach(countElement => {
+    const targetNumber = parseInt(countElement.textContent);
+    const duration = 2000;
+    const interval = 10;
+
+    let currentNumber = 0;
+    const increment = (targetNumber / (duration / interval));
+
+    const count = setInterval(function() {
+        currentNumber += increment;
+        countElement.textContent = Math.round(currentNumber);
+
+        if (currentNumber >= targetNumber) {
+            clearInterval(count);
+            countElement.textContent = targetNumber;
+        }
+    }, interval);
 });
+  
+
+
+//Create chart
+const ctx = document.getElementById('vacancy-chart')
+
+if(ctx){
+    ctx.getContext('2d');
+
+    const myChart = new Chart(ctx, {
+        type: 'pie', // or 'bar', 'pie', etc.
+        data: {
+            labels: ['Software Developer', 'Web Developer', 'System Administrator'],
+            datasets: [{
+                label: 'Skaits',
+                data: [65, 59, 80],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)', // ill change colors later
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)', 
+                    'rgba(153, 102, 255, 0.2)', 
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1,      
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+    
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'right',
+                },
+    
+                datalabels: {
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value*100 / sum).toFixed(2)+"%";
+                        return percentage;
+                    },
+                    color: '#000',
+                }
+            }
+        },
+        plugins: [ChartDataLabels],
+    });
+}
+
