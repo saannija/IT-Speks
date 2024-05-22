@@ -60,6 +60,15 @@ window.prevPage = prevPage;
 window.nextPage = nextPage;
 
 //
+var cardsContainer = document.querySelector('.cards');
+var cardCount = cardsContainer.querySelectorAll('.card').length;
+
+if (cardCount < 3) {
+    cardsContainer.classList.add('fewer-than-three');
+} else {
+    cardsContainer.classList.remove('fewer-than-three');
+}
+//
 
 let button = document.getElementsByClassName("toggle-btn");
 let section = document.getElementById("admin-section");

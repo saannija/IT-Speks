@@ -51,7 +51,7 @@
                     <h3 class="title">Virsraksts</h3>
                     <!-- vajag clickable, kur aizsuta uz to article (ar forms velak) -->
                     <div class="content"> 
-                        <h3 class="title">Virsraksts</h3>
+                        <h3 class="title extra">Virsraksts</h3>
                         <hr class="line">
                         <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
                     </div>
@@ -63,7 +63,7 @@
                     <h3 class="title">Virsraksts</h3>
                     <!-- vajag clickable, kur aizsuta uz to article (ar forms velak) -->
                     <div class="content"> 
-                        <h3 class="title">Virsraksts</h3>
+                        <h3 class="title extra">Virsraksts</h3>
                         <hr class="line">
                         <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
                     </div>
@@ -75,7 +75,7 @@
                     <h3 class="title">Virsraksts</h3>
                     <!-- vajag clickable, kur aizsuta uz to article (ar forms velak) -->
                     <div class="content"> 
-                        <h3 class="title">Virsraksts</h3>
+                        <h3 class="title extra">Virsraksts</h3>
                         <hr class="line">
                         <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
                     </div>
@@ -87,7 +87,7 @@
                     <h3 class="title">Virsraksts</h3>
                     <!-- vajag clickable, kur aizsuta uz to article (ar forms velak) -->
                     <div class="content"> 
-                        <h3 class="title">Virsraksts</h3>
+                        <h3 class="title extra">Virsraksts</h3>
                         <hr class="line">
                         <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a nobis dolor accusantium ipsam velit cum labore sed ipsum nemo esse veniam quod, debitis inventore reprehenderit ea, quis voluptatum expedita unde non adipisci tenetur! Placeat quisquam eum dignissimos doloribus sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, iure repudiandae exercitationem vel impedit veniam quisquam! Quia ut veritatis voluptatum doloremque harum! Praesentium nemo id voluptatibus quam voluptate, doloribus fugiat modi debitis a consectetur sunt quod molestias? Odio exercitationem sint natus explicabo. Libero autem voluptas obcaecati cumque laborum facere debitis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis corrupti dicta quibusdam sit hic nihil deleniti voluptatem sint id aut fugit, ea esse? Sit voluptatibus consequatur porro? Sit omnis harum placeat nesciunt molestias dolor maxime quod unde architecto id ex obcaecati sunt, ipsam modi voluptatum laudantium in. Culpa, velit fugiat!</p>
                     </div>

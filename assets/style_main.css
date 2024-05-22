@@ -621,6 +621,10 @@ footer{
     grid-gap: 2rem;
 }
 
+.cards.fewer-than-three {
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .card{
     padding: 1rem;
     background: #fafafa;
@@ -692,6 +696,7 @@ footer{
     border: .1rem solid var(--main-color);
     width: 20rem;
     margin-bottom: .5rem;
+    text-align: center;
 }
 
 .content{
@@ -707,6 +712,60 @@ footer{
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
+@media (max-width: 1400px){
+    .cards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content hr{
+        width: 15rem;
+    }
+}
+
+@media (max-width: 700px){
+    .card {
+        height: auto;
+    }
+
+    .card .content {
+        position: static;
+        opacity: 1;
+        overflow: visible;
+        height: auto;
+        display: block;
+        padding: 1rem;
+    }
+
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .content .text {
+        -webkit-line-clamp: 3;
+    }
+
+    .card::before {
+        clip-path: none;
+        background: none;
+    }
+
+    .card .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content .text {
+        margin-top: .5rem;
+    }
+
+    .content .title, .content hr{
+        display: none;
+    }
+}
+
+/*  */
 
 .pagination{
     text-align: center;
@@ -1640,5 +1699,28 @@ td form{
     .title {
         flex-direction: column;
         align-items: baseline;
+    }
+}
+
+/* jaunumi */
+@media (max-width: 700px){
+    #latestNews{
+        flex-direction: column;
+    }
+
+    #latestNews img{
+        height: 25rem;
+        width: 25rem;
+        margin: 2rem auto;
+        margin-top: 0;
+    }
+
+    .latestContent{
+        text-align: center;
+    }
+
+    .latestContent .title{
+        text-align: center;
+        display: block;
     }
 }
