@@ -6,7 +6,7 @@
     <title>IT Spēks</title>
     <link rel="stylesheet" href="assets/style_main.css">
     <script src="assets/script.js" defer></script>
-    <!-- <link rel="shortcut icon" href="images/lvt.png" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
@@ -41,7 +41,9 @@
 
             <p class="info-text">Izvēlies no vairāk kā <span>120</span> piedāvājumiem!</p>
         </div>
-        <div class="right"></div>
+        <div class="right img-work-container">
+            <img src="images/work.svg" alt="work" class="img-work">
+        </div>
     </section>
 
     <section id="statistics">
@@ -65,17 +67,22 @@
     <section id="services">
         <h2>Mūsu pakalpojumi</h2>
         <div class="circles-all">
-            <!-- pievienot clicable links ()))))))))) -->
             <div class="circles">
-                <div class="circle">
-                    <h3>Piesakies vakancēm</h3>
-                </div>
-                <div class="circle">
-                    <h3>Uzzini jaunumus IT jomā</h3>
-                </div>
-                <div class="circle">
-                    <h3>Publicē sava uzņēmuma vakances</h3>
-                </div>
+                <a href="vakances.php">
+                    <div class="circle">
+                        <h3>Piesakies vakancēm</h3>
+                    </div>
+                </a>
+                <a href="jaunumi.php">
+                    <div class="circle">
+                        <h3>Uzzini jaunumus IT jomā</h3>
+                    </div>
+                </a>
+                <a href="#about">
+                    <div class="circle">
+                        <h3>Publicē sava uzņēmuma vakances</h3>
+                    </div>
+                </a>
             </div>
             <div class="circles-back">
                 <div class="circle-back"></div>

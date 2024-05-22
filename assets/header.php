@@ -1,4 +1,4 @@
-    <header>
+    <header id="main">
         <a href="index.php" class="logo">IT Spēks</a>
         <nav id="navbar">
             <a href="index.php">Sākumlapa</a>
