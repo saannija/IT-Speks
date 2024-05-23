@@ -33,7 +33,7 @@
    <section id="news">
         <h2>Šī mēneša jaunumi</h2>
         <div class="cards">
-            <a href="jaunums.php">
+            <a href="jaunums.php" class="card-a">
                 <div class="card">
                     <img src="images/example2.jpg" alt="pic">
                     <h3 class="title">Virsraksts</h3>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </a>
-            <a href="jaunums.php">
+            <a href="jaunums.php" class="card-a">
                 <div class="card">
                     <img src="images/example2.jpg" alt="pic">
                     <h3 class="title">Virsraksts</h3>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </a>
-            <a href="jaunums.php">
+            <a href="jaunums.php" class="card-a">
                 <div class="card">
                     <img src="images/example2.jpg" alt="pic">
                     <h3 class="title">Virsraksts</h3>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </a>
-            <a href="jaunums.php">
+            <a href="jaunums.php" class="card-a">
                 <div class="card">
                     <img src="images/example2.jpg" alt="pic">
                     <h3 class="title">Virsraksts</h3>
@@ -81,7 +81,7 @@
                     </div>
                 </div>
             </a>
-            <a href="jaunums.php">
+            <a href="jaunums.php" class="card-a">
                 <div class="card">
                     <img src="images/example2.jpg" alt="pic">
                     <h3 class="title">Virsraksts</h3>

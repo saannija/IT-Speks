@@ -5,9 +5,9 @@
 
     <section id="admin-section">
         <div class="table-heading">Pieejamās vakances</div>
-        <table>
+        <table id="vacancy-table">
         <colgroup>
-        <col style="width: 7rem;"><col style="width: 13rem;"><col style="width: 13rem;"><col><col><col><col><col style="width: 35rem;"><col><col><col>
+        <col style="width: 7rem;"><col class="name"><col class="name"><col><col><col><col><col id="apraksts-table"><col><col><col>
         </colgroup>
         <tr>
             <th>Logo</th>

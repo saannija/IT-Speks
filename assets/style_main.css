@@ -626,7 +626,7 @@ footer{
     grid-template-columns: repeat(2, 1fr);
 }
 
-.card{
+.card-a{
     padding: 1rem;
     background: #fafafa;
     border: var(--border);
@@ -640,6 +640,15 @@ footer{
     overflow: hidden;
     border: .1rem solid var(--main-color);
     box-shadow: var(--box-shadow);
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative;
+    overflow: hidden;
 }
 
 .card img{
@@ -1328,6 +1337,14 @@ td form{
     width: 100%;
 }
 
+#apraksts-table{
+    width: 35rem;
+}
+
+table .name{
+    width: 13rem;
+}
+
 /* -----------ADMIN VAKANCE EDIT------------------------------------------------------------------- */
 #vacancy-input-form{
     display: grid;
@@ -1492,6 +1509,14 @@ td form{
         min-width: 4rem;
     }
 
+    #vacancy-table tr > *:nth-child(8){
+        display: none;
+    }
+
+    #vacancy-table #apraksts-table, table .name{
+        width: auto;
+    }
+
     /* LOGIN */
     #login-window.show{
         transform: translate(-50%,-120%);
@@ -1612,6 +1637,11 @@ td form{
     #admin-section .wrapper{
         flex-direction: column;
     }
+
+    /* ADMIN TABLE */
+    #vacancy-table tr > *:nth-child(n+4):nth-child(-n+7){
+        display: none;
+    }
 }
 
 @media (max-width: 700px){
@@ -1691,6 +1721,11 @@ td form{
 
     #vacancy-input-form button{
         width: 100%;
+    }
+
+    /* ADMIN TABLE */
+    #vacancy-table tr > *:nth-child(n+3):nth-child(-n+9){
+        display: none;
     }
 }
 

@@ -4,7 +4,7 @@ if ( window.history.replaceState ) {
 
 // pagination
 const itemsPerPage = 3;
-const cards = document.querySelectorAll(".card");
+const cards = document.querySelectorAll(".card-a");
 const totalItems = cards.length;
 const totalPages = Math.ceil(totalItems / itemsPerPage);
 let currentPage = 1;
@@ -66,18 +66,17 @@ window.nextPage = nextPage;
 
 
 // kartinam
-var cardsContainer = document.querySelector('.cards');
-var cardCount = cardsContainer.querySelectorAll('.card').length;
-
-if (cardCount < 3) {
-    cardsContainer.classList.add('fewer-than-three');
-} else {
-    cardsContainer.classList.remove('fewer-than-three');
+if (document.querySelector('.cards')){
+    let cardsContainer = document.querySelector('.cards');
+    let cardCount = cardsContainer.getElementsByTagName('a').length;
+    
+        if (cardCount < 3) {
+            cardsContainer.classList.add('fewer-than-three');
+        } else {
+            cardsContainer.classList.remove('fewer-than-three');
+        }
 }
-//
 
-let button = document.getElementsByClassName("toggle-btn");
-let section = document.getElementById("admin-section");
 
 // Show | hide navigation
 function togglePanel(element) {
