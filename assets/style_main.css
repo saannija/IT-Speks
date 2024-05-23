@@ -608,9 +608,39 @@ footer{
     border: .13rem solid var(--main-color-dark);
 }
 
+#allBtn{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.view-all{
+    margin-bottom: 3rem;
+}
+
 .news h1{
     text-align: center;
     margin: 3rem 0;
+}
+
+.sortCards{
+    display: flex;
+    justify-content: end;
+    padding: 1rem;
+}
+
+.sortCards i{
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: var(--main-color);
+}
+
+.sortCards i:hover{
+    cursor: pointer;
+}
+
+.all-cards{
+    grid-gap: 2rem;
 }
 
 /* kartinas */
@@ -619,11 +649,11 @@ footer{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: auto;
-    grid-gap: 2rem;
+    grid-column-gap: 2rem;
 }
 
-.cards.fewer-than-three {
-    grid-template-columns: repeat(2, 1fr);
+.cards.fewer-than-three, .fewer-than-nine {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .card-a{
@@ -749,6 +779,7 @@ footer{
 
     .cards {
         grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 2rem;
     }
 
     .content .text {
@@ -808,7 +839,7 @@ footer{
 }
 
 #headerNew i{
-    margin-left: 4rem;
+    margin-right: 6rem;
     background: var(--main-color);
     font-size: 1.5rem;
     padding: .7rem;
