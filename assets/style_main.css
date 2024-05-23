@@ -1339,8 +1339,18 @@ input[type="file"]{
 }
 
 .table-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1.5rem;
     background: var(--main-color-light);
+}
+
+.table-heading form{
+    background: none;
+    border: none;
+    width: auto;
+    padding: 0;
 }
 
 th, td{
@@ -1348,6 +1358,10 @@ th, td{
     padding: .5rem;
     border-bottom: var(--border);
     font-size: .8rem;
+}
+
+th{
+    font-size: .9rem;
 }
 
 tr:hover{
@@ -1383,7 +1397,7 @@ table .name{
     gap: 2rem;
 }
 
-#vacancy-input-form .content{
+#vacancy-input-form .content, #news-input-form .content{
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -1423,7 +1437,7 @@ table .name{
     gap: 2rem;
 }
 
-.content input, .content select, #login-window input{
+.content input, .content select, #login-window input, #edit-user-window input, #edit-user-window select{
     width: 100%;
 }
 
@@ -1440,8 +1454,58 @@ table .name{
     grid-column: 2 / 3;
 }
 
+/* -----------ADMIN NEWS EDIT------------------------------------------------------------------- */
+#news-input-form{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+}
+
+#news-input-form .content{
+    gap: 0;
+}
+
+#news-input-form .content div:nth-child(2){
+    margin-top: 1.5rem;
+}
+
+#news-input-form #save-button{
+    width: 10rem;
+    margin-top: 0;
+    
+}
+
+#news-input-form #apraksts{
+    height: 20rem;
+
+}
+
+/* -----------ADMIN APPLICATION EDIT------------------------------------------------------------------- */
+
+.value{
+    font-size: 1rem;
+    font-weight: bold;
+    width: 50%
+}
+
+#pieteikums-table form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pieteikums-table a{
+    font-size: 1rem;
+}
+
+#pieteikums-table button{
+    width: 8rem;
+    height: 2rem;
+    padding: .3rem .5rem;
+}
+
 /* -----------LOGIN------------------------------------------------------------------- */
-#login-window{
+#login-window, #edit-user-window{
     position: fixed;
     bottom: 0;
     left: 50%;
@@ -1455,24 +1519,24 @@ table .name{
     background: var(--white);
 }
   
-#login-window.show{
+#login-window.show , #edit-user-window.show{
     transform: translate(-50%,-40%);
 }
 
-#login-window .row{
+#login-window .row , #edit-user-window.row{
     flex-direction: row;
     justify-content: space-between;
     padding: .2rem .5rem;
 }
 
-#login-window form{
+#login-window form , #edit-user-window form{
     background: none;
     border: none;
     display: flex;
     flex-direction: column;
 }
 
-#login-window a{
+#login-window a {
     font-style: italic;
     text-align: right;
     color: #555;

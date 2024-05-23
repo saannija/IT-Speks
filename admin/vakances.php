@@ -4,7 +4,8 @@
     ?>
 
     <section id="admin-section">
-        <div class="table-heading">Pieejamās vakances</div>
+        <div class="table-heading">Pieejamās vakances
+            <form action=""><button class="default-button"><i class="fa-solid fa-circle-plus"></i> Pievienot vakanci</button></form></div>
         <table id="vacancy-table">
         <colgroup>
         <col style="width: 7rem;"><col class="name"><col class="name"><col><col><col><col><col id="apraksts-table"><col><col><col>

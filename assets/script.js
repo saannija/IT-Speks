@@ -98,7 +98,7 @@ function updatePaginationButtons() {
 }
 
 showPage(1);
-showPageAll(1);
+// showPageAll(1);
 
 window.prevPage = prevPage;
 window.nextPage = nextPage;
@@ -131,8 +131,9 @@ function togglePanel(element) {
 }
 
 // Show | hide login window
-function showLoginWindow(){
-    let loginWindow = document.getElementById("login-window");
+function showLoginWindow(window){
+    console.log(window);
+    let loginWindow = document.getElementById(window);
     let backgroundOverlay = document.getElementById("background-overlay");
 
     loginWindow.classList.add("show");
@@ -140,8 +141,8 @@ function showLoginWindow(){
     document.body.style.overflow = "hidden";
 }
 
-function hideLoginWindow(){
-    let loginWindow = document.getElementById("login-window");
+function hideLoginWindow(window){
+    let loginWindow = document.getElementById(window);
     let backgroundOverlay = document.getElementById("background-overlay");
 
     loginWindow.classList.remove("show");

@@ -4,7 +4,9 @@
     ?>
 
     <section id="admin-section">
-        <div class="table-heading">Jaunumu saraksts</div>
+        <div class="table-heading">Jaunumu saraksts
+        <form action=""><button class="default-button"><i class="fa-solid fa-circle-plus"></i> Pievienot jaunumus</button></form></div>
+        </div>
         <table>
             <colgroup>
             <col style="width: 7rem;"><col><col style="width: 45rem;"><col><col style="width: 8rem;"><col style="width: 8rem;">
@@ -28,12 +30,12 @@
                         <td>Saturs</td>
                         <td>Datums</td>
                         <td>
-                            <form method='post' action='vakance.php'>
+                            <form method='post' action='jaunums.php'>
                                 <button type='submit' name='edit' class='default-button'><i class='fas fa-edit'></i></button>
                             </form>
                         </td>
                         <td>
-                            <form method='post' action='vakance.php'>
+                            <form method='post' action='jaunums.php'>
                                 <button type='submit' name='detele' class='default-button'><i class='fas fa-times'></i></button>
                             </form>
                         </td>

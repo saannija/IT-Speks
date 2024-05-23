@@ -1,7 +1,7 @@
 <div id="login-window">
     <div class="row">
         <h2>Pieslēgties sistēmā</h2>
-        <button class="default-button" onclick="hideLoginWindow()"><i class="fas fa-times"></i></button>
+        <button class="default-button" onclick="hideLoginWindow('login-window')"><i class="fas fa-times"></i></button>
     </div>
     <hr>
 

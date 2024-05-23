@@ -1,10 +1,13 @@
     <?php
         require "header.php";
         require "navigation.php";
+        require "darbinieks.php";
     ?>
 
     <section id="admin-section">
-        <div class="table-heading">Darbinieku saraksts</div>
+        <div class="table-heading">Darbinieku saraksts
+        <form action=""><button class="default-button"><i class="fa-solid fa-circle-plus"></i> Pievienot lietotāju</button></form></div>
+        </div>
         <table>
             <colgroup>
             <col><col><col><col><col><col style="width: 8rem;"><col style="width: 8rem;">
@@ -28,13 +31,13 @@
                         <td>Pieejas tiesības</td>
                         <td>Parole</td> <!-- Paradas tikai administratoram-->
                         <td>
-                            <form method='post' action='vakance.php'>
-                                <button type='submit' name='edit' class='default-button'><i class='fas fa-edit'></i></button>
+                            <form method='post'>
+                                <button type='button' name='edit' class='default-button' onclick='showLoginWindow(\"edit-user-window\")'><i class='fas fa-edit'></i></button>
                             </form>
                         </td>
                         <td>
-                            <form method='post' action='vakance.php'>
-                                <button type='submit' name='detele' class='default-button'><i class='fas fa-times'></i></button>
+                            <form method='post'>
+                                <button type='button' name='detele' class='default-button' onclick='showLoginWindow(\"edit-user-window\")'><i class='fas fa-times'></i></button>
                             </form>
                         </td>
                     </tr>
