@@ -101,6 +101,10 @@
         </div>
    </section>
 
+   <section id="allBtn">
+        <a href="visi_jaunumi.php" class="read-more view-all">Apskatīt visus jaunumus! </a>
+   </section>
+
    <?php
         require "assets/footer.php";
     ?>

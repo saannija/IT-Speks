@@ -4,8 +4,12 @@ if ( window.history.replaceState ) {
 
 // pagination
 const itemsPerPage = 3;
+const itemsPerPageAll = 9;
 const cards = document.querySelectorAll(".card");
+const cardsAll = document.querySelectorAll(".all-card");
 const totalItems = cards.length;
+const totalItemsAll = cardsAll.length;
+const totalPagesAll = Math.ceil(totalItemsAll / itemsPerPageAll);
 const totalPages = Math.ceil(totalItems / itemsPerPage);
 let currentPage = 1;
 
@@ -27,7 +31,6 @@ function showPage(page) {
         pageNumber.textContent = `Lapa ${currentPage} no ${totalPages}`;
         updatePaginationButtons();
     }
-
 }
 
 function prevPage() {
@@ -39,6 +42,39 @@ function prevPage() {
 function nextPage() {
     if (currentPage < totalPages) {
         showPage(currentPage + 1);
+    }
+}
+
+function showPageAll(page) {
+    currentPage = page;
+    const start = (currentPage - 1) * itemsPerPageAll;
+    const end = start + itemsPerPageAll;
+
+    cardsAll.forEach((card, index) => {
+        if (index >= start && index < end) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    pageNumber = document.getElementById("page-number-all")
+    if(pageNumber){
+        pageNumber.textContent = `Lapa ${currentPage} no ${totalPagesAll}`;
+        updatePaginationButtons();
+    }
+
+}
+
+function prevPageAll() {
+    if (currentPage > 1) {
+        showPageAll(currentPage - 1);
+    }
+}
+
+function nextPageAll() {
+    if (currentPage < totalPages) {
+        showPageAll(currentPage + 1);
     }
 }
 
@@ -57,12 +93,22 @@ function updatePaginationButtons() {
     } else {
         nextButton.style.display = "inline-block";
     }
+
+    if (currentPage === totalPagesAll) {
+        nextButton.style.display = "none";
+    } else {
+        nextButton.style.display = "inline-block";
+    }
 }
 
 showPage(1);
+showPageAll(1);
 
 window.prevPage = prevPage;
 window.nextPage = nextPage;
+
+window.prevPageAll = prevPageAll;
+window.nextPageAll = nextPageAll;
 
 
 // kartinam

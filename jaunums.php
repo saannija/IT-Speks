@@ -17,8 +17,8 @@
 
     <section id="headerNew">
         <!-- add actual functionality -->
-        <h1>Virsraksts</h1>
         <a href="jaunumi.php"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1>Virsraksts</h1>
     </section>
 
     <section id="new">
