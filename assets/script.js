@@ -6,8 +6,6 @@ if ( window.history.replaceState ) {
 const itemsPerPage = 3;
 const cards = document.querySelectorAll(".card-a");
 const totalItems = cards.length;
-const totalItemsAll = cardsAll.length;
-const totalPagesAll = Math.ceil(totalItemsAll / itemsPerPageAll);
 const totalPages = Math.ceil(totalItems / itemsPerPage);
 let currentPage = 1;
 
