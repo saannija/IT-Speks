@@ -623,26 +623,26 @@ footer{
     margin: 3rem 0;
 }
 
-.sortCards{
+.navigation{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     padding: 1rem;
+    margin: 0 5rem;
 }
 
-.sortCards i{
+.navigation i{
     padding: 0 1rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--main-color);
 }
 
-.sortCards i:hover{
+.navigation i:hover{
     cursor: pointer;
 }
 
 .all-cards{
     grid-gap: 2rem;
 }
-
 /* kartinas */
 
 .cards{
@@ -652,11 +652,7 @@ footer{
     grid-column-gap: 2rem;
 }
 
-.cards.fewer-than-three, .fewer-than-nine {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.card-a{
+.card-a, .all-card{
     padding: 1rem;
     background: #fafafa;
     border: var(--border);
@@ -665,7 +661,7 @@ footer{
     flex-direction: column;
     justify-content: center !important;
     align-items: center !important;
-    height: 27rem;
+    height: 100%;
     position: relative;
     overflow: hidden;
     border: .1rem solid var(--main-color);
@@ -761,6 +757,10 @@ footer{
     .content hr{
         width: 15rem;
     }
+
+    .cards {
+        grid-row-gap: 2rem;
+    }
 }
 
 @media (max-width: 700px){
@@ -783,7 +783,7 @@ footer{
     }
 
     .content .text {
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
     }
 
     .card::before {
@@ -833,24 +833,7 @@ footer{
 
 #headerNew{
     color: var(--main-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#headerNew i{
-    margin-right: 6rem;
-    background: var(--main-color);
-    font-size: 1.5rem;
-    padding: .7rem;
-    color: var(--white);
-    border-radius: var(--radius);
-    border: var(--border);
-}
-
-#headerNew i:hover{
-    cursor: pointer;
-    background: var(--main-color-dark);
+    text-align: center;
 }
 
 #headerNew h1{

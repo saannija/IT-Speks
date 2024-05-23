@@ -17,7 +17,9 @@
 
     <section id="headerNew">
         <!-- add actual functionality -->
-        <a href="jaunumi.php"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="navigation">
+            <a href="jaunumi.php"><i class="fa-solid fa-arrow-left"></i></a>
+        </div>
         <h1>Virsraksts</h1>
     </section>
 

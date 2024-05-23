@@ -41,39 +41,6 @@ function nextPage() {
     }
 }
 
-function showPageAll(page) {
-    currentPage = page;
-    const start = (currentPage - 1) * itemsPerPageAll;
-    const end = start + itemsPerPageAll;
-
-    cardsAll.forEach((card, index) => {
-        if (index >= start && index < end) {
-            card.style.display = "flex";
-        } else {
-            card.style.display = "none";
-        }
-    });
-
-    pageNumber = document.getElementById("page-number-all")
-    if(pageNumber){
-        pageNumber.textContent = `Lapa ${currentPage} no ${totalPagesAll}`;
-        updatePaginationButtons();
-    }
-
-}
-
-function prevPageAll() {
-    if (currentPage > 1) {
-        showPageAll(currentPage - 1);
-    }
-}
-
-function nextPageAll() {
-    if (currentPage < totalPages) {
-        showPageAll(currentPage + 1);
-    }
-}
-
 function updatePaginationButtons() {
     const prevButton = document.querySelector(".pagination .prev");
     const nextButton = document.querySelector(".pagination .next");
@@ -89,36 +56,60 @@ function updatePaginationButtons() {
     } else {
         nextButton.style.display = "inline-block";
     }
-
-    if (currentPage === totalPagesAll) {
-        nextButton.style.display = "none";
-    } else {
-        nextButton.style.display = "inline-block";
-    }
 }
 
 showPage(1);
-// showPageAll(1);
 
 window.prevPage = prevPage;
 window.nextPage = nextPage;
 
-window.prevPageAll = prevPageAll;
-window.nextPageAll = nextPageAll;
+const cardsContainer = document.querySelector('.cards.all-cards');
+const cards_all = Array.from(cardsContainer.children);
+const pageNumberDisplay = document.getElementById('page-number-all');
+const prevButton = document.querySelector('.prev-all');
+const nextButton = document.querySelector('.next-all');
 
+const cardsPerPage = 9;
+let currentPage_all = 1;
 
-// kartinam
-if (document.querySelector('.cards')){
-    let cardsContainer = document.querySelector('.cards');
-    let cardCount = cardsContainer.getElementsByTagName('a').length;
-    
-        if (cardCount < 3) {
-            cardsContainer.classList.add('fewer-than-three');
-        } else {
-            cardsContainer.classList.remove('fewer-than-three');
-        }
+function displayCards() {
+    cardsContainer.innerHTML = '';
+
+    const start = (currentPage_all - 1) * cardsPerPage;
+    const end = start + cardsPerPage;
+
+    const cardsToShow = cards_all.slice(start, end);
+    cardsToShow.forEach(card => {
+        cardsContainer.appendChild(card);
+    });
+
+    updatePagination();
 }
 
+function updatePagination() {
+    const totalPages = Math.ceil(cards_all.length / cardsPerPage);
+    pageNumberDisplay.textContent = `Lapa ${currentPage_all} no ${totalPages}`;
+
+    prevButton.style.display = currentPage_all > 1 ? 'inline-block' : 'none';
+    nextButton.style.display = currentPage_all < totalPages ? 'inline-block' : 'none';
+}
+
+window.prevPageAll = function () {
+    if (currentPage_all > 1) {
+        currentPage_all--;
+        displayCards();
+    }
+}
+
+window.nextPageAll = function () {
+    const totalPages = Math.ceil(cards_all.length / cardsPerPage);
+    if (currentPage_all < totalPages) {
+        currentPage_all++;
+        displayCards();
+    }
+}
+
+displayCards();
 
 // Show | hide navigation
 function togglePanel(element) {
