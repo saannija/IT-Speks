@@ -16,7 +16,7 @@
     ?>
 
     <section id="headerSimple">
-        <h1>Sekojiet līdzi šodienas <span>IT aktualitātēm!</span></h1>
+        <h1 id="news-heading">Sekojiet līdzi šodienas <span>IT aktualitātēm!</span></h1>
     </section>
 
    <section id="latestNews">

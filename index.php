@@ -23,7 +23,7 @@
                 <!-- <button onclick="togglePanel('searchbar-container')" class="default-button" id="toggle-panel"><i class="fa-solid fa-magnifying-glass"></i></button> -->
     
                 <div id="search-container">
-                    <form method="POST" id="search-form">
+                    <form method="POST" id="search-form" action="vakances.php">
                         
                         <input type="text" class="default-input default-borders" name="atslegvardsIndex" placeholder="Atslēgvārds">
                         
@@ -33,7 +33,7 @@
                             <option value="riga">Rīga</option>
                         </select>
 
-                        <button type="submit" id="search-btn" class="default-button">Meklēt</button>
+                        <button type="submit" id="search-btn" name="search-btn" class="default-button">Meklēt</button>
                     
                     </form>
                 </div>

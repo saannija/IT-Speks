@@ -643,6 +643,10 @@ footer{
 .all-cards{
     grid-gap: 2rem;
 }
+
+#news-heading{
+    padding: 0;
+}
 /* kartinas */
 
 .cards{
@@ -1525,6 +1529,11 @@ table .name{
     color: #555;
 }
 
+#login-window a:hover {
+    text-decoration: underline;
+    color: var(--main-color);
+}
+
 #login-button{
     margin-top: 5rem;
 }
@@ -1535,7 +1544,6 @@ table .name{
 
 #login-window p{
     margin-bottom: 1.5rem;
-    text-align: center;
 }
 
 #background-overlay {

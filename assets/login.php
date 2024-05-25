@@ -10,7 +10,7 @@
     <input type="text" id="username" name="username" class="default-input" placeholder="Lietotājvārds" required>
     <input type="password" id="password" name="password" class="default-input" placeholder="Parole" required>
     <a href="">Paroles atjaunošana</a>
-    <button type="submit" class="default-button" id="login-button">Login</button>
+    <button type="submit" class="default-button" id="login-button">Pieslēgties</button>
   </form>
 </div>
 

@@ -56,6 +56,7 @@
                                 <option selected hidden>Neapskatīts</option>
                                 <option value="123">Apstradē</option>
                                 <option value="123">Izpildīts</option>
+                                <option value="123">Neapskatīts</option>
                             </select>
                             <button type="submit" class="default-button" name="rediget">Saglabāt</button>
                         </form>

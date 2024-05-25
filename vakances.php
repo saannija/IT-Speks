@@ -14,6 +14,16 @@
     <?php
         require "assets/header.php";
         require "assets/login.php";
+
+        $keyword = NULL; $location = NULL;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if(isset($_POST['search-btn'])){
+                $keyword = empty($_POST['atslegvardsIndex']) ? NULL : htmlspecialchars($_POST['atslegvardsIndex']);
+                $location = empty($_POST['vieta']) ? NULL : $_POST['vieta'];
+            }
+        }
+
     ?>
 
     <section id="headerSimple-vacancies">
@@ -30,12 +40,12 @@
         <div id="searchbar-container">
             <form method="POST" id="serchbar-form">
                 <div class="wrapper">
-                    <input type="text" class="default-input default-borders" name="atslegvards" placeholder="Meklēt">
+                    <input type="text" class="default-input default-borders" name="atslegvards" value="<?php echo $keyword; ?>" placeholder="Meklēt">
                     <button type="submit" id="search-button" class="default-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
 
                 <select name="vieta">
-                    <option value="" disabled selected>Vieta</option>
+                    <option value="" disabled selected>Vieta</option> <!-- need database connection to pass selected value here -->
                     <option value="liepaja">Liepāja</option>
                     <option value="riga">Rīga</option>
                 </select>
