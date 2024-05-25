@@ -64,6 +64,7 @@ window.prevPage = prevPage;
 window.nextPage = nextPage;
 
 const cardsContainer = document.querySelector('.cards.all-cards');
+if(cardsContainer){
 const cards_all = Array.from(cardsContainer.children);
 const pageNumberDisplay = document.getElementById('page-number-all');
 const prevButton = document.querySelector('.prev-all');
@@ -110,6 +111,7 @@ window.nextPageAll = function () {
 }
 
 displayCards();
+}
 
 // Show | hide navigation
 function togglePanel(element) {
