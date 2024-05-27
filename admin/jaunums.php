@@ -1,10 +1,12 @@
-<?php
-    require "header.php";
-    require "navigation.php";
-?>
+<div id="edit-news-window" class="default-popup">
+    <div class="row">
+        <h2>Rediģēt</h2>
+        <button class="default-button" onclick="hideWindow('edit-news-window')"><i class="fas fa-times"></i></button>
+    </div>
 
-<section id="admin-section">
-    <form action="" id="news-input-form">
+    <hr>
+
+    <form id="news-input-form">
         <div class="content">
             <div class="row">
                 <div class="column">
@@ -39,11 +41,7 @@
 
 
     </form>
-</section>
 
-<?php
-    require "../assets/footer.php"
-?>
+</div>
 
-</body>
-</html>
+<div id="background-overlay"></div>

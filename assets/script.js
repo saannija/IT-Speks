@@ -123,8 +123,8 @@ function togglePanel(element) {
 
 }
 
-// Show | hide login window
-function showLoginWindow(window){
+// Show popup window
+function showWindow(window){
     console.log(window);
     let loginWindow = document.getElementById(window);
     let backgroundOverlay = document.getElementById("background-overlay");
@@ -134,7 +134,8 @@ function showLoginWindow(window){
     document.body.style.overflow = "hidden";
 }
 
-function hideLoginWindow(window){
+// Hide popup window
+function hideWindow(window){
     let loginWindow = document.getElementById(window);
     let backgroundOverlay = document.getElementById("background-overlay");
 
@@ -143,7 +144,7 @@ function hideLoginWindow(window){
     document.body.style.overflow = "auto";
 }
 
-// Create new item int the list add/edit page
+// Create new item in the list add/edit vacancy page
 function createNewItem(itemList) {
     let list = document.getElementById(itemList);
   

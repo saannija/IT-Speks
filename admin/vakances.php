@@ -1,6 +1,7 @@
     <?php
         require "header.php";
         require "navigation.php";
+        require "vakance.php";
     ?>
 
     <section id="admin-section">
@@ -40,12 +41,12 @@
                         <td>Apraksts</td>
                         <td>Datums</td>
                         <td>
-                            <form method='post' action='vakance.php'>
-                                <button type='submit' name='edit' class='default-button'><i class='fas fa-edit'></i></button>
+                            <form method='post'>
+                                <button type='button' name='edit' class='default-button' onclick='showWindow(\"edit-vacancy-window\")'><i class='fas fa-edit'></i></button>
                             </form>
                         </td>
                         <td>
-                            <form method='post' action='vakance.php'>
+                            <form method='post'>
                                 <button type='submit' name='detele' class='default-button'><i class='fas fa-times'></i></button>
                             </form>
                         </td>

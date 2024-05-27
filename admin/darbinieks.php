@@ -1,7 +1,7 @@
-<div id="edit-user-window">
+<div id="edit-user-window" class="default-popup">
     <div class="row">
-        <h2>Rediģēt lietotāju</h2>
-        <button class="default-button" onclick="hideLoginWindow('edit-user-window')"><i class="fas fa-times"></i></button>
+        <h2>Rediģēt</h2>
+        <button class="default-button" onclick="hideWindow('edit-user-window')"><i class="fas fa-times"></i></button>
     </div>
     <hr>
 

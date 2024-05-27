@@ -1,6 +1,7 @@
     <?php
         require "header.php";
         require "navigation.php";
+        require "jaunums.php";
     ?>
 
     <section id="admin-section">
@@ -30,12 +31,12 @@
                         <td>Saturs</td>
                         <td>Datums</td>
                         <td>
-                            <form method='post' action='jaunums.php'>
-                                <button type='submit' name='edit' class='default-button'><i class='fas fa-edit'></i></button>
+                            <form method='post'>
+                                <button type='button' onclick='showWindow(\"edit-news-window\")' name='edit' class='default-button'><i class='fas fa-edit'></i></button>
                             </form>
                         </td>
                         <td>
-                            <form method='post' action='jaunums.php'>
+                            <form method='post'>
                                 <button type='submit' name='detele' class='default-button'><i class='fas fa-times'></i></button>
                             </form>
                         </td>

@@ -32,12 +32,12 @@
                         <td>Parole</td> <!-- Paradas tikai administratoram-->
                         <td>
                             <form method='post'>
-                                <button type='button' name='edit' class='default-button' onclick='showLoginWindow(\"edit-user-window\")'><i class='fas fa-edit'></i></button>
+                                <button type='button' name='edit' class='default-button' onclick='showWindow(\"edit-user-window\")'><i class='fas fa-edit'></i></button>
                             </form>
                         </td>
                         <td>
                             <form method='post'>
-                                <button type='button' name='detele' class='default-button' onclick='showLoginWindow(\"edit-user-window\")'><i class='fas fa-times'></i></button>
+                                <button type='button' name='detele' class='default-button' onclick='showWindow(\"edit-user-window\")'><i class='fas fa-times'></i></button>
                             </form>
                         </td>
                     </tr>

@@ -1377,11 +1377,20 @@ table .name{
     width: 13rem;
 }
 
-/* -----------ADMIN VAKANCE EDIT------------------------------------------------------------------- */
+/* -----------ADMIN VACANCY EDIT------------------------------------------------------------------- */
+#edit-vacancy-window{
+    overflow: scroll;
+    max-height: 900px;
+}
+
 #vacancy-input-form{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
+}
+
+#vacancy-input-form .content{
+    padding: 1rem;
 }
 
 #vacancy-input-form .content, #news-input-form .content{
@@ -1401,8 +1410,8 @@ table .name{
 
 .image-upload{
     display: block;
-    max-width: 500px;
-    max-height: 500px;
+    width: 435px;
+    height: 435px;
     overflow: hidden;
 }
   
@@ -1424,7 +1433,7 @@ table .name{
     gap: 2rem;
 }
 
-.content input, .content select, #login-window input, #edit-user-window input, #edit-user-window select{
+.content input, .content select, .default-popup input, .default-popup select{
     width: 100%;
 }
 
@@ -1442,6 +1451,11 @@ table .name{
 }
 
 /* -----------ADMIN NEWS EDIT------------------------------------------------------------------- */
+#edit-news-window.default-popup, #edit-vacancy-window.default-popup {
+    max-width: 110rem;
+    width: 95%;
+}
+
 #news-input-form{
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -1468,6 +1482,13 @@ table .name{
 }
 
 /* -----------ADMIN APPLICATION EDIT------------------------------------------------------------------- */
+#edit-appl-window.default-popup{
+    max-width: none;
+}
+
+.default-popup table{
+    width: 100%;
+}
 
 .value{
     font-size: 1rem;
@@ -1492,7 +1513,7 @@ table .name{
 }
 
 /* -----------LOGIN------------------------------------------------------------------- */
-#login-window, #edit-user-window{
+.default-popup{
     position: fixed;
     bottom: 0;
     left: 50%;
@@ -1501,19 +1522,24 @@ table .name{
     border-radius: var(--radius);
     box-shadow: var(--box-shadow);
     z-index: 10;
-    max-width: 35rem;
-    max-height: 50rem;
+    min-width: 35rem;
     background: var(--white);
 }
   
-#login-window.show , #edit-user-window.show{
-    transform: translate(-50%,-40%);
+.default-popup.show{
+    transform: translate(-50%,-50%);
+    top: 50%;
+    bottom: auto;
 }
 
-#login-window .row , #edit-user-window.row{
+.default-popup .row{
     flex-direction: row;
     justify-content: space-between;
     padding: .2rem .5rem;
+}
+
+#login-window{
+    max-width: 35rem;
 }
 
 #login-window form , #edit-user-window form{
@@ -1603,11 +1629,6 @@ table .name{
         width: auto;
     }
 
-    /* LOGIN */
-    #login-window.show{
-        transform: translate(-50%,-120%);
-    }
-
 }
 
 @media(max-width: 916px){
@@ -1635,12 +1656,8 @@ table .name{
     }
 
     /* LOGIN */
-    #login-window{
-        width: 100%;
-    }
-
-    #login-window.show{
-        transform: translate(-50%,-100%);
+    .default-popup{
+        width: 90%;
     }
 
     /* EDIT/ADD VACANCY */
@@ -1776,11 +1793,19 @@ table .name{
     .content{
         flex-wrap: wrap;
     }
+
+    .default-popup.show{
+        top: 25%
+    }
+
+    .default-popup.show{
+        min-width: 0;
+    }
 }
 
 @media(max-width: 460px){
     /* LOGIN */
-    #login-window h2{
+    .default-popup h2{
         font-size: 1.8rem;
     }
 

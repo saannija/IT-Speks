@@ -1,6 +1,7 @@
     <?php
         require "header.php";
         require "navigation.php";
+        require "pieteikums.php";
     ?>
     
     <section id="admin-section">
@@ -37,12 +38,12 @@
                         <td>Datums</td>
                         <td>Statuss</td>
                         <td>
-                            <form method='post' action='pieteikums.php'>
-                                <button type='submit' name='edit' class='default-button'><i class='fas fa-edit'></i></button>
+                            <form method='post'>
+                                <button type='button' name='edit' class='default-button' onclick='showWindow(\"edit-appl-window\")'><i class='fas fa-edit'></i></button>
                             </form>
                         </td>
                         <td>
-                            <form method='post' action='pieteikums.php'>
+                            <form method='post'>
                                 <button type='submit' name='detele' class='default-button'><i class='fas fa-times'></i></button>
                             </form>
                         </td>
