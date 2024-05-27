@@ -145,37 +145,37 @@
                         $logo = "<i class='fa-regular fa-building'></i>";
                     }
 
-                    if($vacancy['Deleted'] == 1){
-                        continue;
-                    }else{
-                        echo "
-                        <a href='vakance.php'>
-                            <div class='element'>
-                                <div class='logo-container'>
-                                    {$logo}
-                                </div>
-                
-                                <div class='container'>
-                                    <div class='title'>
-                                        <h2>{$vacancy['Profesija']}</h2>
-                                        <p>{$vacancy['Datums']}</p>
-                                    </div>
-                
-                                    <div class='info-container'>
-                                        <p><i class='fa-solid fa-location-dot'></i> {$vacancy['Atrasanas_vieta']}</p>
-                                        <p><i class='fa-solid fa-building'></i> {$vacancy['Kompanija']}</p>
-                                        <p><i class='fa-solid fa-clock'></i> {$vacancy['Slodze']}</p>
-                                        <p><i class='fa-solid fa-house-laptop'></i> {$vacancy['Darba_vieta']}</p>
-                                    </div>
-                
-                                    <p class='description'>
-                                        {$desc}
-                                    </p>
-                                </div>             
+                    $date = date_create($vacancy['Datums']);
+                    $dateDisplay = date_format($date, "d.m.Y.");
+
+                    echo "
+                    <a href='vakance.php'>
+                        <div class='element'>
+                            <div class='logo-container'>
+                                {$logo}
                             </div>
-                        </a>
-                        ";
-                    }
+            
+                            <div class='container'>
+                                <div class='title'>
+                                    <h2>{$vacancy['Profesija']}</h2>
+                                    <p>{$dateDisplay}</p>
+                                </div>
+            
+                                <div class='info-container'>
+                                    <p><i class='fa-solid fa-location-dot'></i> {$vacancy['Atrasanas_vieta']}</p>
+                                    <p><i class='fa-solid fa-building'></i> {$vacancy['Kompanija']}</p>
+                                    <p><i class='fa-solid fa-clock'></i> {$vacancy['Slodze']}</p>
+                                    <p><i class='fa-solid fa-house-laptop'></i> {$vacancy['Darba_vieta']}</p>
+                                </div>
+            
+                                <p class='description'>
+                                    {$desc}
+                                </p>
+                            </div>             
+                        </div>
+                    </a>
+                    ";
+                    
 
                 }
             }else{
