@@ -14,6 +14,7 @@
     <?php
         require "assets/header.php";
         require "assets/login.php";
+        require "assets/statistics.php";
 
         $keyword = NULL; $location = NULL;
 
@@ -27,7 +28,9 @@
     ?>
 
     <section id="headerSimple-vacancies">
-        <h1>Izvēlies no vairāk kā <span class="count">120</span> piedāvājumiem!</h1>
+        <h1>Izvēlies no vairāk kā <span class="count">
+            <?php echo $vacancyCount; ?>
+        </span> piedāvājumiem!</h1>
     </section>
 
     <div class="search-wrapper">
@@ -45,14 +48,43 @@
                 </div>
 
                 <select name="vieta">
-                    <option value="" disabled selected>Vieta</option> <!-- need database connection to pass selected value here -->
-                    <option value="liepaja">Liepāja</option>
-                    <option value="riga">Rīga</option>
+                    <?php
+                        if($location == NULL){
+                            echo "<option value='' disabled selected>Vieta</option>";
+                        }else{
+                            echo "<option value='" . $location . "' selected>" . $location . "</option>";
+                        }                  
+
+                        $locationSQL = "SELECT DISTINCT Atrasanas_vieta FROM it_speks_vakances WHERE Deleted = 0";
+                        $selectLocation = mysqli_query($savienojums, $locationSQL);
+
+                        if(mysqli_num_rows($selectLocation) > 0){
+                            while($locationdb = mysqli_fetch_assoc($selectLocation)){
+                                if($location == $locationdb['Atrasanas_vieta']){
+                                    continue;
+                                }else{
+                                    echo "<option value='" . $locationdb['Atrasanas_vieta'] . "'>" . $locationdb['Atrasanas_vieta'] . "</option>";
+                                }
+                            }
+                        }else{
+                            echo "<option>Nav nevienas vakances!</option>";
+                        }
+                    ?>
                 </select>
                 <select name="kompanija">
                     <option value="" disabled selected>Kompānija</option>
-                    <option value="123">123</option>
-                    <option value="312">312</option>
+                    <?php
+                        $companySQL = "SELECT DISTINCT Kompanija FROM it_speks_vakances WHERE Deleted = 0";
+                        $selectCompany = mysqli_query($savienojums, $companySQL);
+
+                        if(mysqli_num_rows($selectCompany) > 0){
+                            while($company = mysqli_fetch_assoc($selectCompany)){
+                                echo "<option value='" . $company['Kompanija'] . "'>" . $company['Kompanija'] . "</option>";
+                            }
+                        }else{
+                            echo "<option>Nav nevienas kompanijas!</option>";
+                        }
+                    ?>
                 </select>
 
                 <div class="buttons-wrapper">
@@ -87,188 +119,69 @@
     </div>
 
     <section id="vacancy-container">
-        <a href="vakance.php">
-            <div class="element">
-                <div class="logo-container">
-                    <!-- <img src="images/example.jpg" class="default-borders"> -->
-                    <i class="fa-regular fa-building"></i>
-                </div>
+        <?php
+            require "assets/connect_db.php";
 
-                <div class="container">
-                    <div class="title">
-                        <h2>Nosaukums</h2>
-                        <p>30.04.2021.</p>
-                    </div>
+            $vacanciesSQL = "SELECT * FROM it_speks_vakances WHERE Deleted = 0";
+            $selectVacancies = mysqli_query($savienojums, $vacanciesSQL);
 
-                    <div class="info-container">
-                        <p><i class="fa-solid fa-location-dot"></i> Atr. vieta</p>
-                        <p><i class="fa-solid fa-building"></i> Kopm Nosaukums</p>
-                        <p><i class="fa-solid fa-clock"></i> Slodze</p>
-                        <p><i class="fa-solid fa-house-laptop"></i> Darba vieta</p>
-                    </div>
+            $length = 250;
+            $desc = NULL;
+            $logo= NULL;
 
-                    <p class="description"> <!-- ~200 characters max -->
-                        Join our passionate IT team in Liepāja! Develop & deploy cutting-edge cloud applications (Java/Python). We value problem-solvers who thrive in a collaborative & fast-paced environment. Learn, grow, and make a
-                    </p>
-                </div>             
-            </div>
-        </a>
+            if(mysqli_num_rows($selectVacancies) > 0){
+                while($vacancy = mysqli_fetch_assoc($selectVacancies)){
+                    if(strlen($vacancy['Apraksts']) <= $length){
+                        $desc= $vacancy['Apraksts'];
+                    }else{
+                        $desc = substr($vacancy['Apraksts'], 0, $length) . "...";
+                    }
 
-        <a href="vakance.php">
-            <div class="element">
-                <div class="logo-container">
-                    <img src="images/example.jpg" class="default-borders">
-                </div>
+                    if($vacancy['Logo'] == NULL){
+                        $logo = "<i class='fa-regular fa-building'></i>";
+                    }else{
+                        // $data = $vacancy['Logo'];
+                        // $logo = "<img src='data:image/jpeg;base64, {$data}'>";  -_-
+                        $logo = "<i class='fa-regular fa-building'></i>";
+                    }
 
-                <div class="container">
-                    <div class="title">
-                        <h2>Nosaukums</h2>
-                        <p>30.04.2021.</p>
-                    </div>
+                    if($vacancy['Deleted'] == 1){
+                        continue;
+                    }else{
+                        echo "
+                        <a href='vakance.php'>
+                            <div class='element'>
+                                <div class='logo-container'>
+                                    {$logo}
+                                </div>
+                
+                                <div class='container'>
+                                    <div class='title'>
+                                        <h2>{$vacancy['Profesija']}</h2>
+                                        <p>{$vacancy['Datums']}</p>
+                                    </div>
+                
+                                    <div class='info-container'>
+                                        <p><i class='fa-solid fa-location-dot'></i> {$vacancy['Atrasanas_vieta']}</p>
+                                        <p><i class='fa-solid fa-building'></i> {$vacancy['Kompanija']}</p>
+                                        <p><i class='fa-solid fa-clock'></i> {$vacancy['Slodze']}</p>
+                                        <p><i class='fa-solid fa-house-laptop'></i> {$vacancy['Darba_vieta']}</p>
+                                    </div>
+                
+                                    <p class='description'>
+                                        {$desc}
+                                    </p>
+                                </div>             
+                            </div>
+                        </a>
+                        ";
+                    }
 
-                    <div class="info-container">
-                        <p><i class="fa-solid fa-location-dot"></i> Atr. vieta</p>
-                        <p><i class="fa-solid fa-building"></i> Kopm Nosaukums</p>
-                        <p><i class="fa-solid fa-clock"></i> Slodze</p>
-                        <p><i class="fa-solid fa-house-laptop"></i> Darba vieta</p>
-                    </div>
-
-                    <p class="description"> <!-- ~200 characters max -->
-
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="vakance.php">
-            <div class="element">
-                <div class="logo-container">
-                    <img src="images/example.jpg" class="default-borders">
-                </div>
-
-                <div class="container">
-                    <div class="title">
-                        <h2>Nosaukums</h2>
-                        <p>30.04.2021.</p>
-                    </div>
-
-                    <div class="info-container">
-                        <p><i class="fa-solid fa-location-dot"></i> Atr. vieta</p>
-                        <p><i class="fa-solid fa-building"></i> Kopm Nosaukums</p>
-                        <p><i class="fa-solid fa-clock"></i> Slodze</p>
-                        <p><i class="fa-solid fa-house-laptop"></i> Darba vieta</p>
-                    </div>
-
-                    <p class="description"> <!-- ~200 characters max -->
-
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="vakance.php">
-            <div class="element">
-                <div class="logo-container">
-                    <img src="images/example.jpg" class="default-borders">
-                </div>
-
-                <div class="container">
-                    <div class="title">
-                        <h2>Nosaukums</h2>
-                        <p>30.04.2021.</p>
-                    </div>
-
-                    <div class="info-container">
-                        <p><i class="fa-solid fa-location-dot"></i> Atr. vieta</p>
-                        <p><i class="fa-solid fa-building"></i> Kopm Nosaukums</p>
-                        <p><i class="fa-solid fa-clock"></i> Slodze</p>
-                        <p><i class="fa-solid fa-house-laptop"></i> Darba vieta</p>
-                    </div>
-
-                    <p class="description"> <!-- ~200 characters max -->
-
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="vakance.php">
-            <div class="element">
-                <div class="logo-container">
-                    <img src="images/example.jpg" class="default-borders">
-                </div>
-
-                <div class="container">
-                    <div class="title">
-                        <h2>Nosaukums</h2>
-                        <p>30.04.2021.</p>
-                    </div>
-
-                    <div class="info-container">
-                        <p><i class="fa-solid fa-location-dot"></i> Atr. vieta</p>
-                        <p><i class="fa-solid fa-building"></i> Kopm Nosaukums</p>
-                        <p><i class="fa-solid fa-clock"></i> Slodze</p>
-                        <p><i class="fa-solid fa-house-laptop"></i> Darba vieta</p>
-                    </div>
-
-                    <p class="description"> <!-- ~200 characters max -->
-
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="vakance.php">
-            <div class="element">
-                <div class="logo-container">
-                    <img src="images/example.jpg" class="default-borders">
-                </div>
-
-                <div class="container">
-                    <div class="title">
-                        <h2>Nosaukums</h2>
-                        <p>30.04.2021.</p>
-                    </div>
-
-                    <div class="info-container">
-                        <p><i class="fa-solid fa-location-dot"></i> Atr. vieta</p>
-                        <p><i class="fa-solid fa-building"></i> Kopm Nosaukums</p>
-                        <p><i class="fa-solid fa-clock"></i> Slodze</p>
-                        <p><i class="fa-solid fa-house-laptop"></i> Darba vieta</p>
-                    </div>
-
-                    <p class="description"> <!-- ~200 characters max -->
-
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="vakance.php">
-            <div class="element">
-                <div class="logo-container">
-                    <img src="images/example.jpg" class="default-borders">
-                </div>
-
-                <div class="container">
-                    <div class="title">
-                        <h2>Nosaukums</h2>
-                        <p>30.04.2021.</p>
-                    </div>
-
-                    <div class="info-container">
-                        <p><i class="fa-solid fa-location-dot"></i> Atr. vieta</p>
-                        <p><i class="fa-solid fa-building"></i> Kopm Nosaukums</p>
-                        <p><i class="fa-solid fa-clock"></i> Slodze</p>
-                        <p><i class="fa-solid fa-house-laptop"></i> Darba vieta</p>
-                    </div>
-
-                    <p class="description"> <!-- ~200 characters max -->
-                        Unleash your coding potential!  We're searching for a talented developer in Liepāja to join our fast-growing IT team.  Develop and deploy cutting-edge cloud applications using your Java/Python expertise.
-                    </p>
-                </div>
-            </div>
-        </a>
+                }
+            }else{
+                echo "Nav nevienas vakances!";
+            }
+        ?>
     </section>
 
     <?php

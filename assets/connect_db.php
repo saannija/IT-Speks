@@ -8,9 +8,9 @@
     $savienojums = mysqli_connect($serveris, $lietotajs, $parole, $datubaze);
 
     if(!$savienojums){
-        echo "Savienojums ar DB nav izveidots!";
+        // echo "Savienojums ar DB nav izveidots!";
     }else{
-        echo "Savienojums ar DB veiksmigs!";
+        // echo "Savienojums ar DB veiksmigs!";
     }
 
     // if(isset($_POST["autorizacija"])){

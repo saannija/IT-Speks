@@ -13,6 +13,8 @@
     <?php
         require "assets/header.php";
         require "assets/login.php";
+        require "assets/connect_db.php";
+        require "assets/statistics.php"
     ?>
 
     <section id="header">
@@ -29,8 +31,18 @@
                         
                         <select name="vieta">
                             <option value="" disabled selected>Vieta</option>
-                            <option value="liepaja">Liepāja</option>
-                            <option value="riga">Rīga</option>
+                            <?php
+                                $locationSQL = "SELECT DISTINCT Atrasanas_vieta FROM it_speks_vakances WHERE Deleted = 0";
+                                $selectLocation = mysqli_query($savienojums, $locationSQL);
+        
+                                if(mysqli_num_rows($selectLocation) > 0){
+                                    while($location = mysqli_fetch_assoc($selectLocation)){
+                                        echo "<option value='" . $location['Atrasanas_vieta'] . "'>" . $location['Atrasanas_vieta'] . "</option>";                              
+                                    }
+                                }else{
+                                    echo "<option>Nav nevienas vakances!</option>";
+                                }
+                            ?>
                         </select>
 
                         <button type="submit" id="search-btn" name="search-btn" class="default-button">Meklēt</button>
@@ -39,7 +51,9 @@
                 </div>
             </div>
 
-            <p class="info-text">Izvēlies no vairāk kā <span class="count">120</span> piedāvājumiem!</p>
+            <p class="info-text">Izvēlies no vairāk kā <span class="count">
+               <?php echo $vacancyCount; ?>
+            </span> piedāvājumiem!</p>
         </div>
         <div class="right img-work-container">
             <img src="images/work.svg" alt="work" class="img-work">
@@ -50,11 +64,15 @@
         <h2>Mūsu aģentūras statistika</h2>
         <div class="stats">
             <div class="stat">
-                <p class="num count">34</p>
+                <p class="num count">
+                    <?php echo $vacancyCount; ?>
+                </p>
                 <p>Vakances</p>
             </div>
             <div class="stat">
-                <p class="num count">15</p>
+                <p class="num count">
+                    <?php echo $companyCount; ?>
+                </p>
                 <p>Kompānijas</p>
             </div>
             <div class="stat">
