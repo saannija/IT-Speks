@@ -6,7 +6,7 @@
 
     <section id="admin-section">
         <div class="table-heading">Darbinieku saraksts
-        <form action=""><button class="default-button"><i class="fa-solid fa-circle-plus"></i> Pievienot lietotāju</button></form></div>
+            <button class="default-button" onclick="showWindow('edit-user-window')"><i class="fa-solid fa-circle-plus" type="button"></i> Pievienot lietotāju</button>
         </div>
         <table>
             <colgroup>
@@ -22,28 +22,31 @@
             <th></th>
 
             <?php
-            for($i = 0; $i < 9; $i++){
-                echo "
-                    <tr>
-                        <td>Lietotājvārds</td>
-                        <td>E-pasts</td>
-                        <td>Parādāmais vārds</td>
-                        <td>Pieejas tiesības</td>
-                        <td>Parole</td> <!-- Paradas tikai administratoram-->
-                        <td>
-                            <form method='post'>
-                                <button type='button' name='edit' class='default-button' onclick='showWindow(\"edit-user-window\")'><i class='fas fa-edit'></i></button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method='post'>
-                                <button type='button' name='detele' class='default-button' onclick='showWindow(\"edit-user-window\")'><i class='fas fa-times'></i></button>
-                            </form>
-                        </td>
-                    </tr>
-                ";
-            }
-        
+                require "../assets/connect_db.php";
+                $users_SQL = "SELECT * FROM it_speks_darbinieki";
+                $select_users = mysqli_query($savienojums, $users_SQL);
+
+                while($user = mysqli_fetch_array($select_users)){
+                    echo "
+                        <tr>
+                            <td>{$user['Lietotajvards']}</td>
+                            <td>{$user['Epasts']}</td>
+                            <td>{$user['Paradamais_vards']}</td>
+                            <td>{$user['Tiesibas']}</td>
+                            <td>{$user['Parole']}</td>
+                            <td>
+                                <form method='post'>
+                                    <button type='button' name='edit' class='default-button' onclick='showWindow(\"edit-user-window\")' value='{$user['Darbinieks_ID']}'><i class='fas fa-edit'></i></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method='post'>
+                                    <button type='button' name='detele' class='default-button' onclick='showWindow(\"edit-user-window\")'><i class='fas fa-times' value='{$user['Darbinieks_ID']}'></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    ";
+                }
         ?>
         </table>
     </section>

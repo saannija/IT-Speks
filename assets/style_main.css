@@ -1560,7 +1560,7 @@ table .name{
     color: var(--main-color);
 }
 
-#login-button{
+#login-button, #save-user{
     margin-top: 5rem;
 }
 
@@ -1582,7 +1582,25 @@ table .name{
     z-index: 9;
     display: none;
 }
-  
+
+/* NOTIFICATIONS ON ERROR/SUCCESS */
+.notif{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    text-align: center;
+    background: var(--main-color);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--radius);
+    color: #fff;
+    padding: 3rem 9%;
+    font-size: 1.5rem;
+}
+
+.notif.red{
+    background: #f00;
+}
 
 @media(max-width: 1320px){
     /* VAKANCES */
