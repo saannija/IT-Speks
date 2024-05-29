@@ -125,13 +125,33 @@ function togglePanel(element) {
 
 // Show popup window
 function showWindow(window){
-    console.log(window);
+    localStorage.setItem('popupOpen', 'true');
+    localStorage.setItem('popupWindow', window);
     let loginWindow = document.getElementById(window);
     let backgroundOverlay = document.getElementById("background-overlay");
 
-    loginWindow.classList.add("show");
-    backgroundOverlay.style.display = "block";
-    document.body.style.overflow = "hidden";
+    setTimeout(function() {
+        loginWindow.classList.add("show");
+        backgroundOverlay.style.display = "block";
+        document.body.style.overflow = "hidden";
+    }, 200);
+
+}
+
+
+// Restore popup state on page load
+window.onload = function() {
+    let popupOpen = localStorage.getItem('popupOpen');
+    let window = localStorage.getItem('popupWindow');
+
+    if (popupOpen === 'true') {
+        showWindow(window);
+    }
+}
+
+function clearPopupState() {
+    localStorage.removeItem('popupOpen');
+    localStorage.removeItem('popupWindow');
 }
 
 // Hide popup window
@@ -142,6 +162,8 @@ function hideWindow(window){
     loginWindow.classList.remove("show");
     backgroundOverlay.style.display = "none";
     document.body.style.overflow = "auto";
+
+    clearPopupState();
 }
 
 // Create new item in the list add/edit vacancy page
@@ -196,8 +218,6 @@ countElements.forEach(countElement => {
         }
     }, interval);
 });
-  
-
 
 //Create chart
 const ctx = document.getElementById('vacancy-chart')

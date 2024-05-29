@@ -1586,20 +1586,47 @@ table .name{
 /* NOTIFICATIONS ON ERROR/SUCCESS */
 .notif{
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 20px;
+    right: 20px;
     z-index: 3;
     text-align: center;
-    background: var(--main-color);
     box-shadow: var(--box-shadow);
     border-radius: var(--radius);
-    color: #fff;
-    padding: 3rem 9%;
+    font-weight: bold;
+    padding: 3rem 4%;
     font-size: 1.5rem;
 }
 
+.notif i {
+    padding-right: 5rem;
+    font-size: 2rem;
+}
+
 .notif.red{
-    background: #f00;
+    background: rgb(252, 229, 229);
+    border: solid 1px rgb(245, 78, 78);
+}
+
+.notif.red i{
+    color:rgb(245, 78, 78);
+}
+
+.notif.green{
+    background: rgb(218, 252, 220);
+    border: solid 1px rgb(56, 173, 56);
+}
+
+.notif.green i{
+    color:rgb(56, 173, 56);
+}
+
+.notif.yellow{
+    background: rgb(253, 237, 219);
+    border: solid 1px rgb(227, 133, 25);
+}
+
+.notif.yellow i{
+    color:rgb(227, 133, 25);
 }
 
 @media(max-width: 1320px){
