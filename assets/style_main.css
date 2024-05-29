@@ -1208,7 +1208,7 @@ input[type="file"]{
 /* Navigation */
 #nav-content{
     position: fixed;
-    top: 4.2rem;
+    top: 4.6rem;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -1588,7 +1588,7 @@ table .name{
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 3;
+    z-index: 5;
     text-align: center;
     box-shadow: var(--box-shadow);
     border-radius: var(--radius);
@@ -1673,7 +1673,10 @@ table .name{
     #vacancy-table #apraksts-table, table .name{
         width: auto;
     }
-
+    
+    #nav-content{
+        top: 5.1rem;
+    }
 }
 
 @media(max-width: 916px){

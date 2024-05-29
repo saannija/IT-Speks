@@ -14,24 +14,27 @@
     }
 
     if(isset($_POST["login-button"])){
-        session_start();
-        $username = mysqli_real_escape_string($savienojums, $_POST["lietotajs"]);
-        $password = mysqli_real_escape_string($savienojums, $_POST["parole"]);
+        $username = mysqli_real_escape_string($savienojums, $_POST["username"]);
+        $password = mysqli_real_escape_string($savienojums, $_POST["password"]);
         $sql_teikums = "SELECT * FROM it_speks_darbinieki WHERE Lietotajvards = '$username'";
         $result = mysqli_query($savienojums, $sql_teikums);
 
         if(mysqli_num_rows($result) == 1){
             while($user = mysqli_fetch_array($result)){
                 if(password_verify($password, $user['Parole'])){
+                    session_start();
                     $_SESSION["lietotajvards"] = $user['Lietotajvards'];
                     header("location:./admin/index.php");
                     exit;
                 }else{
-                    echo "Nepareizs lietotājvārds vai parole!";
+                    echo "<div class='notif red'>Nepareizs lietotājvārds vai parole!</div>";
+                    header('Refresh:2');
                 }
             }
         }else{
-            echo "Nepareizs lietotājvārds vai parole!";
+            echo "<div class='notif red'>Nepareizs lietotājvārds vai parole!</div>";
+            header('Refresh:2');
         }
     }
+
 ?>

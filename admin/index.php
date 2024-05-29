@@ -1,6 +1,5 @@
     <?php
         require "header.php";
-        require "navigation.php";
     ?>
 
     <section id="admin-section">

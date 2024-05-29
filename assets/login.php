@@ -5,13 +5,14 @@
     </div>
     <hr>
 
-    <form id="login-form">
-    <p>Sistēmas administrēšanas vietne ir paredzēta tikai mūsu aģentūras darbiniekiem</p>
-    <input type="text" id="username" name="username" class="default-input" placeholder="Lietotājvārds" required>
-    <input type="password" id="password" name="password" class="default-input" placeholder="Parole" required>
-    <a href="">Paroles atjaunošana</a>
-    <button type="submit" class="default-button" id="login-button" name="login-button">Pieslēgties</button>
-  </form>
+    <form id="login-form" method="post">
+      <p>Sistēmas administrēšanas vietne ir paredzēta tikai mūsu aģentūras darbiniekiem</p>
+      <input type="text" id="username" name="username" class="default-input" placeholder="Lietotājvārds" required>
+      <input type="password" id="password" name="password" class="default-input" placeholder="Parole" required>
+      <a href="">Paroles atjaunošana</a>
+
+      <button type="submit" class="default-button" id="login-button" name="login-button" onclick='hideWindow("login-window")'>Pieslēgties</button>
+    </form>
 </div>
 
 <div id="background-overlay"></div>

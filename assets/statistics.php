@@ -18,10 +18,10 @@
     }
 
     // Number of applications
-    $appl_count_SQL = "SELECT COUNT(Pieteikumi_ID) FROM it_speks_pieteikumi";
+    $appl_count_SQL = "SELECT COUNT(Pieteikums_ID) FROM it_speks_pieteikumi";
     $select_appl_count = mysqli_query($savienojums, $appl_count_SQL);
 
     while($result = mysqli_fetch_array($select_appl_count)){
-        $applCount = "{$result['COUNT(Pieteikumi_ID)']}";
+        $applCount = "{$result['COUNT(Pieteikums_ID)']}";
     }
 ?>

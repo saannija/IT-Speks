@@ -12,8 +12,6 @@
 <body>
     <?php
         require "assets/header.php";
-        require "assets/login.php";
-        require "assets/connect_db.php";
         require "assets/statistics.php"
     ?>
 
@@ -76,7 +74,9 @@
                 <p>Kompānijas</p>
             </div>
             <div class="stat">
-                <p class="num count">100+</p>
+                <p class="num count">
+                    <?php echo $applCount; ?>
+                </p>
                 <p>Pieteikumi</p>
             </div>
         </div>

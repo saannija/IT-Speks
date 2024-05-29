@@ -1,3 +1,8 @@
+    <?php
+        require "login.php";
+        require "connect_db.php";
+    ?>
+    
     <header id="main">
         <a href="index.php" class="logo">IT Spēks</a>
         <nav id="navbar">

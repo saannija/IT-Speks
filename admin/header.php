@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["lietotajvards"])){
+        header("location:../index.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +21,7 @@
     <title>IT Spēks</title>
 </head>
 <body>
+    <?php require "navigation.php"; ?>
     <header id="admin-header">
         <div id="admin-header-content">
             <button class="toggle-btn default-button" onclick="togglePanel('nav-content')">
@@ -21,5 +30,5 @@
             <a href="../index.php" class="logo">IT Spēks</a>
         </div>
 
-        <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Izlogoties</a> <!-- username from database -->
+        <a href="../assets/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> <?php echo $_SESSION['lietotajvards']; ?></a>
     </header>

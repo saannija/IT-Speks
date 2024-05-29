@@ -13,7 +13,6 @@
 <body>
     <?php
         require "assets/header.php";
-        require "assets/login.php";
         require "assets/statistics.php";
 
         $keyword = NULL; $location = NULL;
