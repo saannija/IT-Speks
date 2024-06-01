@@ -36,7 +36,9 @@
             <div class="row">
                 <div class="column">
                 <div class="image-upload default-borders">
-                    <?php echo ($pic == 0) ? "<img src='../images/image-placeholder.jpg' id='preview-image'>" : "<img src='../images/image.php?id={$pic}' id='preview-image'>";
+                    <?php echo ($pic == 0) ? "<img src='../images/image-placeholder.jpg' id='preview-image'>" :
+                    "<img src='../images/image.php?id={$pic}' id='preview-image'>
+                    <input type='hidden' name='imgId' value='$pic'>";
                     ?>
                 </div>
                 <label for="image-input" class="upload">
@@ -81,7 +83,7 @@
     if(isset($_POST['save-news'])){
         if(!empty($_POST['virsraksts']) && !empty($_POST['apraksts']) && !empty($_POST['autors'])){
             $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-            $last_id = NULL;
+            $last_id = $_POST['imgId'];
 
             if(isset($_FILES['image-input']) && $_FILES['image-input']['error'] == 0){
                 $sql = "INSERT INTO it_speks_faili (file_name, file_type, file_size, file_content) VALUES (?, ?, ?, ?)";
@@ -128,7 +130,7 @@
                             echo "<script>
                     setTimeout(function() {
                         window.location.reload();
-                    }, 2000);
+                    }, 1000);
                 </script>";
 
             }else{
@@ -139,7 +141,7 @@
                             echo "<script>
                     setTimeout(function() {
                         window.location.reload();
-                    }, 2000);
+                    }, 1000);
                 </script>";
 
             }             

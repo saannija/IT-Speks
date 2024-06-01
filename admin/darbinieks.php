@@ -85,7 +85,7 @@
    
                     mysqli_query($savienojums, $sql_query);
                     echo "<div class='notif green'><i class='fa-solid fa-circle-exclamation'></i> Lietotājs ir rediģēts!</div>"; 
-                    header('Refresh:2');
+                    header('Refresh:1');
                 }
             }else{
                 if(empty($password_ievade)){
@@ -104,7 +104,7 @@
     
                         mysqli_query($savienojums, $sql_query);
                         echo "<div class='notif green'><i class='fa-solid fa-circle-exclamation'></i> Lietotājs ir izveidots!</div>"; 
-                        header('Refresh:2');
+                        header('Refresh:1');
                     }
                 }
 

@@ -24,4 +24,20 @@
     while($result = mysqli_fetch_array($select_appl_count)){
         $applCount = "{$result['COUNT(Pieteikums_ID)']}";
     }
+
+    // Number of applications in last 24h
+    $appl_day_count_SQL = "SELECT COUNT(Pieteikums_ID) FROM it_speks_pieteikumi WHERE Datums >= NOW() - INTERVAL 1 DAY;";
+    $select_appl_count_day = mysqli_query($savienojums, $appl_day_count_SQL);
+
+    while($result = mysqli_fetch_array($select_appl_count_day)){
+        $applDayCount = "{$result['COUNT(Pieteikums_ID)']}";
+    }
+
+    // Number of new applications (not reviewed)
+    $appl_new_count_SQL = "SELECT COUNT(Pieteikums_ID) FROM it_speks_pieteikumi WHERE Statuss = 'Neapskatīts';";
+    $select_appl_count_new = mysqli_query($savienojums, $appl_new_count_SQL);
+
+    while($result = mysqli_fetch_array($select_appl_count_new)){
+        $applNewCount = "{$result['COUNT(Pieteikums_ID)']}";
+    }
 ?>

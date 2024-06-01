@@ -42,7 +42,9 @@
             <div class="row">
                 <div class="column">
                 <div class="image-upload default-borders">
-                    <?php echo ($logo == 0) ? "<img src='../images/image-placeholder.jpg' id='preview-image'>" : "<img src='../images/image.php?id={$logo}' id='preview-image'>"; ?>
+                    <?php echo ($logo == 0) ? "<img src='../images/image-placeholder.jpg' id='preview-image'>" :
+                    "<img src='../images/image.php?id={$logo}' id='preview-image'>
+                    <input type='hidden' name='imgId' value='$logo'>"; ?>
                 </div>
                 <label for="image-input" class="upload">
                         Augšupielādēt Logo
@@ -201,7 +203,7 @@
     if(isset($_POST['save-vac'])){
         if(!empty($_POST['prof']) && !empty($_POST['comp']) && !empty($_POST['loc']) && !empty($_POST['dvieta']) && !empty($_POST['slodze']) && !empty($_POST['alga']) && !empty($_POST['apraksts'])){
             $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-            $last_id = NULL;
+            $last_id = $_POST['imgId'];
 
             if(isset($_FILES['image-input']) && $_FILES['image-input']['error'] == 0){
                 $sql = "INSERT INTO it_speks_faili (file_name, file_type, file_size, file_content) VALUES (?, ?, ?, ?)";
@@ -266,7 +268,7 @@
                             echo "<script>
                     setTimeout(function() {
                         window.location.reload();
-                    }, 2000);
+                    }, 1000);
                 </script>";
 
             }else{
@@ -277,7 +279,7 @@
                             echo "<script>
                     setTimeout(function() {
                         window.location.reload();
-                    }, 2000);
+                    }, 1000);
                 </script>";
 
             }             

@@ -11,8 +11,10 @@
 
         if (isset($_POST['edit-appl'])) {
             $_SESSION['current_row_id'] = $_POST['edit-appl'];
-
-            $sql_query_appl = "SELECT * FROM it_speks_pieteikumi WHERE Pieteikums_ID = ".$_SESSION['current_row_id'];
+            $sql_query_appl = "SELECT it_speks_pieteikumi.*, it_speks_vakances.Profesija
+                FROM it_speks_pieteikumi 
+                INNER JOIN it_speks_vakances ON it_speks_pieteikumi.ID_vakance = it_speks_vakances.Vakance_ID
+                WHERE Pieteikums_ID = ".$_SESSION['current_row_id'];
 
             $selectAppl = mysqli_query($savienojums, $sql_query_appl);
             if(mysqli_num_rows($selectAppl) == 1){
@@ -20,8 +22,9 @@
                     $fullName = $data['Vards']." ".$data['Uzvards'];
                     $phone = $data['Talrunis'];
                     $email = $data['Epasts'];
+                    $vacancy = $data['Profesija'];
                     $cv = $data['CV'];
-                    $regDate = date("d.m.Y.", strtotime($data['Datums']));
+                    $regDate = date("d.m.Y. H:i:s", strtotime($data['Datums']));
                     $comments = $data['Komentari'];
                     $status = $data['Statuss'];
                 }
@@ -31,6 +34,10 @@
     ?>
 
     <table id="pieteikums-table">
+        <tr>
+            <td>Izvēlētā vakance</td>
+            <td class="value"><span><?php echo $vacancy; ?><span></td>
+        </tr>
         <tr>
             <td>Vārds, uzvārds</td>
             <td class="value"><?php echo $fullName; ?></td>
@@ -46,7 +53,11 @@
         <tr>
             <td>CV</td>
             <td>
-                <a href="pdf.php?id=<?php echo $cv; ?>" target="_blank"><span>Apskatīt</span></a>
+                <?php
+                    echo ($cv == 0) ?
+                    "<i class='fas fa-times'></i>" :
+                    "<a href='pdf.php?id=$cv' target='_blank'><span>Apskatīt</span></a>";
+                    ?>
             </td>
         </tr>
         <tr>
@@ -103,7 +114,7 @@
             echo "<script>
                     setTimeout(function() {
                         window.location.reload();
-                    }, 2000);
+                    }, 1000);
                 </script>";
         }else{
             echo "<div class='notif yellow'><i class='fa-solid fa-circle-exclamation'></i> Visi ievades lauki nav aizpildīti!
@@ -111,7 +122,7 @@
             echo "<script>
                     setTimeout(function() {
                         window.location.reload();
-                    }, 2000);
+                    }, 1000);
                 </script>";
         }
 

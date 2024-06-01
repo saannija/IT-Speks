@@ -1,27 +1,29 @@
     <?php
         require "header.php";
+        require "../assets/connect_db.php";
+        require "../assets/statistics.php";
     ?>
 
     <section id="admin-section">
         <h2>Pārskats</h2>
         <div class="content">
             <div class="stat-box">
-                <span>20</span>
+                <span><?php echo $applNewCount; ?></span>
                 <p>Jauni pieteikumi</p>
             </div>
 
             <div class="stat-box">
-                <span>25</span>
+                <span><?php echo $applDayCount; ?></span>
                 <p>Pieteikumi pēdējo 24h laikā</p>
             </div>
 
             <div class="stat-box">
-                <span>25</span>
+                <span><?php echo $applCount; ?></span>
                 <p>Pieteikumi kopā</p>
             </div>
 
             <div class="stat-box">
-                <span>25</span>
+                <span><?php echo $vacancyCount; ?></span>
                 <p>Pieejamās vakances</p>
             </div>
         </div>
@@ -35,23 +37,105 @@
                         <th>Uzvārds</th>
                         <th>Datums</th>
                     </tr>
-                    <tr><td>John</td><td>Doe</td><td>1990-05-15</td></tr>
-                    <tr><td>Jane</td><td>Smith</td><td>1985-07-20</td></tr>
-                    <tr><td>Michael</td><td>Johnson</td><td>1978-11-02</td></tr>
-                    <tr><td>Emily</td><td>Davis</td><td>1992-03-18</td></tr>
-                    <tr><td>David</td><td>Wilson</td><td>1988-09-30</td></tr>
-                    <tr><td>Emma</td><td>Garcia</td><td>1995-12-12</td></tr>
-                    <tr><td>James</td><td>Martinez</td><td>1982-04-07</td></tr>
-                    <tr><td>Olivia</td><td>Hernandez</td><td>1993-08-24</td></tr>
-                    <tr><td>Robert</td><td>Lopez</td><td>1975-06-14</td></tr>
-                    <tr><td>Ava</td><td>Gonzalez</td><td>2000-01-05</td></tr>
-                    <!-- max 10 -->
+                    <?php
+                        $select_sql = "SELECT Vards, Uzvards, Datums FROM it_speks_pieteikumi ORDER BY Datums DESC LIMIT 10;";
+                        $select = mysqli_query($savienojums, $select_sql);
+
+                        while($result = mysqli_fetch_array($select)){
+                            echo "
+                                <tr>
+                                    <td>{$result['Vards']}</td>
+                                    <td>{$result['Uzvards']}</td>
+                                    <td>".date("d.m.Y.", strtotime($result['Datums']))."</td>
+                                </tr>
+                            ";
+                        }
+                    ?>
                 </table>
             </div>
 
             <div class="chart-container">
                 <div class="table-heading"><strong>Pieprasītākās vakances</strong></div>
                 <canvas id="vacancy-chart"></canvas>
+                <?php
+                    $vacancies_SQL = "SELECT COUNT(Profesija), Profesija FROM it_speks_vakances WHERE Izdzests = 0 GROUP BY Profesija;";
+                    $select_vacancies = mysqli_query($savienojums, $vacancies_SQL);
+
+                    $vacanciesNum = array();
+                    $vacancies = array();
+                    while($result = mysqli_fetch_array($select_vacancies)){
+                        array_push($vacanciesNum, (int)$result['COUNT(Profesija)']);
+                        array_push($vacancies, $result['Profesija']);
+                    }
+
+                    $jsonVacancies = json_encode($vacancies);
+                    $jsonVacanciesNum = json_encode($vacanciesNum);
+
+                ?>
+                <script>
+                    document.addEventListener('DOMContentLoaded', (event) => {
+                    const ctx = document.getElementById('vacancy-chart')
+
+                    if(ctx){
+                        ctx.getContext('2d');
+
+                        const myChart = new Chart(ctx, {
+                            type: 'pie', // or 'bar', 'pie', etc.
+                            data: {
+                                labels: <?php echo $jsonVacancies; ?>,
+                                datasets: [{
+                                    label: 'Skaits',
+                                    data: <?php echo $jsonVacanciesNum; ?>,
+                                    backgroundColor: [
+                                        'rgba(56, 176, 0, 0.2)',
+                                        'rgba(167, 241, 168, 0.2)',
+                                        'rgba(36, 118, 0, 0.2)',
+                                        'rgba(90, 169, 50, 0.2)', 
+                                        'rgba(159, 213, 141, 0.2)', 
+                                        'rgba(36, 118, 0, 0.2)',
+                                        'rgba(112, 209, 85, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(56, 176, 0, 0.5)',
+                                        'rgba(167, 241, 168, 0.5)',
+                                        'rgba(36, 118, 0, 0.5)',
+                                        'rgba(90, 169, 50, 0.5)', 
+                                        'rgba(159, 213, 141, 0.5)', 
+                                        'rgba(36, 118, 0, 0.5)',
+                                        'rgba(112, 209, 85, 0.5)'
+                                    ],
+                                    borderWidth: 1,      
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                        
+                                plugins: {
+                                    legend: {
+                                        display: true,
+                                        position: 'right',
+                                    },
+                        
+                                    datalabels: {
+                                        formatter: (value, ctx) => {
+                                            let sum = 0;
+                                            let dataArr = ctx.chart.data.datasets[0].data;
+                                            dataArr.map(data => {
+                                                sum += data;
+                                            });
+                                            let percentage = (value*100 / sum).toFixed(2)+"%";
+                                            return percentage;
+                                        },
+                                        color: '#000',
+                                    }
+                                }
+                            },
+                            plugins: [ChartDataLabels],
+                        });
+                        }
+                    });
+                </script>
             </div>
         </div>
         

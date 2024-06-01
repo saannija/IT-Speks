@@ -14,6 +14,7 @@
     <section id="admin-section">
         <div class="table-heading">Pieteikumu saraksts</div>
             <table>
+                <th>Vakance</th>
                 <th>Vārds</th>
                 <th>Uzvārds</th>
                 <th>Tālrunis</th>
@@ -27,7 +28,10 @@
 
                 <?php
                     require "../assets/connect_db.php";
-                    $appl_SQL = "SELECT * FROM it_speks_pieteikumi WHERE Izdzests = 0";
+                    $appl_SQL = "SELECT it_speks_pieteikumi.*, it_speks_vakances.Profesija
+                        FROM it_speks_pieteikumi 
+                        INNER JOIN it_speks_vakances ON it_speks_pieteikumi.ID_vakance = it_speks_vakances.Vakance_ID
+                        WHERE it_speks_pieteikumi.Izdzests = 0";
                     $select_appl = mysqli_query($savienojums, $appl_SQL);
 
                     while($appl = mysqli_fetch_array($select_appl)){
@@ -39,13 +43,14 @@
 
                         echo "
                             <tr>
+                                <td>{$appl['Profesija']}</td>
                                 <td>{$appl['Vards']}</td>
                                 <td>{$appl['Uzvards']}</td>
                                 <td>{$appl['Talrunis']}</td>
                                 <td>{$appl['Epasts']}</td>  
                                 <td>{$CV}</td>
                                 <td>{$Komentars}</td>
-                                <td>".date("d.m.Y.", strtotime($appl['Datums']))."</td>
+                                <td>".date("d.m.Y. H:i:s", strtotime($appl['Datums']))."</td>
                                 <td>{$appl['Statuss']}</td>
                                 <td>
                                     <form method='post'>
