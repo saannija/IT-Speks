@@ -2,7 +2,7 @@
     require "connect_db.php";
 
     // Number of vacancies
-    $vacancies_count_SQL = "SELECT COUNT(Vakance_ID) FROM it_speks_vakances WHERE Deleted = 0";
+    $vacancies_count_SQL = "SELECT COUNT(Vakance_ID) FROM it_speks_vakances WHERE Izdzests = 0";
     $select_vacancies_count = mysqli_query($savienojums, $vacancies_count_SQL);
 
     while($result = mysqli_fetch_array($select_vacancies_count)){
@@ -10,7 +10,7 @@
     }
 
     // Number of companies 
-    $companies_count_SQL = "SELECT COUNT(DISTINCT Kompanija) FROM it_speks_vakances WHERE Deleted = 0";
+    $companies_count_SQL = "SELECT COUNT(DISTINCT Kompanija) FROM it_speks_vakances WHERE Izdzests = 0";
     $select_companies_count = mysqli_query($savienojums, $companies_count_SQL);
 
     while($result = mysqli_fetch_array($select_companies_count)){

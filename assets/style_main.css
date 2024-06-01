@@ -1132,6 +1132,10 @@ ul{
     word-wrap: normal;
 }
 
+li{
+    padding: .3rem 0;
+}
+
 #description{
     grid-row: span 2;
 }
@@ -1369,8 +1373,11 @@ td form{
     width: 100%;
 }
 
-#apraksts-table{
-    width: 35rem;
+td.descrip{
+    max-width: 35rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 table .name{

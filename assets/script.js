@@ -144,10 +144,17 @@ window.onload = function() {
     let popupOpen = localStorage.getItem('popupOpen');
     let window = localStorage.getItem('popupWindow');
 
-    if (popupOpen === 'true') {
+    const navigationEntries = performance.getEntriesByType("navigation");
+    const navigationType = navigationEntries.length > 0 ? navigationEntries[0].type : "navigate";
+
+    if (navigationType === "reload") {
+        clearPopupState();
+        
+    }else if(popupOpen === 'true') {
         showWindow(window);
     }
 }
+
 
 function clearPopupState() {
     localStorage.removeItem('popupOpen');
@@ -167,7 +174,7 @@ function hideWindow(window){
 }
 
 // Create new item in the list add/edit vacancy page
-function createNewItem(itemList) {
+function createNewItem(itemList, value, inputName) {
     let list = document.getElementById(itemList);
   
     let newListItem = document.createElement("li");
@@ -175,6 +182,8 @@ function createNewItem(itemList) {
 
     newInputField.className = "default-input";
     newInputField.type = "text";
+    newInputField.name = inputName;
+    newInputField.value = value;
 
     newListItem.appendChild(newInputField);
     list.appendChild(newListItem);
@@ -218,6 +227,15 @@ countElements.forEach(countElement => {
         }
     }, interval);
 });
+
+// input type file text
+let input = document.getElementById('cv');
+if (input){
+    document.getElementById('cv').addEventListener('change', function() {
+        var fileName = this.files[0] ? this.files[0].name : 'Nav izvēlēts neviens fails';
+        document.getElementById('file-info').textContent = fileName;
+    });
+}
 
 //Create chart
 const ctx = document.getElementById('vacancy-chart')

@@ -2,9 +2,8 @@
         require "header.php";
         require "darbinieks.php";
 
-
-        if(isset($_POST['delete'])) {
-            $userId = $_POST['delete'];
+        if(isset($_POST['delete-user'])) {
+            $userId = $_POST['delete-user'];
 
             $sql_query_delete = "UPDATE it_speks_darbinieki SET Izdzests = 1 WHERE Darbinieks_ID = '$userId'";
             mysqli_query($savienojums, $sql_query_delete);
@@ -51,7 +50,7 @@
                     echo ($user['Darbinieks_ID'] == 1) ? "<td></td></tr>" : "
                             <td>
                                 <form method='POST'>
-                                    <button type='submit' name='delete' class='default-button' value='{$user['Darbinieks_ID']}'><i class='fas fa-times'></i></button>
+                                    <button type='submit' name='delete-user' class='default-button' value='{$user['Darbinieks_ID']}'><i class='fas fa-times'></i></button>
                                 </form>
                             </td>
                         </tr>

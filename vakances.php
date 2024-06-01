@@ -54,7 +54,7 @@
                             echo "<option value='" . $location . "' selected>" . $location . "</option>";
                         }                  
 
-                        $locationSQL = "SELECT DISTINCT Atrasanas_vieta FROM it_speks_vakances WHERE Deleted = 0";
+                        $locationSQL = "SELECT DISTINCT Atrasanas_vieta FROM it_speks_vakances WHERE Izdzests = 0";
                         $selectLocation = mysqli_query($savienojums, $locationSQL);
 
                         if(mysqli_num_rows($selectLocation) > 0){
@@ -73,7 +73,7 @@
                 <select name="kompanija">
                     <option value="" disabled selected>Kompānija</option>
                     <?php
-                        $companySQL = "SELECT DISTINCT Kompanija FROM it_speks_vakances WHERE Deleted = 0";
+                        $companySQL = "SELECT DISTINCT Kompanija FROM it_speks_vakances WHERE Izdzests = 0";
                         $selectCompany = mysqli_query($savienojums, $companySQL);
 
                         if(mysqli_num_rows($selectCompany) > 0){
@@ -121,7 +121,7 @@
         <?php
             require "assets/connect_db.php";
 
-            $vacanciesSQL = "SELECT * FROM it_speks_vakances WHERE Deleted = 0";
+            $vacanciesSQL = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0";
             $selectVacancies = mysqli_query($savienojums, $vacanciesSQL);
 
             $length = 250;
@@ -136,19 +136,17 @@
                         $desc = substr($vacancy['Apraksts'], 0, $length) . "...";
                     }
 
-                    if($vacancy['Logo'] == NULL){
+                    if($vacancy['Logo'] == 0){
                         $logo = "<i class='fa-regular fa-building'></i>";
                     }else{
-                        // $data = $vacancy['Logo'];
-                        // $logo = "<img src='data:image/jpeg;base64, {$data}'>";  -_-
-                        $logo = "<i class='fa-regular fa-building'></i>";
+                        $logo = "<img src='images/image.php?id={$vacancy['Logo']}' class='default-borders'>";
                     }
 
                     $date = date_create($vacancy['Datums']);
                     $dateDisplay = date_format($date, "d.m.Y.");
 
                     echo "
-                    <a href='vakance.php'>
+                    <a href='vakance.php?id={$vacancy['Vakance_ID']}'>
                         <div class='element'>
                             <div class='logo-container'>
                                 {$logo}
