@@ -111,6 +111,10 @@ header a:hover, #nav-content a:hover{
     display: none;
 }
 
+.hidden{
+    display: none;
+}
+
 /* -----------SAKUMLAPA------------------------------------------------------------------- */
 
 /* headeris */
@@ -1549,7 +1553,7 @@ table .name{
     max-width: 35rem;
 }
 
-#login-window form , #edit-user-window form{
+#login-window form , #edit-user-window form, #password-reset-window form, #update-password form{
     background: none;
     border: none;
     display: flex;
@@ -1567,7 +1571,7 @@ table .name{
     color: var(--main-color);
 }
 
-#login-button, #save-user{
+#login-button, #save-user, #save-password{
     margin-top: 5rem;
 }
 
@@ -1575,7 +1579,7 @@ table .name{
     padding: .7rem .5rem;
 }
 
-#login-window p{
+#login-window p, #password-reset-window p{
     margin-bottom: 1.5rem;
 }
 
@@ -1590,22 +1594,71 @@ table .name{
     display: none;
 }
 
+/* password reset */
+.heading {
+    background: var(--main-color);
+    height: 20rem;
+}
+
+.heading p{
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1.5rem;
+}
+
+#update-password a{
+    background: none;
+    border: var(--main-color) solid 1px;
+    border-radius: var(--radius);
+    color: var(--main-color);
+    padding: .6rem .9rem;
+    font-size: 1rem;
+    margin: .5rem 0;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#update-password a:hover{
+    background: var(--main-color);
+    border:  #fff solid 1px;
+    color: #fff;
+}
+
+#password-reset-window form, #update-password{
+    max-width: 35rem;
+}
+
+#password-reset-window form input{
+    margin: 0;
+    border-radius: .5rem 0 0 .5rem;
+}
+
+#password-reset-window #reset{
+    border-radius: 0 .5rem .5rem 0;
+}
+
+#update-password{
+    display: flex;
+    flex-direction: column;
+}
+
 /* NOTIFICATIONS ON ERROR/SUCCESS */
 .notif{
     position: fixed;
-    bottom: 20px;
+    top: 20px;
     right: 20px;
     z-index: 5;
-    text-align: center;
     box-shadow: var(--box-shadow);
     border-radius: var(--radius);
-    font-weight: bold;
-    padding: 3rem 4%;
-    font-size: 1.5rem;
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
+    max-width: 30rem;
+    display: flex;
 }
 
 .notif i {
-    padding-right: 5rem;
+    padding-right: 1.2rem;
     font-size: 2rem;
 }
 
@@ -1847,10 +1900,6 @@ table .name{
 
     .content{
         flex-wrap: wrap;
-    }
-
-    .default-popup.show{
-        top: 25%
     }
 
     .default-popup.show{

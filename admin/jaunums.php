@@ -1,6 +1,6 @@
 <div id="edit-news-window" class="default-popup">
     <div class="row">
-        <h2>Rediģēt</h2>
+        <h2>Jaunums</h2>
         <button class="default-button" onclick="hideWindow('edit-news-window')"><i class="fas fa-times"></i></button>
     </div>
 

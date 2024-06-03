@@ -33,7 +33,7 @@
         <?php
             require "../assets/connect_db.php";
 
-            $news_SQL = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0";
+            $news_SQL = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums";
             $select_news = mysqli_query($savienojums, $news_SQL);
 
             while($news = mysqli_fetch_array($select_news)){

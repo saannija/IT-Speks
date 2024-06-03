@@ -1,5 +1,6 @@
     <?php
         require "login.php";
+        require "password_reset.php";
         require "connect_db.php";
     ?>
     

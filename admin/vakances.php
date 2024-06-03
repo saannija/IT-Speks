@@ -38,7 +38,7 @@
         <?php
             require "../assets/connect_db.php";
 
-            $vac_SQL = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0";
+            $vac_SQL = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0 ORDER BY Datums";
             $select_vac = mysqli_query($savienojums, $vac_SQL);
 
             while($vac = mysqli_fetch_array($select_vac)){

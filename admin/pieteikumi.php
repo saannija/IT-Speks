@@ -31,7 +31,7 @@
                     $appl_SQL = "SELECT it_speks_pieteikumi.*, it_speks_vakances.Profesija
                         FROM it_speks_pieteikumi 
                         INNER JOIN it_speks_vakances ON it_speks_pieteikumi.ID_vakance = it_speks_vakances.Vakance_ID
-                        WHERE it_speks_pieteikumi.Izdzests = 0";
+                        WHERE it_speks_pieteikumi.Izdzests = 0 ORDER BY Datums";
                     $select_appl = mysqli_query($savienojums, $appl_SQL);
 
                     while($appl = mysqli_fetch_array($select_appl)){

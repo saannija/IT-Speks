@@ -236,7 +236,3 @@ if (input){
         document.getElementById('file-info').textContent = fileName;
     });
 }
-
-//Create chart
-
-
