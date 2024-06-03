@@ -15,15 +15,46 @@
         require "assets/header.php";
         require "assets/statistics.php";
 
-        $keyword = NULL; $location = NULL;
+        $keyword = $location = $comp = $place = $sort = $sortOption = NULL;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             if(isset($_POST['search-btn'])){
                 $keyword = empty($_POST['atslegvardsIndex']) ? NULL : htmlspecialchars($_POST['atslegvardsIndex']);
                 $location = empty($_POST['vieta']) ? NULL : $_POST['vieta'];
             }
-        }
+        
 
+            if(isset($_POST['search-button'])){
+                $keyword = empty($_POST['atslegvards']) ? NULL : $_POST['atslegvards'];
+                $location = empty($_POST['vieta']) ? NULL : $_POST['vieta'];
+                $comp = empty($_POST['kompanija']) ? NULL : $_POST['kompanija'];
+                $place = empty($_POST['darba-vieta']) ? NULL : $_POST['darba-vieta'];
+
+                if(empty($_POST['kartot'])){
+                    $sort = NULL;
+                    $sortOption = NULL;
+                }else{
+                    switch ($_POST['kartot']) {
+                        case 'date':
+                            $sortOption = 'date';
+                            $sort = "ORDER BY Datums DESC";
+                            break;
+                        case 'asc':
+                            $sortOption = 'asc';
+                            $sort = "ORDER BY Profesija";
+                            break;
+                        case 'desc':
+                            $sortOption = 'desc';
+                            $sort = "ORDER BY Profesija DESC";
+                            break;
+                    }
+                }
+            }
+
+            if (isset($_POST['clear-form'])) {
+                $keyword = $location = $comp = $place = $sort = $sortOption = NULL;
+            }
+        }
     ?>
 
     <section id="headerSimple-vacancies">
@@ -39,11 +70,11 @@
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
 
-        <div id="searchbar-container">
+        <div id="searchbar-container" class="">
             <form method="POST" id="serchbar-form">
                 <div class="wrapper">
                     <input type="text" class="default-input default-borders" name="atslegvards" value="<?php echo $keyword; ?>" placeholder="Meklēt">
-                    <button type="submit" id="search-button" class="default-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="submit" id="search-button" class="default-button" name="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
 
                 <select name="vieta">
@@ -71,14 +102,14 @@
                     ?>
                 </select>
                 <select name="kompanija">
-                    <option value="" disabled selected>Kompānija</option>
+                    <option value="" disabled <?php echo ($comp == NULL) ? 'selected' : ''; ?>>Kompānija</option>
                     <?php
                         $companySQL = "SELECT DISTINCT Kompanija FROM it_speks_vakances WHERE Izdzests = 0";
                         $selectCompany = mysqli_query($savienojums, $companySQL);
 
                         if(mysqli_num_rows($selectCompany) > 0){
                             while($company = mysqli_fetch_assoc($selectCompany)){
-                                echo "<option value='" . $company['Kompanija'] . "'>" . $company['Kompanija'] . "</option>";
+                                echo "<option value='" . $company['Kompanija'] . "'" . (($comp === $company['Kompanija']) ? 'selected' : '') . ">" . $company['Kompanija'] . "</option>";
                             }
                         }else{
                             echo "<option>Nav nevienas kompanijas!</option>";
@@ -89,29 +120,34 @@
                 <div class="buttons-wrapper">
                     <div class="wrapper">
                         <label>
-                            <input type="radio" name="darba-vieta" value="attalinati" class="default-input-radio">
+                            <input type="radio" name="darba-vieta" value="attalinati" class="default-input-radio" <?php echo ($place === 'attalinati') ? 'checked' : ''; ?>>
                             <span class="radio-button"> Attālināti </span>
                         </label>
                         <label>
-                            <input type="radio" name="darba-vieta" value="klatiene" class="default-input-radio"> 
+                            <input type="radio" name="darba-vieta" value="klatiene" class="default-input-radio" <?php echo ($place === 'klatiene') ? 'checked' : ''; ?>> 
                             <span class="radio-button"> Klātiene </span>
                         </label>
                     </div>
     
                     <div class="wrapper">
                         <label>
-                            <input type="radio" name="kartot" value="attalinati" class="default-input-radio">
+                            <input type="radio" name="kartot" value="date" class="default-input-radio" <?php echo ($sortOption === 'date') ? 'checked' : ''; ?>>
                             <span class="radio-button"> <i class="fa-regular fa-calendar-days"></i> </span>
                         </label>
                         <label>
-                            <input type="radio" name="kartot" value="klatiene" class="default-input-radio"> 
+                            <input type="radio" name="kartot" value="asc" class="default-input-radio" <?php echo ($sortOption === 'asc') ? 'checked' : ''; ?>> 
                             <span class="radio-button"> <i class="fa-solid fa-arrow-up-a-z"></i></span>
                         </label>
                         <label>
-                            <input type="radio" name="kartot" value="klatiene" class="default-input-radio"> 
+                            <input type="radio" name="kartot" value="desc" class="default-input-radio" <?php echo ($sortOption === 'desc') ? 'checked' : ''; ?>> 
                             <span class="radio-button"> <i class="fa-solid fa-arrow-up-z-a"></i> </span>
                         </label>
                     </div>
+
+                    <div class="wrapper">
+                        <button type="submit" name="clear-form" class="default-button">Notīrīt <i class="fa-solid fa-delete-left"></i></button>
+                    </div>
+
                 </div>
             </form>
         </div>
@@ -121,7 +157,7 @@
         <?php
             require "assets/connect_db.php";
 
-            $vacanciesSQL = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0";
+            $vacanciesSQL = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0 AND Profesija LIKE '%{$keyword}%' AND Atrasanas_vieta LIKE '%{$location}%' AND Kompanija LIKE '%{$comp}%' AND Darba_vieta LIKE '%{$place}%' " . $sort;
             $selectVacancies = mysqli_query($savienojums, $vacanciesSQL);
 
             $length = 250;
@@ -176,7 +212,7 @@
 
                 }
             }else{
-                echo "Nav nevienas vakances!";
+                echo "<div class='text-notif'>Jūsu pieprasījumam nav atrasta neviena vakance</div>";
             }
         ?>
     </section>

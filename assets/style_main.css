@@ -21,6 +21,19 @@
     transition: all .3s ease-out;
 }
 
+html, body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
 a{
     color: #000;
 }
@@ -990,6 +1003,12 @@ input[type="radio"]:hover + .radio-button{
     padding: 1.2rem;
     font-size: 1.2rem;
 }
+button:hover + .radio-button{
+    background: var(--main-color);
+    color: var(--white);
+    cursor: pointer;
+}
+
 /* header */
 #headerSimple-vacancies{
     padding: 7rem 0 1.2rem 0 !important;
@@ -1081,6 +1100,11 @@ input[type="radio"]:hover + .radio-button{
 .element .description{
     line-height: 1.4rem;
     text-align: justify;
+}
+
+.text-notif{
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 /* -----------VAKANCE------------------------------------------------------------------- */

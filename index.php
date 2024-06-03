@@ -30,7 +30,7 @@
                         <select name="vieta">
                             <option value="" disabled selected>Vieta</option>
                             <?php
-                                $locationSQL = "SELECT DISTINCT Atrasanas_vieta FROM it_speks_vakances WHERE Deleted = 0";
+                                $locationSQL = "SELECT DISTINCT Atrasanas_vieta FROM it_speks_vakances WHERE Izdzests = 0";
                                 $selectLocation = mysqli_query($savienojums, $locationSQL);
         
                                 if(mysqli_num_rows($selectLocation) > 0){

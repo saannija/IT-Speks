@@ -152,6 +152,7 @@ window.onload = function() {
         
     }else if(popupOpen === 'true') {
         showWindow(window);
+
     }
 }
 
@@ -228,7 +229,7 @@ countElements.forEach(countElement => {
     }, interval);
 });
 
-// input type file text
+// Input type file - text
 let input = document.getElementById('cv');
 if (input){
     document.getElementById('cv').addEventListener('change', function() {
