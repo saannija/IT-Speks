@@ -113,11 +113,11 @@
     <section id="about">
         <div class="left">
             <h1><span>Sazinies</span> ar mums!</h1>
-            <form action="">
-                <input type="text" placeholder="Vārds" class="box">
-                <input type="email" placeholder="E-pasts" class="box">
-                <input type="tel" placeholder="Tālrunis" class="box">
-                <textarea name="" placeholder="Jūsu ziņa..." required class="box"></textarea>
+            <form method="post">
+                <input type="text" name="name" placeholder="Vārds" class="box">
+                <input type="email" name="email" placeholder="E-pasts" class="box">
+                <input type="tel" name="phone" placeholder="Tālrunis" class="box">
+                <textarea name="message" placeholder="Jūsu ziņa..." required class="box"></textarea>
                 <button type="submit" name="sendMsg" class="btn">Sazināties</button>
             </form>
         </div>
@@ -127,6 +127,7 @@
     </section>
 
     <?php
+        require "assets/mail.php";
         require "assets/footer.php";
     ?>
 </body>

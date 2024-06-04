@@ -449,7 +449,7 @@ form, .map{
 }
 
 form .box{
-    margin: .7rem 0;
+    margin-bottom: .7rem;
     padding: .7rem;
     font-size: 1.2rem;
     color: var(--black);
@@ -491,38 +491,60 @@ form textarea{
 /* footeris */
 
 footer{
-    background: var(--main-color);
+    background: #f8f8f8;
     text-align: center;
-    color: var(--white);
-    font-weight: bold;
-    padding: 2rem;
+    padding: 1rem 9% 0 9%;
 }
 
-#contacts{
-    color: #000;
-    font-weight: 400;
+footer .wrapper{
+    justify-content: space-between;
+}
+
+footer .wrapper-content{
     display: flex;
-    align-items: center;
+    gap: 10px;
+}
+
+footer .wrapper:last-child{
+    border-top: solid 1px #ccc;
+    font-size: .7rem;
     justify-content: center;
+    margin: 0;
+}
+
+footer .wrapper:last-child p{
+    margin: 1rem;
+    color: #999;
+}
+
+footer .wrapper-column{
+    flex: 1;
+}
+
+footer .wrapper-column h3{
+    margin-bottom: 1.3rem;
+}
+
+footer .wrapper-column p{
+    color: #555;
+    text-align: justify;
+}
+
+footer #about-us{
+    max-width: 19rem;
+    line-height: 1.5rem;
 }
 
 .info{
     display: flex;
-    padding: 2rem 4rem;
+    padding: .7rem 4rem;
+    color: #555;
+    text-align: center;
 }
 
 .info i{
     margin-right: 1rem;
-}
-
-@media (max-width: 800px){
-    #contacts{
-        flex-direction: column;
-    }
-
-    .info{
-        padding: 1rem 0;
-    }
+    font-size: 1.3rem;
 }
 
 /* -----------JAUNUMI------------------------------------------------------------------- */
@@ -1877,6 +1899,16 @@ table .name{
     #vacancy-table tr > *:nth-child(n+4):nth-child(-n+7){
         display: none;
     }
+
+    /* FOOTER */
+    footer .wrapper:first-child{
+        flex-direction: column;
+    }
+
+    footer .wrapper .info{
+        justify-content: center;
+    }
+
 }
 
 @media (max-width: 700px){
@@ -1892,6 +1924,13 @@ table .name{
     #vacancy-section{
         display: flex;
         flex-direction: column;
+    }
+
+    /* FOOTER */
+    footer .wrapper-content{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 }
 
