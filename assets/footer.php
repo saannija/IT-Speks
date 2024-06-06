@@ -1,6 +1,6 @@
     <footer>
         <div class="wrapper">
-            <h1>IT Spēks</h1>
+            <h2>IT Spēks</h2>
 
             <div class="wrapper-content">
                 <div class="wrapper-column" id="about-us">
@@ -12,15 +12,15 @@
                     <h3>Kontakti</h3>
                     <div class="info">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>Adrese 123, Liepāja</p>
+                        <p>Ventspils iela 51, Liepāja, LV-3405</p>
                     </div>
                     <div class="info">
                         <i class="fas fa-envelope"></i>
-                        <p>epasts@epasts.lv</p>
+                        <p>main@it_speks.lv</p>
                     </div>
                     <div class="info">
                         <i class="fas fa-phone"></i>
-                        <p>+371 21234567</p>
+                        <p>+371 63 401 817</p>
                     </div>
                 </div>
             </div>

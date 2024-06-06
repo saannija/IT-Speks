@@ -32,6 +32,11 @@
                     $req = $vacancy['Prasibas'];
                     $offers = $vacancy['Piedavajam'];
                     $reg_date = date("d.m.Y.", strtotime($vacancy['Datums']));
+                    if($vacancy['Logo'] == 0){
+                        $logo = "<i class='fa-regular fa-building'></i>";
+                    }else{
+                        $logo = "<img src='images/image.php?id={$vacancy['Logo']}' class='default-borders'>";
+                    }
                 }
             }
         }
@@ -44,7 +49,7 @@
     <section id="vacancy-section">
         <div class="element" id="description">
             <div class="wrapper">
-                <h3>Vakances apraksts</h3>
+                <h3>Apraksts</h3>
                 <p><?php echo $desc; ?></p>
             </div>
 
@@ -79,14 +84,19 @@
         </div>
 
         <div class="element" id="summary">
-            <h3>Vakances kopsavilkums</h3>
-            <ul>
-                <li>Publicēts:<strong> <?php echo $reg_date; ?></strong> </li>
-                <li>Alga:<strong> <?php echo $salary; ?>€</strong> </li>
-                <li>Atrašanās vieta:<strong> <?php echo $loc; ?></strong> </li>
-                <li>Darba veids:<strong> <?php echo $load; ?></strong> </li>
-                <li>Darba vieta:<strong> <?php echo $place; ?></strong> </li>
+            <div class="wrapper">
+                <div class="logo-container">
+                    <?php echo $logo; ?>
+                </div>
+                <ul>
+                    <p><h3><?php echo $comp; ?></h3></p>
+                    <li>Atrašanās vieta:<strong> <?php echo $loc; ?></strong> </li>
+                    <li>Darba veids:<strong> <?php echo $load; ?></strong> </li>
+                    <li>Darba vieta:<strong> <?php echo $place; ?></strong> </li>
+                    <li>Alga:<strong> <?php echo $salary; ?>€</strong> </li>
+                    <li>Publicēts:<strong> <?php echo $reg_date; ?></strong> </li>
             </ul>
+            </div>
         </div>
 
         <div class="element">

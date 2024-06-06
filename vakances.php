@@ -56,13 +56,12 @@
             }
         }
     ?>
-
     <section id="headerSimple-vacancies">
         <h1>Izvēlies no vairāk kā <span class="count">
             <?php echo $vacancyCount; ?>
         </span> piedāvājumiem!</h1>
     </section>
-
+    <main>
     <div class="search-wrapper">
         <button onclick="togglePanel('searchbar-container')" class="default-button" id="toggle-panel-minimized"><i class="fa-solid fa-magnifying-glass"></i></button>
         
@@ -182,7 +181,7 @@
                     $dateDisplay = date_format($date, "d.m.Y.");
 
                     echo "
-                    <a href='vakance.php?id={$vacancy['Vakance_ID']}'>
+                    <a href='vakance.php?id={$vacancy['Vakance_ID']}' target='_blank'>
                         <div class='element'>
                             <div class='logo-container'>
                                 {$logo}
@@ -195,10 +194,8 @@
                                 </div>
             
                                 <div class='info-container'>
-                                    <p><i class='fa-solid fa-location-dot'></i> {$vacancy['Atrasanas_vieta']}</p>
-                                    <p><i class='fa-solid fa-building'></i> {$vacancy['Kompanija']}</p>
-                                    <p><i class='fa-solid fa-clock'></i> {$vacancy['Slodze']}</p>
-                                    <p><i class='fa-solid fa-house-laptop'></i> {$vacancy['Darba_vieta']}</p>
+                                    <p><i class='fa-solid fa-building'></i> <strong>{$vacancy['Kompanija']}</strong></p>
+                                    <p><i class='fa-solid fa-location-dot'></i> <strong>{$vacancy['Atrasanas_vieta']}</strong></p>
                                 </div>
             
                                 <p class='description'>
@@ -216,7 +213,7 @@
             }
         ?>
     </section>
-
+        </main>
     <?php
         require "assets/footer.php";
     ?>

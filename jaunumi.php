@@ -22,26 +22,57 @@
         <?php
             $title = $text = $pic = $id =NULL;
 
-            $newest_sql = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums DESC LIMIT 1;";
+            $newest_sql = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums DESC LIMIT 3;";
             $result = mysqli_query($savienojums, $newest_sql);
 
             if(mysqli_num_rows($result) > 0){
+                $counter = 1;
                 while($news = mysqli_fetch_assoc($result)){
                     $id = $news['ID'];
                     $title = $news['Virsraksts'];
                     $text = $news['Teksts'];
                     $pic = $news['Attels_ID'];
+
+                    echo "
+                        <div class='wrapper contents" . ($counter == 1 ? " active" : ""). "' id='content{$counter}'>
+                            <div class='news-image-container'>
+                                <img src='images/image.php?id={$news['Attels_ID']}' alt='Jaunumi'>
+                            </div>
+                            
+                            <div class='latestContent'>
+                                <h3 class='title'>{$news['Virsraksts']}</h3>
+                                <p class='text'>{$news['Teksts']}</p>
+                                <a href='jaunums.php?id={$news['ID']}' class='read-more'>Lasīt vairāk!</a>
+                            </div>
+                        </div>
+                    ";
+                    $counter++;
                 }
             }
         ?>
-        <div class="bg"></div>
-        <div class="bg0"></div>
-        <img src="images/image.php?id=<?php echo $pic;?>" alt="Jaunumi">
-        <div class="latestContent">
-            <h3 class="title"><?php echo $title;?></h3>
-            <p class="text"><?php echo $text; ?></p>
-            <a href="jaunums.php?id=<?php echo $id;?>" class="read-more">Lasīt vairāk!</a>
-        </div>
+
+        <ul>
+        <?php
+            $list_sql = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums DESC LIMIT 3;";
+            $result = mysqli_query($savienojums, $list_sql);
+
+            if(mysqli_num_rows($result) > 0){
+                $counter = 1;
+                while($news = mysqli_fetch_assoc($result)){
+                    $reg_date = date("d.m.Y.", strtotime($news['Datums']));
+                    echo "<li class='latest-news-item " . ($counter == 1 ? "selected": "") . "' data-content='content{$counter}'>
+                        <p class='date'>{$reg_date}</p>
+                        <br>
+                        {$news['Virsraksts']}
+                    </li>";
+                    $counter++;
+                }
+            }
+        ?>
+        </ul>
+
+
+
    </section>
    
    <section id="news">
@@ -56,7 +87,9 @@
                             echo "
                                 <a href='jaunums.php?id={$news['ID']}' class='card-a'>
                                     <div class='card'>
-                                        <img src='images/image.php?id={$news['Attels_ID']}' alt='pic'>
+                                        <div class='card-image-container'>
+                                            <img src='images/image.php?id={$news['Attels_ID']}' alt='pic'>
+                                        </div>
                                         <h3 class='title'>{$news['Virsraksts']}</h3>
                                         <div class='content'> 
                                             <h3 class='title'>{$news['Virsraksts']}</h3>

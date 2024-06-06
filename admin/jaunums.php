@@ -115,6 +115,15 @@
                     return;
                 }
 
+            }else if($last_id == 0){
+                echo "<div class='notif yellow'><i class='fa-solid fa-circle-exclamation'></i> Augšupielādējiet attēlu!</div>"; 
+                echo "<script>
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 5000);
+                    </script>";       
+                
+                return;
             }
 
             $headline_ievade = mysqli_real_escape_string($savienojums, $_POST['virsraksts']);

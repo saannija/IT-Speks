@@ -113,7 +113,7 @@
     <section id="about">
         <div class="left">
             <h1><span>Sazinies</span> ar mums!</h1>
-            <form method="post">
+            <form method="post" id="contact-form">
                 <input type="text" name="name" placeholder="Vārds" class="box">
                 <input type="email" name="email" placeholder="E-pasts" class="box">
                 <input type="tel" name="phone" placeholder="Tālrunis" class="box">

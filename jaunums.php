@@ -36,16 +36,18 @@
         <div class="navigation">
             <a href="jaunumi.php"><i class="fa-solid fa-arrow-left"></i></a>
         </div>
-        <h1><?php echo $title; ?></h1>
     </section>
 
     <section id="new">
-        <img src="images/image.php?id= <?php echo $pic; ?> " alt="img">
+        <div class="image-container">
+            <img class="banner-image" src="images/image.php?id= <?php echo $pic; ?> " alt="img">
+        </div>
+        <h1><?php echo $title; ?></h1>
         <p class="allText"> <?php echo $text; ?> </p>
     </section>
-    <hr>
+    <hr id="news-hr">
     <section id="footerNew">
-        <p id="author"> <?php echo $author; ?> </p>
+        <p id="author">Autors: <?php echo $author; ?> </p>
         <p id="date">Publicēts: <?php echo $reg_date; ?> </p>
     </section>
    <?php

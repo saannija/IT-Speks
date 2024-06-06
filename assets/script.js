@@ -3,7 +3,14 @@ if ( window.history.replaceState ) {
 }
 
 // pagination
-const itemsPerPage = 3;
+let itemsPerPage = 3;
+
+if (window.innerWidth > 1400){
+    itemsPerPage = 3;
+}else{
+    itemsPerPage = 4;
+}
+
 const cards = document.querySelectorAll(".card-a");
 const totalItems = cards.length;
 const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -237,3 +244,33 @@ if (input){
         document.getElementById('file-info').textContent = fileName;
     });
 }
+
+// Switch latest news
+const listItems = document.querySelectorAll('.latest-news-item');
+const contents = document.querySelectorAll('.wrapper.contents');
+
+listItems.forEach(item => {
+    item.addEventListener('click', () => {
+        listItems.forEach(i => i.classList.remove('selected'));
+        
+        item.classList.add('selected');
+
+        contents.forEach(content => content.classList.remove('active'));
+        
+        const contentId = item.getAttribute('data-content');
+        document.getElementById(contentId).classList.add('active');
+    });
+});
+
+// Shrinks news page image
+window.addEventListener('scroll', function() {
+    const image = document.querySelector('.banner-image');
+
+    if(image){
+        if (window.scrollY > 50) {
+            image.classList.add('shrink');
+        } else {
+            image.classList.remove('shrink');
+        }
+    }
+});
