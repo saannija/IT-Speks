@@ -103,18 +103,47 @@
             <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17601.485656897643!2d21.01436780494168!3d56.533447208670836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46faa7ccb271be93%3A0xf9d1bf3406ae7d9d!2sLiep%C4%81jas%20Valsts%20tehnikums!5e0!3m2!1sen!2slv!4v1712747037508!5m2!1sen!2slv" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
+        <?php
+            $name = $lastname = $phone = $email = NULL;
+            $loggedIn = false;
+            if(isset($_SESSION['lietotajs'])){
+                $loggedIn = true;
+                $username = $_SESSION['lietotajs'];
+                $sql_select = "SELECT * FROM it_speks_lietotaji WHERE Lietotajvards = '$username'";
+                $select_user_data = mysqli_query($savienojums, $sql_select);
+
+                while($data = mysqli_fetch_array($select_user_data)){
+                    $name = $data['Vards'];
+                    $lastname = $data['Uzvards'];
+                    ($data['Talrunis'] == 0 ? $phone = NULL : $phone = $data['Talrunis']);
+                    $email = $data['Epasts'];
+                }
+            }
+        ?>
+
         <div class="element" id="application">
             <h3>Piesakieties darbam</h3>
             <form method="POST" id="apply-form" enctype="multipart/form-data">
                 <div class="wrapper-input">
-                    <input type="text" class="default-input defalut-borders" name="vards" placeholder="Vārds">
-                    <input type="text" class="default-input defalut-borders" name="uzvards" placeholder="Uzvārds">
-                    <input type="text" class="default-input defalut-borders" name="talrunis" placeholder="Tālrunis">
-                    <input type="text" class="default-input defalut-borders" name="epasts" placeholder="E-pasts">
+                    <input type="text" class="default-input defalut-borders" name="vards" placeholder="Vārds" value=<?php echo $name; ?>>
+                    <input type="text" class="default-input defalut-borders" name="uzvards" placeholder="Uzvārds" value=<?php echo $lastname; ?>>
+                    <input type="text" class="default-input defalut-borders" name="talrunis" placeholder="Tālrunis" value=<?php echo $phone; ?>>
+                    <input type="email" class="default-input defalut-borders" name="epasts" placeholder="E-pasts" value=<?php echo $email; ?>>
                 </div>
 
                 <textarea name="komentars" placeholder="Komentāri" id="" class="default-input defalut-borders"></textarea>
                 
+                <?php
+                    if(isset($_SESSION['lietotajs'])){
+                        echo "
+                        <div class='wrapper-checkbox'>
+                            <input type='checkbox' name='email_required' id='email_required' value='yes'>
+                            <label for='email_required'>Sūtīt e-pasta paziņojumus par statusa izmaiņām</label>
+                        </div>
+                        ";
+                    }
+                ?>
+
                 <div class="wrapper">
                     <label for="cv" class="upload">
                         Augšupielādēt CV
@@ -170,7 +199,23 @@
 
                         $vacancyId = intval($_GET['id']);
 
-                        $insert_sql = "INSERT INTO it_speks_pieteikumi(Vards, Uzvards, Talrunis, Epasts, CV, Komentari, Statuss, ID_vakance) VALUES('$name_ievade', '$lastname_ievade', '$phone_ievade', '$email_ievade', '$last_id', '$comment_ievade', default, '$vacancyId')";
+                        $email_required = $userId = NULL;
+                        if ($loggedIn) {
+                            $email_required = isset($_POST['email_required']) ? 1 : 0;
+
+                            $username = $_SESSION['lietotajs'];
+                            $select_user = "SELECT Lietotajs_ID FROM it_speks_lietotaji WHERE Lietotajvards = '$username'";
+                            $user = mysqli_query($savienojums, $select_user);
+                            while($data = mysqli_fetch_array($user)){
+                                $userId = $data['Lietotajs_ID'];
+                            }
+                        } else {
+                            $email_required = 1;
+                        }
+
+                        
+
+                        $insert_sql = "INSERT INTO it_speks_pieteikumi(Vards, Uzvards, Talrunis, Epasts, CV, Komentari, Statuss, ID_vakance, sutit_epastus, ID_Lietotajs) VALUES('$name_ievade', '$lastname_ievade', '$phone_ievade', '$email_ievade', '$last_id', '$comment_ievade', default, '$vacancyId', '$email_required', '$userId')";
 
                         mysqli_query($savienojums, $insert_sql);
                         echo "<div class='notif green'><i class='fa-solid fa-circle-exclamation'></i> Pieteikums ir saņemts!</div>"; 

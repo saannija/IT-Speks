@@ -18,10 +18,12 @@
 
         <?php
             require "connect_db.php";
+
             $_SESSION['hideForm'] = false;
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if(isset($_POST['save-password'])){
                     $token = $_POST['token'];
+                    $role = $_GET['role'];
                     $newPassword = $_POST['new_password'];
                     $confirmPassword = $_POST['confirm_password'];
 
@@ -43,7 +45,11 @@
 
                         if (strtotime($expires) > time()) {
                             $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-                            $query = "UPDATE it_speks_darbinieki SET Parole = ? WHERE Darbinieks_ID = ?";
+                            if($role == "admin"){
+                                $query = "UPDATE it_speks_darbinieki SET Parole = ? WHERE Darbinieks_ID = ?";
+                            }else{
+                                $query = "UPDATE it_speks_lietotaji SET Parole = ? WHERE Lietotajs_ID = ?";
+                            }
                             $stmt = $savienojums->prepare($query);
                             $stmt->bind_param("si", $hashedPassword, $userId);
                             $stmt->execute();

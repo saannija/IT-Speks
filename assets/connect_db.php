@@ -37,4 +37,25 @@
         }
     }
 
+    if(isset($_POST["login-button-user"])){
+        $username = mysqli_real_escape_string($savienojums, $_POST["username"]);
+        $password = mysqli_real_escape_string($savienojums, $_POST["password"]);
+        $sql_teikums = "SELECT * FROM it_speks_lietotaji WHERE Lietotajvards = '$username'";
+        $result = mysqli_query($savienojums, $sql_teikums);
+
+        if(mysqli_num_rows($result) == 1){
+            while($user = mysqli_fetch_array($result)){
+                if(password_verify($password, $user['Parole'])){
+                    $_SESSION["lietotajs"] = $user['Lietotajvards'];
+                }else{
+                    echo "<div class='notif red'>Nepareizs lietotājvārds vai parole!</div>";
+                    header('Refresh:2');
+                }
+            }
+        }else{
+            echo "<div class='notif red'>Nepareizs lietotājvārds vai parole!</div>";
+            header('Refresh:2');
+        }
+    }
+
 ?>

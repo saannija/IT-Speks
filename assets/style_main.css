@@ -79,6 +79,18 @@ select option[value=""]{
     cursor: pointer;
 }
 
+.default-button.invert{
+    background: none;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.default-button.invert:hover{
+    background: var(--main-color);
+    color: var(--white);
+    border: 1px solid var(--main-color);
+}
+
 section{
     padding: 5.6rem 9% 2rem 9% !important;
 }
@@ -1278,6 +1290,7 @@ li{
 #apply-form{
     margin-top: .7rem;
     border: none;
+    background: none;
 }
 
 #apply-form .wrapper-input{
@@ -1319,6 +1332,49 @@ input[type="file"]{
 .upload:hover{
     color: var(--white);
     background: var(--main-color-dark);
+}
+
+#apply-form .wrapper-checkbox{
+    display: flex;
+    justify-content: flex-start;
+}
+
+#apply-form .wrapper-checkbox label{
+    margin: 0;
+}
+
+#apply-form input[type="checkbox"]{
+    width: auto;
+    margin-right: 1rem;
+}
+
+/* USER APPLICATION HISTORY */
+#user-appl-form{
+    background: #fff;
+    border: none;
+    margin-bottom: 2rem;
+    border-radius: 0;
+}
+
+#user-appl-form input{
+    width: 100%;
+    margin: 0;
+}
+
+#user-appl-form label{
+    margin-top: .6rem;
+}
+
+#admin-section #user-appl-form .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 20fr;
+    margin: 0;
+    gap: .5rem;
+}
+
+#admin-section #user-appl-form .wrapper button{
+    width: 100%;
+    grid-column: span 2;
 }
 
 /* -----------ADMIN------------------------------------------------------------------- */
@@ -1644,6 +1700,11 @@ table .name{
     padding: .3rem .5rem;
 }
 
+#pieteikums-table textarea{
+    max-width: 27rem;
+    max-height: 16rem;
+}
+
 /* -----------LOGIN------------------------------------------------------------------- */
 .default-popup{
     position: fixed;
@@ -1674,11 +1735,29 @@ table .name{
     max-width: 35rem;
 }
 
-#login-window form , #edit-user-window form, #password-reset-window form, #update-password form{
+#login-window form , #edit-user-window form, #password-reset-window form, #update-password form, #create-user-window form{
     background: none;
     border: none;
     display: flex;
     flex-direction: column;
+}
+
+#login-window form:nth-last-child(-n+2){
+    display: none;
+}
+
+#login-window form .wrapper button{
+    width: 100%;
+    height: 100%;
+}
+
+#login-window form .wrapper button:first-child{
+    margin-right: 1rem;
+}
+
+#login-window form .wrapper{
+    justify-content: space-between;
+    height: 5rem;
 }
 
 #login-window a {
@@ -1692,7 +1771,7 @@ table .name{
     color: var(--main-color);
 }
 
-#login-button, #save-user, #save-password{
+#login-button, #save-user, #save-password, #register-text, #register-button{
     margin-top: 5rem;
 }
 
@@ -1892,7 +1971,7 @@ table .name{
     }
 }
 
-@media(max-width: 916px){
+@media(max-width: 990px){
     /* HEADER */
     #navbar{
         display: none;
@@ -1916,6 +1995,21 @@ table .name{
         padding: 1.5rem;
     }
 
+    #navbar.expanded a:last-child{
+        text-align: center;
+        background: var(--main-color);
+        color: #fff;
+        border-radius: var(--radius);
+        border: 1px solid var(--main-color);
+    }
+
+    #navbar.expanded a:last-child:hover{
+        background: none;
+        color: var(--main-color);
+    }
+}
+
+@media(max-width: 916px){
     /* LOGIN */
     .default-popup{
         width: 90%;
@@ -1929,10 +2023,6 @@ table .name{
     #save-button{
         grid-column: span 2;
 
-    }
-
-    #admin-section{
-        padding-top: 9rem !important;
     }
 }
 
@@ -2096,6 +2186,13 @@ table .name{
         align-items: center;
         gap: 30px;
     }
+
+    /* USER APPLICATIONS */
+    #user-appl-table th:nth-child(4),
+    #user-appl-table td:nth-child(4) {
+        display: none;
+    }
+
 }
 
 @media (max-width: 590px){
@@ -2146,13 +2243,17 @@ table .name{
         flex-direction: column;
     }
 
+    #apply-form .wrapper:first-child{
+        flex-direction: row;
+    }
+
     #apply-form label{
         margin-bottom: .7rem;
     }
 
     /* ADMIN INDEX */
     #admin-section{
-        padding: 9rem 1.2rem 1.2rem 1.2rem !important;
+        padding: 6rem 1.2rem 1.2rem 1.2rem !important;
     }
 
     #admin-section h2{
@@ -2177,10 +2278,27 @@ table .name{
     }
 }
 
+@media(max-width: 530px){
+    /* USER APPLICATIONS */
+    #user-appl-table th:nth-child(3),
+    #user-appl-table td:nth-child(3) {
+        display: none;
+    }
+}
+
 @media(max-width: 460px){
     /* LOGIN */
     .default-popup h2{
         font-size: 1.5rem;
+    }
+
+    #login-window form .wrapper{
+        flex-direction: column;
+    }
+
+    #login-window form .wrapper button:first-child{
+        margin: 0;
+        margin-bottom: .5rem;
     }
 
     /* EDIT/ADD VACANCY */
@@ -2258,5 +2376,11 @@ table .name{
 
     .buttons-wrapper :last-child{
         grid-column: span 2;
+    }
+
+    /* USER APPLICATIONS */
+    #user-appl-table th:nth-child(2),
+    #user-appl-table td:nth-child(2) {
+        display: none;
     }
 }

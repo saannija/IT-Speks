@@ -274,3 +274,41 @@ window.addEventListener('scroll', function() {
         }
     }
 });
+
+function refreshLogin(){
+    let loginForm = document.getElementById('login-form-admin');
+    loginForm.style.display = 'none';
+
+    let loginFormUser = document.getElementById('login-form-user');
+    loginFormUser.style.display = 'none';
+
+    let roleForm = document.getElementById('role-selection-form');
+    roleForm.style.display = 'flex';
+}
+
+function enableEditing() {
+    const form = document.getElementById('user-appl-form');
+    const inputs = form.querySelectorAll('input[type="text"], input[type="email"]');
+    const button = document.getElementById('enableEditing');
+    const saveButton = document.getElementById('save-user-info');
+
+    inputs.forEach(input => {
+        if (input.readOnly) {
+            input.readOnly = false;
+        } else {
+            input.readOnly = true;
+        }
+    });
+
+    if (button.innerHTML.includes('<i class="fa-solid fa-pen-to-square">')) {
+        button.innerHTML = '<i class="fas fa-times">';
+    } else {
+        button.innerHTML = '<i class="fa-solid fa-pen-to-square">';
+    }
+
+    if (saveButton.style.display === 'none') {
+        saveButton.style.display = 'block';
+    } else {
+        saveButton.style.display = 'none';
+    }
+}

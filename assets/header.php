@@ -1,5 +1,7 @@
     <?php
+        session_start();
         require "login.php";
+        require "create_user.php";
         require "password_reset.php";
         require "connect_db.php";
     ?>
@@ -12,7 +14,24 @@
             <a href="vakances.php">Vakances</a>
             <a href="jaunumi.php">Jaunumi</a>
             <a href="index.php#about">Kontakti</a>
-            <button class="default-button" onclick="showWindow('login-window')">Autorizācija</button>
+            <?php
+                if(isset($_SESSION["lietotajvards"])){
+                    echo "
+                        <a href='./admin/index.php'>Administratora panelis</a>
+                        <a href='./assets/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>
+                    ";
+                }elseif(isset($_SESSION["lietotajs"])){
+                    echo "
+                        <a href='./pieteikumi.php'>Mani pieteikumi</a>
+                        <a href='./assets/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>
+                    ";
+                }else{
+                    echo "
+                        <button class='default-button' onclick=\"showWindow('login-window')\">Autorizācija</button>
+                    ";
+                }
+            ?>
+
 
         </nav>
         <button class="toggle-btn default-button" onclick="togglePanel('navbar')">

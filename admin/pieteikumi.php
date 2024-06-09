@@ -7,7 +7,11 @@
 
             $sql_query_delete = "UPDATE it_speks_pieteikumi SET Izdzests = 1 WHERE Pieteikums_ID = '$applId'";
             mysqli_query($savienojums, $sql_query_delete);
-            header('location: pieteikumi.php');
+            echo "<script>
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 0);
+                </script>";
         }
     ?>
     
