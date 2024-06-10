@@ -32,8 +32,9 @@
 
         <?php
             require "../assets/connect_db.php";
+            require "../assets/pagination.php";
 
-            $news_SQL = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums DESC";
+            $news_SQL = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums DESC LIMIT $offset, $rindas_lapa";
             $select_news = mysqli_query($savienojums, $news_SQL);
 
             while($news = mysqli_fetch_array($select_news)){
@@ -63,6 +64,15 @@
         
         ?>
         </table>
+        <div class="pagination">
+            <a href="?lapa=<?php echo $sobrideja_lapa - 1; ?>" class="pagination-arrow <?php if ($sobrideja_lapa == 1) echo 'hidden'; ?>"><i class="fa-solid fa-backward-step"></i></a>
+            
+            <?php for ($i = 1; $i <= $visas_lapas; $i++): ?>
+                <a href="?lapa=<?php echo $i; ?>" <?php if ($i == $sobrideja_lapa) echo 'class="sobrideja_lapa"'; ?>><?php echo $i; ?></a>
+            <?php endfor; ?>
+            
+            <a href="?lapa=<?php echo $sobrideja_lapa + 1; ?>" class="pagination-arrow <?php if ($sobrideja_lapa == $visas_lapas) echo 'hidden'; ?>"><i class="fa-solid fa-forward-step"></i></a>
+        </div>
     </section>
 
     <?php

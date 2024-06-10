@@ -921,6 +921,27 @@ footer h2{
     color: var(--main-color);
     padding: 0 .3rem;
 }
+/* 
+.pagination{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.pagination a{
+    padding: 1rem;
+    color: var(--black);
+    font-size: 1.2rem;
+}
+
+.sobrideja_lapa{
+    font-weight: bold;
+}
+
+.pagination-arrow.hidden {
+    visibility: hidden;
+}
 
 /* -----------JAUNUMS (1)------------------------------------------------------------------- */
 
@@ -1114,6 +1135,7 @@ button:hover + .radio-button{
     grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
     gap: 1.2rem;
     padding: 1.2rem !important;
+    align-items: stretch;
 }
 
 /* Elements */
@@ -1132,6 +1154,7 @@ button:hover + .radio-button{
     background: var(--white);
     border-radius: var(--radius);
     padding: 1.2rem;
+    height: 100%;
 }
 
 .element .container{
@@ -1842,6 +1865,29 @@ table .name{
     display: flex;
     flex-direction: column;
 }
+
+/* DELETED */
+.deleted {
+    position: relative;
+}
+
+.deleted::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.deleted td {
+    position: relative;
+    z-index: 2;
+}
+
 
 /* NOTIFICATIONS ON ERROR/SUCCESS */
 .notif{

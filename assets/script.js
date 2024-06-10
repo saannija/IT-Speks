@@ -120,6 +120,18 @@ window.nextPageAll = function () {
 displayCards();
 }
 
+const titles = document.querySelectorAll('#vacancy-container .title h2');
+
+titles.forEach(title => {
+    const maxLength = 30;
+    const originalText = title.textContent;
+
+    if (originalText.length > maxLength) {
+        const truncatedText = originalText.substring(0, maxLength) + '...';
+        title.textContent = truncatedText;
+    }
+});
+
 // Show | hide navigation
 function togglePanel(element) {
     let panel = document.getElementById(element);
