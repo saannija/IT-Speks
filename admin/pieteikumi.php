@@ -14,7 +14,7 @@
                 </script>";
         }
     ?>
-    
+    <main>
     <section id="admin-section">
         <div class="table-heading">Pieteikumu saraksts</div>
             <table>
@@ -74,7 +74,7 @@
         ?>
             </table>
     </section>
-
+    </main>
     <?php
         require "../assets/footer.php"
     ?>

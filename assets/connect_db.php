@@ -24,6 +24,7 @@
                 if(password_verify($password, $user['Parole'])){
                     session_start();
                     $_SESSION["lietotajvards"] = $user['Lietotajvards'];
+                    $_SESSION["lietotajvards_show"] = $user['Paradamais_vards'];
                     header("location:./admin/index.php");
                     exit;
                 }else{

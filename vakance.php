@@ -11,7 +11,6 @@
 </head>
 <body>
     <?php
-        require "assets/header.php";
         require "assets/connect_db.php";
 
         if (isset($_GET['id'])){
@@ -37,9 +36,32 @@
                     }else{
                         $logo = "<img src='images/image.php?id={$vacancy['Logo']}' class='default-borders'>";
                     }
+
+                    $titleWords = explode(' ', $prof);
+                    $titleWords = array_map('trim', $titleWords);
+                    $titleWords = array_filter($titleWords, function($word){
+                        return !empty($word);
+                    });
+        
+                    $visited_vacancies = isset($_COOKIE['visited_vacancies']) ? json_decode($_COOKIE['visited_vacancies'], true) : [];
+                    
+                    foreach($titleWords as $word){
+                        if(!in_array($word, $visited_vacancies)){
+                            if(count($visited_vacancies) > 10){
+                                array_shift($visited_vacancies);
+                                $visited_vacancies[] = $word;
+                            }else{
+                                $visited_vacancies[] = $word;
+                            }
+                        }
+                    }
+        
+                    setcookie('visited_vacancies', json_encode($visited_vacancies, JSON_UNESCAPED_UNICODE), time() + (86400 * 30), "/");
                 }
             }
         }
+
+        require "assets/header.php";
     ?>
 
     <header id="vacancy-header"> 
@@ -136,7 +158,7 @@
                 <?php
                     if(isset($_SESSION['lietotajs'])){
                         echo "
-                        <div class='wrapper-checkbox'>
+                        <div class='wrapper-checkbox styled-checkbox'>
                             <input type='checkbox' name='email_required' id='email_required' value='yes'>
                             <label for='email_required'>Sūtīt e-pasta paziņojumus par statusa izmaiņām</label>
                         </div>
@@ -240,6 +262,22 @@
 
         </div>
 
+        <?php
+            if(!isset($_SESSION['lietotajs'])){
+                echo "
+                    <div class='element' id='reg-banner'>
+                        <h3>Vēl neesat lietotājs? <a href='' onclick='showWindow(\"create-user-window\")'>Reģistrēties</a></h3>
+                        <p>Reģistrējoties jūs varat:</p>
+
+                        <ul>
+                            <li>Saglabājiet savu pieteikumu vēsturi</li>
+                            <li>Pārbaudīt savu pieteikumu statusa izmaiņas</li>
+                            <li>Iestatiet automātisko aizpildīšanu ātrākām un vienkāršākām vakances pieteikumam</li>
+                        </ul>
+                    </div>
+                ";
+            }
+        ?>
     </section>
     
     <?php

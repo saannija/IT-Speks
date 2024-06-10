@@ -11,7 +11,7 @@
         }
 
     ?>
-
+    <main>
     <section id="admin-section">
         <div class="table-heading">Darbinieku saraksts
         <form method='post' class='edit-user-form'>
@@ -59,7 +59,7 @@
         ?>
         </table>
     </section>
-    
+    </main>
     <?php
         require "../assets/footer.php"
     ?>

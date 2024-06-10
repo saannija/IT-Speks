@@ -30,5 +30,5 @@
             <a href="../index.php" class="logo">IT Spēks</a>
         </div>
 
-        <a href="../assets/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> <?php echo $_SESSION['lietotajvards']; ?></a>
+        <a href="../assets/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> <?php echo $_SESSION['lietotajvards_show']; ?></a>
     </header>

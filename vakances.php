@@ -12,9 +12,6 @@
 </head>
 <body>
     <?php
-        require "assets/header.php";
-        require "assets/statistics.php";
-
         $keyword = $location = $comp = $place = $sort = $sortOption = NULL;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -55,13 +52,17 @@
                 $keyword = $location = $comp = $place = $sort = $sortOption = NULL;
             }
         }
+
+        require "assets/header.php";
+        require "assets/statistics.php";
     ?>
+
     <section id="headerSimple-vacancies">
         <h1>Izvēlies no vairāk kā <span class="count">
             <?php echo $vacancyCount; ?>
         </span> piedāvājumiem!</h1>
     </section>
-    <main>
+
     <div class="search-wrapper">
         <button onclick="togglePanel('searchbar-container')" class="default-button" id="toggle-panel-minimized"><i class="fa-solid fa-magnifying-glass"></i></button>
         
@@ -152,6 +153,81 @@
         </div>
     </div>
 
+    <?php
+        if(isset($_COOKIE['visited_vacancies']) && !isset($_POST['search-button']) && !isset($_POST['search-btn'])){
+            $visited_vacancies = json_decode($_COOKIE['visited_vacancies'], true);
+
+            if (!empty($visited_vacancies)) {
+                $like_clauses = array_map(function($keyword) {
+                    return "Profesija LIKE '%$keyword%'";
+                }, $visited_vacancies);
+
+                $like_query = implode(' OR ', $like_clauses);
+
+                $suggest_query = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0 AND ($like_query) LIMIT 4";
+                $result = mysqli_query($savienojums, $suggest_query);
+
+                if(mysqli_num_rows($result) > 0){
+                    echo "
+                            <h2 style='background: #eee; padding-top: 1.2rem'>Mūsu piedāvājumi</h2>
+        
+                            <section id='suggestions'>";
+                            while ($vacancy = mysqli_fetch_assoc($result)) {
+                                $date = date_create($vacancy['Datums']);
+                                $length = 250;
+                                if(strlen($vacancy['Apraksts']) <= $length){
+                                    $desc= $vacancy['Apraksts'];
+                                }else{
+                                    $desc = substr($vacancy['Apraksts'], 0, $length) . "...";
+                                }
+        
+                                if($vacancy['Logo'] == 0){
+                                    $logo = "<i class='fa-regular fa-building'></i>";
+                                }else{
+                                    $logo = "<img src='images/image.php?id={$vacancy['Logo']}' class='default-borders'>";
+                                }
+                                $dateDisplay = date_format($date, "d.m.Y.");
+        
+                                echo "
+                                <a href='vakance.php?id={$vacancy['Vakance_ID']}' target='_blank'>
+                                    <div class='element'>
+                                        <div class='logo-container'>
+                                            {$logo}
+                                        </div>
+                        
+                                        <div class='container'>
+                                            <div class='title'>
+                                                <h2>{$vacancy['Profesija']}</h2>
+                                                <p>{$dateDisplay}</p>
+                                            </div>
+                        
+                                            <div class='info-container'>
+                                                <p><i class='fa-solid fa-building'></i> <strong>{$vacancy['Kompanija']}</strong></p>
+                                                <p><i class='fa-solid fa-location-dot'></i> <strong>{$vacancy['Atrasanas_vieta']}</strong></p>
+                                            </div>
+                        
+                                            <p class='description'>
+                                                {$desc}
+                                            </p>
+                                        </div>             
+                                    </div>
+                                </a>
+                                ";
+                            }
+                    echo "</section>";
+                }
+            }
+            
+        }
+    ?>
+
+    <main>
+    <?php
+        if(!isset($_POST['search-button']) && !isset($_POST['search-btn'])){
+            echo "<h2 style='padding-top: 1.2rem;'>Visas vakances</h2>";
+        }
+    ?>
+
     <section id="vacancy-container">
         <?php
             require "assets/connect_db.php";
@@ -206,7 +282,6 @@
                     </a>
                     ";
                     
-
                 }
             }else{
                 echo "<div class='text-notif'>Jūsu pieprasījumam nav atrasta neviena vakance</div>";

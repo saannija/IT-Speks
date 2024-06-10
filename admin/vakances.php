@@ -10,7 +10,7 @@
             header('location: vakances.php');
         }
     ?>
-
+    <main>
     <section id="admin-section">
         <div class="table-heading">Pieejamās vakances
             <form method="post">
@@ -76,7 +76,7 @@
 
         </table>
     </section>
-    
+    </main>
     <?php
         require "../assets/footer.php"
     ?>
