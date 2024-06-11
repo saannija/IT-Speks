@@ -40,4 +40,12 @@
     while($result = mysqli_fetch_array($select_appl_count_new)){
         $applNewCount = "{$result['COUNT(Pieteikums_ID)']}";
     }
+
+    // Number of registrated users
+    $users_count_SQL = "SELECT COUNT(Lietotajs_ID) FROM it_speks_lietotaji WHERE Izdzests = 0;";
+    $select_users_count = mysqli_query($savienojums, $users_count_SQL);
+
+    while($result = mysqli_fetch_array($select_users_count)){
+        $usersCount = "{$result['COUNT(Lietotajs_ID)']}";
+    }
 ?>
