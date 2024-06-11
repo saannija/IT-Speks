@@ -27,7 +27,7 @@
             <th>Uzvārds</th>
             <th>Tālrunis</th>
             <th>E-pasts</th>
-            <th><form method="POST" id="table-button"><button type="submit" name="sort" value="<?php echo ($_SESSION['sort'] == 'ASC' ? 'DESC' : 'ASC'); ?>">Pēdējā tiešsaistē <i class="fa-solid fa-sort"></i><button></form></th>
+            <th><form method="POST" id="table-button"><button type="submit" name="sort" value="<?php echo ($_SESSION['sort'] == 'ASC' ? 'DESC' : 'ASC'); ?>">Pēdējais tiešsaistē <i class="fa-solid fa-sort"></i><button></form></th>
             <th></th>
 
             <?php

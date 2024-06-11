@@ -36,7 +36,17 @@
             require "../assets/connect_db.php";
             require "../assets/pagination.php";
 
-            $news_SQL = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums DESC LIMIT $offset, $rindas_lapa";
+            $order = 'DESC';
+
+            if (isset($_POST['sort'])){
+                if($_POST['sort'] == 'asc'){
+                    $order = 'ASC';
+                } else if($_POST['sort'] == 'desc'){
+                    $order = 'DESC';
+                }
+            }
+
+            $news_SQL = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums $order LIMIT $offset, $rindas_lapa";
             $select_news = mysqli_query($savienojums, $news_SQL);
 
             while($news = mysqli_fetch_array($select_news)){
