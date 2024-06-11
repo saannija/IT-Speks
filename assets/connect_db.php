@@ -48,6 +48,8 @@
             while($user = mysqli_fetch_array($result)){
                 if(password_verify($password, $user['Parole'])){
                     $_SESSION["lietotajs"] = $user['Lietotajvards'];
+                    $login_date_sql = "UPDATE it_speks_lietotaji SET Tiessaiste = CURRENT_TIMESTAMP() WHERE Lietotajvards = '$username'";
+                    mysqli_query($savienojums, $login_date_sql);
                 }else{
                     echo "<div class='notif red'>Nepareizs lietotājvārds vai parole!</div>";
                     header('Refresh:2');

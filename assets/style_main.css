@@ -1043,6 +1043,12 @@ hr{
     .default-popup.show {
         padding: 1.5rem 1rem;
     }
+
+    /* HOMEPAGE */
+    .stats{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 /* -----------VAKANCES------------------------------------------------------------------- */
@@ -1544,6 +1550,23 @@ input[type="file"]{
 #vacancy-chart{
     background: #fff;
     padding: 1rem;
+}
+
+#table-button{
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+}
+
+#table-button button{
+    background: none;
+    font-weight: bold;
+}
+
+#table-button button:hover{
+    cursor: pointer;
+    color: var(--main-color);
 }
 
 /* elements */

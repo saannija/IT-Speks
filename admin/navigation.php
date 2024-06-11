@@ -14,6 +14,7 @@
     <a href="vakances.php">Vakances</a>
     <a href="jaunumi.php">Jaunumi</a>
     <a href="pieteikumi.php">Pieteikumi</a>
+    <a href="lietotaji.php">Lietotāji</a>
     <?php echo ($user['Tiesibas'] == 'Administrators') ? "<a href='darbinieki.php'>Darbinieki</a>" : ""; ?>
     <a href="../" target="_blank">Uz galveno vietni</a>
 </nav>
