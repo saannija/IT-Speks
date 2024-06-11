@@ -26,8 +26,10 @@
             <th>Virsraksts</th>
             <th>Saturs</th>
             <th>Datums</th>
-            <th></th>
-            <th></th>
+            <form action="" method="post">
+                <th><button type="submit" class="sort-old" name="sort" value="asc"><i class="fa-solid fa-arrow-up-9-1"></i></button></th>
+                <th> <button type="submit" class="sort-new" name="sort" value="desc"><i class="fa-solid fa-arrow-up-1-9"></i></button></th>
+            </form>
         </tr>
 
         <?php
