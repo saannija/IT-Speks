@@ -14,6 +14,7 @@
             <a href="vakances.php">Vakances</a>
             <a href="jaunumi.php">Jaunumi</a>
             <a href="index.php#about">Kontakti</a>
+            <div id="modes" class="fa-regular fa-moon"></div>
             <?php
                 if(isset($_SESSION["lietotajvards"])){
                     echo "

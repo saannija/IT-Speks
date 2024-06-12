@@ -221,22 +221,26 @@
 
                         $vacancyId = intval($_GET['id']);
 
-                        $email_required = $userId = NULL;
-                        if ($loggedIn) {
-                            $email_required = isset($_POST['email_required']) ? 1 : 0;
+                        $sql = "SELECT COUNT(*) AS total_applications FROM it_speks_pieteikumi WHERE ID_vakance = $vacancyId AND Epasts = '$email_ievade'";
+                        $result = mysqli_query($savienojums, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $total_applications = $row['total_applications'];
 
-                            $username = $_SESSION['lietotajs'];
-                            $select_user = "SELECT Lietotajs_ID FROM it_speks_lietotaji WHERE Lietotajvards = '$username'";
-                            $user = mysqli_query($savienojums, $select_user);
-                            while($data = mysqli_fetch_array($user)){
-                                $userId = $data['Lietotajs_ID'];
+                        if ($total_applications < 2) {
+                            $email_required = $userId = NULL;
+                            if ($loggedIn) {
+                                $email_required = isset($_POST['email_required']) ? 1 : 0;
+
+                                $username = $_SESSION['lietotajs'];
+                                $select_user = "SELECT Lietotajs_ID FROM it_speks_lietotaji WHERE Lietotajvards = '$username'";
+                                $user = mysqli_query($savienojums, $select_user);
+                                while ($data = mysqli_fetch_array($user)) {
+                                    $userId = $data['Lietotajs_ID'];
+                                }
+                            } else {
+                                $email_required = 1;
                             }
-                        } else {
-                            $email_required = 1;
-                        }
-
                         
-
                         $insert_sql = "INSERT INTO it_speks_pieteikumi(Vards, Uzvards, Talrunis, Epasts, CV, Komentari, Statuss, ID_vakance, sutit_epastus, ID_Lietotajs) VALUES('$name_ievade', '$lastname_ievade', '$phone_ievade', '$email_ievade', '$last_id', '$comment_ievade', default, '$vacancyId', '$email_required', '$userId')";
 
                         mysqli_query($savienojums, $insert_sql);
@@ -247,9 +251,16 @@
                                 }, 2000);
                             </script>";       
                         
-                    }else{
-                        echo "<div class='notif yellow'><i class='fa-solid fa-circle-exclamation'></i> Visi ievades lauki nav aizpildīti!
-                        Mēģiniet vēlreiz! </div>";
+                        } else {
+                            echo "<div class='notif red'><i class='fa-solid fa-circle-exclamation'></i> Jūs esat pieteikušies pārāk daudz reižu šai vakancei!</div>";
+                            echo "<script>
+                                    setTimeout(function() {
+                                        window.location.reload();
+                                    }, 2000);
+                                </script>";
+                        }
+                    } else {
+                        echo "<div class='notif yellow'><i class='fa-solid fa-circle-exclamation'></i> Visi ievades lauki nav aizpildīti! Mēģiniet vēlreiz!</div>";
                         echo "<script>
                                 setTimeout(function() {
                                     window.location.reload();
@@ -257,7 +268,6 @@
                             </script>";
                     }
                 }
-            
             ?>
 
         </div>

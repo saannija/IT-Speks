@@ -35,6 +35,21 @@
             ($data['Talrunis'] == 0 ? $phone = NULL : $phone = $data['Talrunis']);
             $email = $data['Epasts'];
         }
+
+        if(isset($_POST['save-user-info'])){
+            $name_ievade = mysqli_real_escape_string($savienojums, $_POST['name']);
+            $lastname_ievade = mysqli_real_escape_string($savienojums, $_POST['lastname']);
+            $phone_ievade = mysqli_real_escape_string($savienojums, $_POST['phone']);
+            $email_ievade = mysqli_real_escape_string($savienojums, $_POST['email']);
+
+            $sql_query = "UPDATE it_speks_lietotaji SET Vards = '$name_ievade', Uzvards = '$lastname_ievade', Talrunis = '$phone_ievade', Epasts = '$email_ievade' WHERE Lietotajs_ID = '$userId'";
+            mysqli_query($savienojums, $sql_query);
+
+            $name = $name_ievade;
+            $lastname = $lastname_ievade;
+            $phone = $phone_ievade;
+            $email = $email_ievade;
+        }
     ?>
 
     <section id="admin-section">
@@ -101,21 +116,12 @@
     </main>
     <?php
         require "assets/footer.php";
-        
-        if(isset($_POST['save-user-info'])){
-            $name_ievade = mysqli_real_escape_string($savienojums, $_POST['name']);
-            $lastname_ievade = mysqli_real_escape_string($savienojums, $_POST['lastname']);
-            $phone_ievade = mysqli_real_escape_string($savienojums, $_POST['phone']);
-            $email_ievade = mysqli_real_escape_string($savienojums, $_POST['email']);
-
-            $sql_query = "UPDATE it_speks_lietotaji SET Vards = '$name_ievade', Uzvards = '$lastname_ievade', Talrunis = '$phone_ievade', Epasts = '$email_ievade'";
-            mysqli_query($savienojums, $sql_query);
-            echo "<script>
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 0);
-                </script>";
-        }
     ?>
+
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
 </body>
 </html>

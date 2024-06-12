@@ -20,28 +20,28 @@
             <h1>Atrodiet <span>savu nākotnes</span> darbu IT jomā Latvijā!</h1>
 
             <div class="searchbar">
-                <!-- <button onclick="togglePanel('searchbar-container')" class="default-button" id="toggle-panel"><i class="fa-solid fa-magnifying-glass"></i></button> -->
-    
                 <div id="search-container">
                     <form method="POST" id="search-form" action="vakances.php">
                         
                         <input type="text" class="default-input default-borders" name="atslegvardsIndex" placeholder="Atslēgvārds">
-                        
-                        <select name="vieta">
-                            <option value="" disabled selected>Vieta</option>
-                            <?php
-                                $locationSQL = "SELECT DISTINCT Atrasanas_vieta FROM it_speks_vakances WHERE Izdzests = 0";
-                                $selectLocation = mysqli_query($savienojums, $locationSQL);
-        
-                                if(mysqli_num_rows($selectLocation) > 0){
-                                    while($location = mysqli_fetch_assoc($selectLocation)){
-                                        echo "<option value='" . $location['Atrasanas_vieta'] . "'>" . $location['Atrasanas_vieta'] . "</option>";                              
+                        <div class="select">
+                            <select name="vieta">
+                                <option value="" disabled selected>Vieta</option>
+                                <?php
+                                    $locationSQL = "SELECT DISTINCT Atrasanas_vieta FROM it_speks_vakances WHERE Izdzests = 0";
+                                    $selectLocation = mysqli_query($savienojums, $locationSQL);
+            
+                                    if(mysqli_num_rows($selectLocation) > 0){
+                                        while($location = mysqli_fetch_assoc($selectLocation)){
+                                            echo "<option value='" . $location['Atrasanas_vieta'] . "'>" . $location['Atrasanas_vieta'] . "</option>";                              
+                                        }
+                                    }else{
+                                        echo "<option>Nav nevienas vakances!</option>";
                                     }
-                                }else{
-                                    echo "<option>Nav nevienas vakances!</option>";
-                                }
-                            ?>
-                        </select>
+                                ?>
+                            </select>
+                        </div>
+                        
 
                         <button type="submit" id="search-btn" name="search-btn" class="default-button">Meklēt</button>
                     

@@ -17,6 +17,7 @@
     <main>
     <section id="admin-section">
         <div class="table-heading">Pieteikumu saraksts</div>
+        <form action="" method="post">
             <table>
                 <th>Vakance</th>
                 <th>Vārds</th>
@@ -27,23 +28,21 @@
                 <th>Komentāri</th>
                 <th>Datums</th>
                 <th>Statuss</th>
-                <form action="" method="post">
-                    <th><button type="submit" class="sort-old" name="sort" value="asc"><i class="fa-solid fa-arrow-up-9-1"></i></button></th>
-                    <th> <button type="submit" class="sort-new" name="sort" value="desc"><i class="fa-solid fa-arrow-up-1-9"></i></button></th>
-                </form>
-
+                    <th><button type="submit" class="sort-old <?php echo (isset($_SESSION['sort_order']) && $_SESSION['sort_order'] == 'asc') ? 'active' : ''; ?>" name="sort" value="asc"><i class="fa-solid fa-arrow-up-9-1"></i></button></th>
+                    <th><button type="submit" class="sort-new <?php echo (isset($_SESSION['sort_order']) && $_SESSION['sort_order'] == 'desc') ? 'active' : ''; ?>" name="sort" value="desc"><i class="fa-solid fa-arrow-up-1-9"></i></button></th>
                 <?php
                     require "../assets/connect_db.php";
 
                     $order = 'DESC';
 
-                    if (isset($_POST['sort'])){
-                        if($_POST['sort'] == 'asc'){
-                            $order = 'ASC';
-                        } else if($_POST['sort'] == 'desc'){
-                            $order = 'DESC';
-                        }
+                    if (isset($_POST['sort'])) {
+                        $_SESSION['sort_order'] = $_POST['sort'];
                     }
+                    
+                    if (isset($_SESSION['sort_order'])) {
+                        $order = ($_SESSION['sort_order'] == 'asc') ? 'ASC' : 'DESC';
+                    }
+
                     $appl_SQL = "SELECT it_speks_pieteikumi.*, it_speks_vakances.Profesija
                         FROM it_speks_pieteikumi 
                         INNER JOIN it_speks_vakances ON it_speks_pieteikumi.ID_vakance = it_speks_vakances.Vakance_ID
@@ -83,8 +82,9 @@
                     }
 
         
-        ?>
+                ?>
             </table>
+        </form>
     </section>
     </main>
     <?php

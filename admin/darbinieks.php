@@ -1,6 +1,6 @@
 <div id="edit-user-window" class="default-popup">
     <div class="row">
-        <h2>Lietotājs</h2>
+        <h2>Darbinieks</h2>
         <button class="default-button" onclick="hideWindow('edit-user-window')"><i class="fas fa-times"></i></button>
     </div>
     <hr>
@@ -39,7 +39,7 @@
         <select name="tiesibas" id="tiesibas">
             <?php
                 if($role == NULL){
-                    echo "<option value='' disabled selected>Tiesibas</option>
+                    echo "<option value='' disabled selected>Tiesības</option>
                     <option value='Administrators'>Administrators</option>
                     <option value='Moderators'>Moderators</option>";
                 }else{

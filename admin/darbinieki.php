@@ -15,7 +15,7 @@
     <section id="admin-section">
         <div class="table-heading">Darbinieku saraksts
         <form method='post' class='edit-user-form'>
-            <button class="default-button" onclick="showWindow('edit-user-window')" value="" name="edit-user"><i class="fa-solid fa-circle-plus" type="button"></i> Pievienot lietotāju</button>
+            <button class="default-button" onclick="showWindow('edit-user-window')" value="" name="edit-user"><i class="fa-solid fa-circle-plus" type="button"></i> Pievienot darbinieku</button>
         </form>
         </div>
         <table>

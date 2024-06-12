@@ -17,77 +17,76 @@
                 <button class="default-button" onclick="showWindow('edit-vacancy-window')" value="" name="edit-vac" type="submit"><i class="fa-solid fa-circle-plus"></i> Pievienot vakanci</button>
             </form>
         </div>
-        <table id="vacancy-table">
-        <colgroup>
-        <col style="width: 7rem;"><col class="name"><col class="name"><col><col><col><col><col><col><col><col>
-        </colgroup>
-        <tr>
-            <th>Logo</th>
-            <th>Profesijas nosaukums</th>
-            <th>Kompānijas nosaukums</th>
-            <th>Darba vieta</th>
-            <th>Atrašanās vieta</th>
-            <th>Slodze</th>
-            <th>Alga</th>
-            <th>Apraksts</th>
-            <th>Datums</th>
-            <form action="" method="post">
-                <th><button type="submit" class="sort-old" name="sort" value="asc"><i class="fa-solid fa-arrow-up-9-1"></i></button></th>
-                <th> <button type="submit" class="sort-new" name="sort" value="desc"><i class="fa-solid fa-arrow-up-1-9"></i></button></th>
-            </form>
-        </tr>
+        <form action="" method="post">
+            <table id="vacancy-table">
+                <colgroup>
+                    <col style="width: 7rem;"><col class="name"><col class="name"><col><col><col><col><col><col><col><col>
+                </colgroup>
+                <tr>
+                    <th>Logo</th>
+                    <th>Profesijas nosaukums</th>
+                    <th>Kompānijas nosaukums</th>
+                    <th>Darba vieta</th>
+                    <th>Atrašanās vieta</th>
+                    <th>Slodze</th>
+                    <th>Alga</th>
+                    <th>Apraksts</th>
+                    <th>Datums</th>
+                    <th><button type="submit" class="sort-old <?php echo (isset($_SESSION['sort_order']) && $_SESSION['sort_order'] == 'asc') ? 'active' : ''; ?>" name="sort" value="asc"><i class="fa-solid fa-arrow-up-9-1"></i></button></th>
+                    <th><button type="submit" class="sort-new <?php echo (isset($_SESSION['sort_order']) && $_SESSION['sort_order'] == 'desc') ? 'active' : ''; ?>" name="sort" value="desc"><i class="fa-solid fa-arrow-up-1-9"></i></button></th>
+                </tr>
 
-        <?php
-            require "../assets/connect_db.php";
-            require "../assets/pagination.php";
+                <?php
+                    require "../assets/connect_db.php";
+                    require "../assets/pagination.php";
 
-            $order = 'DESC';
-
-            if (isset($_POST['sort'])){
-                if($_POST['sort'] == 'asc'){
-                    $order = 'ASC';
-                } else if($_POST['sort'] == 'desc'){
                     $order = 'DESC';
-                }
-            }
 
-            $vac_SQL = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0 ORDER BY Datums $order LIMIT $offset, $rindas_lapa"; //WHERE Izdzests = 0 
-            $select_vac = mysqli_query($savienojums, $vac_SQL);
-        
-            while ($vac = mysqli_fetch_array($select_vac)) {
-                // $deletedClass = ($vac['Izdzests'] == 1) ? 'deleted' : ''; //iespeja atdzivinat izdzestos ? 
-        
-                $logo = ($vac['Logo'] == 0) ? "<img src='../images/image-placeholder.jpg' class='default-borders'>" :
-                                              "<img src='../images/image.php?id={$vac['Logo']}' class='default-borders'>";
-                // tr class='{$deletedClass}'
-                echo "
-                    <tr>
-                        <td>{$logo}</td>
-                        <td>{$vac['Profesija']}</td>
-                        <td>{$vac['Kompanija']}</td>
-                        <td>{$vac['Darba_vieta']}</td>
-                        <td>{$vac['Atrasanas_vieta']}</td>
-                        <td>{$vac['Slodze']}</td>
-                        <td>{$vac['Alga']}</td>
-                        <td class='descrip'>{$vac['Apraksts']}</td>
-                        <td>" . date("d.m.Y.", strtotime($vac['Datums'])) . "</td>
-                        <td>
-                            <form method='post'>
-                                <button type='submit' name='edit-vac' class='default-button' onclick='showWindow(\"edit-vacancy-window\")' value='{$vac['Vakance_ID']}'><i class='fas fa-edit'></i></button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method='post'>
-                                <button type='submit' name='detele-vac' value='{$vac['Vakance_ID']}' class='default-button'><i class='fas fa-times'></i></button>
-                            </form>
-                        </td>
-                    </tr>
-                ";
-            }
-        
-        ?>
+                    if (isset($_POST['sort'])) {
+                        $_SESSION['sort_order'] = $_POST['sort'];
+                    }
+                    
+                    if (isset($_SESSION['sort_order'])) {
+                        $order = ($_SESSION['sort_order'] == 'asc') ? 'ASC' : 'DESC';
+                    }
 
-        </table>
+                    $vac_SQL = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0 ORDER BY Datums $order LIMIT $offset, $rindas_lapa"; //WHERE Izdzests = 0 
+                    $select_vac = mysqli_query($savienojums, $vac_SQL);
+                
+                    while ($vac = mysqli_fetch_array($select_vac)) {
+                        // $deletedClass = ($vac['Izdzests'] == 1) ? 'deleted' : ''; //iespeja atdzivinat izdzestos ? 
+                
+                        $logo = ($vac['Logo'] == 0) ? "<img src='../images/image-placeholder.jpg' class='default-borders'>" :
+                                                    "<img src='../images/image.php?id={$vac['Logo']}' class='default-borders'>";
+                        // tr class='{$deletedClass}'
+                        echo "
+                            <tr>
+                                <td>{$logo}</td>
+                                <td>{$vac['Profesija']}</td>
+                                <td>{$vac['Kompanija']}</td>
+                                <td>{$vac['Darba_vieta']}</td>
+                                <td>{$vac['Atrasanas_vieta']}</td>
+                                <td>{$vac['Slodze']}</td>
+                                <td>{$vac['Alga']}</td>
+                                <td class='descrip'>{$vac['Apraksts']}</td>
+                                <td>" . date("d.m.Y.", strtotime($vac['Datums'])) . "</td>
+                                <td>
+                                    <form method='post'>
+                                        <button type='submit' name='edit-vac' class='default-button' onclick='showWindow(\"edit-vacancy-window\")' value='{$vac['Vakance_ID']}'><i class='fas fa-edit'></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method='post'>
+                                        <button type='submit' name='detele-vac' value='{$vac['Vakance_ID']}' class='default-button'><i class='fas fa-times'></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        ";
+                    }
+                
+                ?>
+            </table>
+        </form>
         <div class="pagination">
             <a href="?lapa=<?php echo $sobrideja_lapa - 1; ?>" class="pagination-arrow <?php if ($sobrideja_lapa == 1) echo 'hidden'; ?>"><i class="fa-solid fa-backward-step"></i></a>
             

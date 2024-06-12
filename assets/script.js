@@ -2,6 +2,20 @@ if ( window.history.replaceState ) {
     window.history.replaceState( null, null, window.location.href );
 }
 
+const modes = document.getElementById('modes');
+const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+document.body.classList.toggle('dark-mode', isDarkMode);
+modes.classList.toggle('fa-moon', !isDarkMode);
+modes.classList.toggle('fa-sun', isDarkMode);
+
+modes.addEventListener('click', () => {
+    const darkModeEnabled = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', darkModeEnabled ? 'enabled' : 'disabled');
+    modes.classList.toggle('fa-moon', !darkModeEnabled);
+    modes.classList.toggle('fa-sun', darkModeEnabled);
+});
+
 // pagination
 let itemsPerPage = 3;
 
@@ -10,6 +24,34 @@ if (window.innerWidth > 1400){
 }else{
     itemsPerPage = 4;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const ascButton = document.querySelector('.sort-old');
+    const descButton = document.querySelector('.sort-new');
+    const currentSortOrder = localStorage.getItem('sortOrder') || '<?php echo isset($_SESSION["sort_order"]) ? $_SESSION["sort_order"] : "desc"; ?>';
+
+    updateActiveSortButton(currentSortOrder);
+
+    ascButton.addEventListener('click', () => {
+        updateActiveSortButton('asc');
+        localStorage.setItem('sortOrder', 'asc');
+    });
+
+    descButton.addEventListener('click', () => {
+        updateActiveSortButton('desc');
+        localStorage.setItem('sortOrder', 'desc');
+    });
+
+    function updateActiveSortButton(order) {
+        if (order === 'asc') {
+            ascButton.classList.add('active');
+            descButton.classList.remove('active');
+        } else {
+            ascButton.classList.remove('active');
+            descButton.classList.add('active');
+        }
+    }
+});
 
 const cards = document.querySelectorAll(".card-a");
 const totalItems = cards.length;

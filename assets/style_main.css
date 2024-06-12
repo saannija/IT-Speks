@@ -6,8 +6,40 @@
     --main-color-light: #E9FFDF;
     --white: #fafafa;
     --border: .1rem solid rgba(0,0,0,10%);
+    --border-dark: .1rem solid rgba(0,0,0,15%);
     --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,10%);
     --radius: .5rem;
+    --bg: #fff;
+    --bg-dark: #f7f7f7;
+    --bg-vac: #eee;
+    --bg-new: #eee;
+    --bg-form: #fff;
+    --text: #000;
+    --text-r: #fff;
+    --main: #38b000;
+    --text-dark: #555;
+    --light: #fafafa;
+    --border-color: .1rem solid #38b000;
+    --selected: rgba(159, 213, 141, 0.8);
+    --card-hover: rgba(255, 255, 255, 0.8);
+}
+
+.dark-mode {
+    --bg: #555;
+    --bg-dark: #444;
+    --bg-vac: #444;
+    --bg-new: #333;
+    --bg-form: #666;
+    --text: #fff;
+    --text-r: #000;
+    --white: #343434;
+    --main: #309700;
+    --text-dark: #dedede;
+    --border: .1rem solid rgba(0,0,0,15%);
+    --border-dark: .1rem solid rgba(0,0,0,40%);
+    --border-color: .1rem solid #444;
+    --selected: rgba(60, 114, 42, 0.8);
+    --card-hover: rgba(88, 88, 88, 0.8);
 }
 
 * {
@@ -23,16 +55,18 @@
 
 html, body{
     height: 100%;
+    color: var(--text);
 }
 
 body{
     display: flex;
     flex-direction: column;
+    background: var(--bg);
 }
 
 main {
     flex-grow: 1;
-    background: #eee;
+    background: var(--bg-form);
 }
 
 a{
@@ -40,8 +74,8 @@ a{
 }
 
 *::selection{
-    background: var(--main-color);
-    color: var(--white);
+    background: var(--main);
+    color: #fafafa;
 }
 
 .default-borders{
@@ -56,7 +90,8 @@ a{
     width: 18rem;
     border-radius: var(--radius);
     border: var(--border);
-    color: #555;
+    color: var(--text-dark);
+    background: var(--bg-form);
 }
 
 select option[value=""]{
@@ -73,9 +108,8 @@ select option[value=""]{
 }
 
 .default-button:hover{
-    color: var(--main-color);
-    background: var(--white);
-    border: 1px solid var(--main-color);
+    background: var(--main-color-dark);
+    border: 1px solid var(--main-color-dark);
     cursor: pointer;
 }
 
@@ -134,12 +168,11 @@ header{
 .logo{
     font-size: 1.8rem;
     font-weight: bold;
-    color: #000;
 }
 
 header a, #nav-content a{
     font-size: 1.2rem;
-    color: #000;
+    color: var(--text);
 }
 
 header a{
@@ -174,6 +207,21 @@ header a:hover, #nav-content a:hover{
     justify-content: center;
 }
 
+#modes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: .5rem;
+    color: var(--main-color);
+    font-size: 1.5rem;
+}
+
+#modes:hover{
+    color: var(--text);
+    font-size: 1.55rem;
+}
+
 .left, .right{
     width: 50%;
 }
@@ -189,6 +237,7 @@ header a:hover, #nav-content a:hover{
 h1{
     font-size: 3rem;
     padding-bottom: 2rem;
+    color: var(--text);
 }
 
 h1 span, #admin-section span, span{
@@ -214,7 +263,7 @@ h2{
 #header #search-form{
     display: flex;
     justify-content: space-between;
-    background: var(--white);
+    background: var(--bg-dark);
     padding: .8rem;
 }
 
@@ -230,11 +279,20 @@ h2{
     color: var(--white);
 }
 
+.select{
+    width: 40%;
+    margin-bottom: 0;
+}
+
 #search-form select[name="vieta"]{
     padding: .6rem;
     margin: 0;
-    width: 40%;
-    background: #fff;
+    width: 100%;
+    background: var(--bg-form);
+}
+
+option:hover:before{
+    background: var(--main-color);
 }
 
 select[name="vieta"]:hover{
@@ -242,9 +300,14 @@ select[name="vieta"]:hover{
 }
 
 #search-form input[name="atslegvardsIndex"]{
-    border: 1px solid var(--main-color);
+    border: 1px solid var(--border-color);
     margin: 0;
     width: 40%;
+    background: var(--bg-form);
+}
+
+#search-form input[name="atslegvardsIndex"]:focus{
+    background: var(--white);
 }
 
 .img-work-container{
@@ -271,6 +334,10 @@ select[name="vieta"]:hover{
         margin-bottom: 1rem;
     }
 
+    .select{
+        width: 100%;
+    }
+
     #header #search-btn{
         padding: .5rem 2rem;
     }
@@ -292,8 +359,13 @@ select[name="vieta"]:hover{
         align-items: center;
     }
 
-    #search-form input[name="atslegvardsIndex"], #search-form select[name="vieta"]{
+    #search-form input[name="atslegvardsIndex"], .select{
         width: 40%;
+        margin-bottom: 0;
+    }
+
+    #search-form select[name="vieta"]{
+        width: 100%;
         margin-bottom: 0;
     }
 
@@ -306,7 +378,7 @@ select[name="vieta"]:hover{
 
 #statistics{
     background-color: var(--main-color);
-    color: var(--white);
+    color: var(--light);
     padding: 4rem 0 !important;
 }
 
@@ -381,7 +453,7 @@ select[name="vieta"]:hover{
 }
 
 .circle h3 {
-    color: var(--white);
+    color: #fff;
     font-size: 1.7rem;
 }
 
@@ -464,7 +536,7 @@ form, .map{
     padding: 1rem;
     border: var(--border);
     border-radius: var(--radius);
-    background: #f7f7f7;
+    background: var(--bg-dark);
     width: 100%;
 }
 
@@ -485,7 +557,7 @@ form .box{
     color: var(--black);
     border: var(--border);
     border-radius: var(--radius);
-    background: #fff;
+    background: var(--bg-form);
     width: 100%;
 }
 
@@ -521,7 +593,7 @@ form textarea{
 /* footeris */
 
 footer{
-    background: #f8f8f8;
+    background: var(--bg-dark);
     text-align: center;
     padding: 2rem 9% 0 9%;
 }
@@ -556,7 +628,7 @@ footer .wrapper-column h3{
 }
 
 footer .wrapper-column p{
-    color: #555;
+    color: var(--text-dark);
     text-align: justify;
 }
 
@@ -584,7 +656,7 @@ footer h2{
 /* -----------JAUNUMI------------------------------------------------------------------- */
 
 #latestNews{
-    background: #f7f7f7;
+    background: var(--bg-dark);
     display: flex;
     justify-content: center;
     position: relative;
@@ -646,7 +718,7 @@ footer h2{
     flex-direction: column;
     list-style-type: none;
     font-size: 1.2rem;
-    background: #eee;
+    background: var(--bg-new);
     border-radius: var(--radius);
     padding: 1.8rem 1rem;
     margin: .5rem 0;
@@ -659,12 +731,12 @@ footer h2{
 }
 
 #latestNews li.selected{
-    background: rgba(159, 213, 141, 0.8);
+    background: var(--selected);
 }
 
 #latestNews li .date{
     font-size: 1rem;
-    color: #555;
+    color: var(--text-dark);
 }
 
 #news{
@@ -744,6 +816,15 @@ footer h2{
     border: none;
 }
 
+.active{
+    background: var(--main-color);
+    border-radius: var(--radius);
+}
+
+.active i{
+    color: #fff;
+}
+
 .all-cards{
     grid-gap: 2rem;
 }
@@ -762,8 +843,8 @@ footer h2{
 
 .card-a, .all-card{
     padding: 1rem;
-    background: #fafafa;
-    border: var(--border);
+    background: var(--bg-new);
+    border: var(--border-color);
     border-radius: var(--radius);
     display: flex;
     flex-direction: column;
@@ -772,7 +853,6 @@ footer h2{
     height: 100%;
     position: relative;
     overflow: hidden;
-    border: .1rem solid var(--main-color);
     box-shadow: var(--box-shadow);
 }
 
@@ -833,7 +913,8 @@ footer h2{
     top: 0;
     left: 0;
     content: '';
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--card-hover);
+    border-radius: var(--radius);
     clip-path: circle(0% at 50% 0);
     transition: trans .3s linear;
 }
@@ -856,6 +937,7 @@ footer h2{
 .content .text{
     max-width: 27rem;
     line-height: 1.5;
+    color: var(--text);
     display: -webkit-box;
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
@@ -1112,6 +1194,7 @@ input[name="atslegvards"]{
     border: 1px solid var(--main-color);
     width: 15.2rem;
     margin: 0;
+    background: var(--bg-form);
 }
 
 input[type="radio"]{
@@ -1135,8 +1218,8 @@ input[type="radio"]:hover + .radio-button{
     height: 16px;
     border-radius: .5rem;
     padding: .5rem 1rem;
-    border: var(--border);
-    color: #555;
+    border: var(--border-dark);
+    color: var(--text-dark);
     background: var(--white);
     margin: 0 .2rem;
 }
@@ -1164,7 +1247,7 @@ button:hover + .radio-button{
 
 /* Main section */
 #vacancy-container, #suggestions{
-    background: #eee;
+    background: var(--bg-vac);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
     gap: 1.2rem;
@@ -1249,6 +1332,7 @@ button:hover + .radio-button{
 .element .description{
     line-height: 1.4rem;
     text-align: justify;
+    color: var(--text);
 }
 
 .text-notif{
@@ -1259,7 +1343,7 @@ button:hover + .radio-button{
 /* -----------VAKANCE------------------------------------------------------------------- */
 /* Header */
 #vacancy-header{
-    background: #ddd;
+    background: var(--bg-dark);
     height: 10rem;
     display: flex;
     align-items: flex-end;
@@ -1276,7 +1360,7 @@ button:hover + .radio-button{
 
 /* Main section */
 #vacancy-section{
-    background: #eee;
+    background: var(--bg);
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
@@ -1457,6 +1541,14 @@ input[type="file"]{
     gap: 1rem;
 }
 
+#admin-header-content-right{
+    display: flex;
+}
+
+#admin-header-content-right #modes{
+    margin-right: 1.5rem;
+}
+
 /* Navigation */
 #nav-content{
     position: fixed;
@@ -1503,15 +1595,23 @@ input[type="file"]{
 }
 
 #nav-content a:hover{
-    background: #eee;
+    background: var(--bg-vac);
 }
 
 /* Homepage */
 #admin-section{
-    background: #eee;
+    background: var(--bg-vac);
     display: flex;
     flex-direction: column;
     padding: 5.6rem 4rem 1.2rem 4rem !important;
+}
+
+#admin-section form{
+    padding: 0;
+}
+
+#admin-section #user-appl-form{
+    padding: 1rem;
 }
 
 #admin-section h2{
@@ -1548,7 +1648,7 @@ input[type="file"]{
 }
 
 #vacancy-chart{
-    background: #fff;
+    background: var(--bg-vac);
     padding: 1rem;
 }
 
@@ -1562,6 +1662,7 @@ input[type="file"]{
 #table-button button{
     background: none;
     font-weight: bold;
+    color: var(--text);
 }
 
 #table-button button:hover{
@@ -1571,7 +1672,7 @@ input[type="file"]{
 
 /* elements */
 .stat-box{
-    background: #fff;
+    background: var(--bg-vac);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1589,7 +1690,7 @@ input[type="file"]{
 
 /* table */
 #admin-section table{
-    background: #fff;
+    background: var(--bg-form);
     width: 100%;
 }
 
@@ -1598,7 +1699,7 @@ input[type="file"]{
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    background: var(--main-color-light);
+    background: var(--selected);
 }
 
 .table-heading form{
@@ -1617,6 +1718,7 @@ th, td{
 
 th{
     font-size: .9rem;
+    background: var(--bg-form);
 }
 
 th button{
@@ -1631,13 +1733,17 @@ th button i{
 }
 
 tr:hover{
-    background: #eee;
+    background: var(--text) !important;
 }
 
 td img{
     width: 100px;
     height: 100px;
     object-fit: cover
+}
+
+td {
+    background: var(--bg-form);
 }
 
 td form{
@@ -1966,7 +2072,6 @@ table .name{
     top: 20px;
     right: 20px;
     z-index: 5;
-    box-shadow: var(--box-shadow);
     border-radius: var(--radius);
     padding: 1rem 1.2rem;
     font-size: 1.2rem;
@@ -1982,6 +2087,7 @@ table .name{
 .notif.red{
     background: rgb(252, 229, 229);
     border: solid 1px rgb(245, 78, 78);
+    color:rgb(245, 78, 78);
 }
 
 .notif.red i{
@@ -1991,6 +2097,7 @@ table .name{
 .notif.green{
     background: rgb(218, 252, 220);
     border: solid 1px rgb(56, 173, 56);
+    color:rgb(56, 173, 56);
 }
 
 .notif.green i{
@@ -2000,6 +2107,7 @@ table .name{
 .notif.yellow{
     background: rgb(253, 237, 219);
     border: solid 1px rgb(227, 133, 25);
+    color:rgb(227, 133, 25);
 }
 
 .notif.yellow i{
@@ -2347,6 +2455,10 @@ table .name{
     #search-form input[name="atslegvardsIndex"], #search-form select[name="vieta"], #search-form button{
         width: 100%;
         margin-bottom: 1rem;
+    }
+
+    .select{
+        width: 100%;
     }
 
     #header{

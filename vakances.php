@@ -169,7 +169,7 @@
 
                 if(mysqli_num_rows($result) > 0){
                     echo "
-                            <h2 style='background: #eee; padding-top: 1.2rem'>Mūsu piedāvājumi</h2>
+                            <h2 style='background: var(--bg-vac); padding-top: 1.2rem'>Mūsu piedāvājumi</h2>
         
                             <section id='suggestions'>";
                             while ($vacancy = mysqli_fetch_assoc($result)) {
@@ -224,7 +224,7 @@
     <main>
     <?php
         if(!isset($_POST['search-button']) && !isset($_POST['search-btn'])){
-            echo "<h2 style='padding-top: 1.2rem;'>Visas vakances</h2>";
+            echo "<h2 style='padding-top: 1.2rem; background: var(--bg-vac);'>Visas vakances</h2>";
         }
     ?>
 
