@@ -19,8 +19,10 @@
                 <div class="navigation">
                     <a href="jaunumi.php"><i class="fa-solid fa-arrow-left"></i></a>
                     <div class="sorting">
-                        <i class="fa-solid fa-arrow-up-z-a"></i>
-                        <i class="fa-solid fa-arrow-down-z-a"></i>
+                        <form action="" method="post">
+                            <button type="submit" class="sort-old" name="sort" value="asc"><i class="fa-solid fa-arrow-up-9-1"></i></button>
+                            <button type="submit" class="sort-new" name="sort" value="desc"><i class="fa-solid fa-arrow-up-1-9"></i></button>
+                        </form>
                     </div>
                 </div>
                 <h2>Visi jaunumi</h2>
@@ -28,7 +30,18 @@
                 <div class="cards all-cards">
                     <?php
                         require "assets/connect_db.php";
-                        $news_sql = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums DESC;";
+                        
+                        $order = 'DESC';
+
+                        if (isset($_POST['sort'])){
+                            if($_POST['sort'] == 'asc'){
+                                $order = 'ASC';
+                            } else if($_POST['sort'] == 'desc'){
+                                $order = 'DESC';
+                            }
+                        }
+
+                        $news_sql = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums $order;";
                         $result = mysqli_query($savienojums, $news_sql);
 
                         if(mysqli_num_rows($result) > 0){

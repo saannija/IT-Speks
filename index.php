@@ -79,6 +79,12 @@
                 </p>
                 <p>Pieteikumi</p>
             </div>
+            <div class="stat">
+                <p class="num count">
+                    <?php echo $usersCount; ?>
+                </p>
+                <p>Aktīvie lietotāji</p>
+            </div>
         </div>
     </section>
 

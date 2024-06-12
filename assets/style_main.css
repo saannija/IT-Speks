@@ -739,6 +739,11 @@ footer h2{
     cursor: pointer;
 }
 
+.sorting button, .sorting form{
+    background: none;
+    border: none;
+}
+
 .all-cards{
     grid-gap: 2rem;
 }
@@ -969,6 +974,7 @@ footer h2{
 
 #new h1{
     font-size: 2.5rem;
+    color: var(--main-color);
 }
 
 #new{
@@ -1529,6 +1535,23 @@ input[type="file"]{
     padding: 1rem;
 }
 
+#table-button{
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+}
+
+#table-button button{
+    background: none;
+    font-weight: bold;
+}
+
+#table-button button:hover{
+    cursor: pointer;
+    color: var(--main-color);
+}
+
 /* elements */
 .stat-box{
     background: #fff;
@@ -1577,6 +1600,17 @@ th, td{
 
 th{
     font-size: .9rem;
+}
+
+th button{
+    cursor: pointer;
+    background: none;
+}
+
+th button i{
+    padding: .7rem;
+    color: var(--main-color);
+    font-size: 1.2rem;
 }
 
 tr:hover{
@@ -2410,6 +2444,12 @@ table .name{
         min-width: 6rem;
         width: 6rem;
         height: 6rem;
+    }
+
+    /* HOMEPAGE */
+    .stats{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }
 

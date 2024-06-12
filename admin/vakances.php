@@ -31,15 +31,27 @@
             <th>Alga</th>
             <th>Apraksts</th>
             <th>Datums</th>
-            <th></th>
-            <th></th>
+            <form action="" method="post">
+                <th><button type="submit" class="sort-old" name="sort" value="asc"><i class="fa-solid fa-arrow-up-9-1"></i></button></th>
+                <th> <button type="submit" class="sort-new" name="sort" value="desc"><i class="fa-solid fa-arrow-up-1-9"></i></button></th>
+            </form>
         </tr>
 
         <?php
             require "../assets/connect_db.php";
             require "../assets/pagination.php";
 
-            $vac_SQL = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0 ORDER BY Datums DESC LIMIT $offset, $rindas_lapa"; //WHERE Izdzests = 0 
+            $order = 'DESC';
+
+            if (isset($_POST['sort'])){
+                if($_POST['sort'] == 'asc'){
+                    $order = 'ASC';
+                } else if($_POST['sort'] == 'desc'){
+                    $order = 'DESC';
+                }
+            }
+
+            $vac_SQL = "SELECT * FROM it_speks_vakances WHERE Izdzests = 0 ORDER BY Datums $order LIMIT $offset, $rindas_lapa"; //WHERE Izdzests = 0 
             $select_vac = mysqli_query($savienojums, $vac_SQL);
         
             while ($vac = mysqli_fetch_array($select_vac)) {

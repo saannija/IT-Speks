@@ -121,9 +121,21 @@ displayCards();
 }
 
 const titles = document.querySelectorAll('#vacancy-container .title h2');
+const titlesNews = document.querySelectorAll('.card .title');
 
 titles.forEach(title => {
     const maxLength = 30;
+    const originalText = title.textContent;
+
+    if (originalText.length > maxLength) {
+        const truncatedText = originalText.substring(0, maxLength) + '...';
+        title.textContent = truncatedText;
+    }
+});
+
+
+titlesNews.forEach(title => {
+    const maxLength = 40;
     const originalText = title.textContent;
 
     if (originalText.length > maxLength) {
