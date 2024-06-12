@@ -25,6 +25,7 @@
                     $comp = $vacancy['Kompanija'];
                     $place = $vacancy['Darba_vieta'];
                     $loc = $vacancy['Atrasanas_vieta'];
+                    $address = $vacancy['Adrese'];
                     $load = $vacancy['Slodze'];
                     $salary = $vacancy['Alga'];
                     $desc = $vacancy['Apraksts'];
@@ -113,6 +114,7 @@
                 <ul>
                     <p><h3><?php echo $comp; ?></h3></p>
                     <li>Atrašanās vieta:<strong> <?php echo $loc; ?></strong> </li>
+                    <li>Adrese:<strong> <?php echo $address; ?></strong> </li>
                     <li>Darba veids:<strong> <?php echo $load; ?></strong> </li>
                     <li>Darba vieta:<strong> <?php echo $place; ?></strong> </li>
                     <li>Alga:<strong> <?php echo $salary; ?>€</strong> </li>
@@ -122,7 +124,10 @@
         </div>
 
         <div class="element">
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17601.485656897643!2d21.01436780494168!3d56.533447208670836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46faa7ccb271be93%3A0xf9d1bf3406ae7d9d!2sLiep%C4%81jas%20Valsts%20tehnikums!5e0!3m2!1sen!2slv!4v1712747037508!5m2!1sen!2slv" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <?php
+                $query = str_replace(' ', '+', $loc) . "+" . str_replace(' ', '+', $address);
+            ?>
+            <iframe class="map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBM6u6PHi2BG1aENfVxO2vYXTjGkwbtodI&q=<?php echo $query?>" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <?php
