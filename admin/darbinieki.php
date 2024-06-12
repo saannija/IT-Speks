@@ -18,7 +18,7 @@
             <button class="default-button" onclick="showWindow('edit-user-window')" value="" name="edit-user"><i class="fa-solid fa-circle-plus" type="button"></i> Pievienot darbinieku</button>
         </form>
         </div>
-        <table>
+        <table id="users-table">
             <colgroup>
             <col><col><col><col><col style="width: 8rem;"><col style="width: 8rem;">
             </colgroup>

@@ -34,7 +34,7 @@
                     $pic = $news['Attels_ID'];
 
                     echo "
-                        <div class='wrapper contents" . ($counter == 1 ? " active" : ""). "' id='content{$counter}'>
+                        <div class='wrapper contents" . ($counter == 1 ? " active-news" : ""). "' id='content{$counter}'>
                             <div class='news-image-container'>
                                 <img src='images/image.php?id={$news['Attels_ID']}' alt='Jaunumi'>
                             </div>

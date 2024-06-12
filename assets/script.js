@@ -16,16 +16,7 @@ modes.addEventListener('click', () => {
     modes.classList.toggle('fa-sun', darkModeEnabled);
 });
 
-// pagination
-let itemsPerPage = 3;
-
-// Works after refresh
-if (window.innerWidth > 1400){
-    itemsPerPage = 3;
-}else{
-    itemsPerPage = 4;
-}
-
+// sort
 document.addEventListener('DOMContentLoaded', () => {
     const ascButton = document.querySelector('.sort-old');
     const descButton = document.querySelector('.sort-new');
@@ -54,9 +45,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const sortButtons = document.querySelectorAll('.sort-news');
+
+    const currentSortOrder = localStorage.getItem('sortOrder') || '<?php echo isset($_SESSION["sort_order"]) ? $_SESSION["sort_order"] : "desc"; ?>';
+    updateActiveSortButton(currentSortOrder);
+
+    sortButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const sortOrder = button.value;
+            updateActiveSortButton(sortOrder);
+            localStorage.setItem('sortOrder', sortOrder);
+        });
+    });
+
+    function updateActiveSortButton(order) {
+        sortButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        const activeButton = [...sortButtons].find(button => button.value === order);
+        if (activeButton) {
+            activeButton.classList.add('active');
+        }
+
+        const icons = document.querySelectorAll('.sort-news i');
+        icons.forEach(icon => {
+            icon.style.color = (order === 'asc') ? 'var(--main-color)' : 'var(--text-dark)';
+        });
+    }
+});
+
+// pagination
+let itemsPerPage = window.innerWidth > 1400 ? 3 : 4;
 const cards = document.querySelectorAll(".card-a");
 const totalItems = cards.length;
-const totalPages = Math.ceil(totalItems / itemsPerPage);
+let totalPages = Math.ceil(totalItems / itemsPerPage);
 let currentPage = 1;
 
 function showPage(page) {
@@ -65,18 +89,11 @@ function showPage(page) {
     const end = start + itemsPerPage;
 
     cards.forEach((card, index) => {
-        if (index >= start && index < end) {
-            card.style.display = "flex";
-        } else {
-            card.style.display = "none";
-        }
+        card.style.display = (index >= start && index < end) ? "flex" : "none";
     });
 
-    pageNumber = document.getElementById("page-number")
-    if(pageNumber){
-        pageNumber.textContent = `Lapa ${currentPage} no ${totalPages}`;
-        updatePaginationButtons();
-    }
+    updatePaginationButtons();
+    updatePageNumberDisplay();
 }
 
 function prevPage() {
@@ -95,23 +112,39 @@ function updatePaginationButtons() {
     const prevButton = document.querySelector(".pagination .prev");
     const nextButton = document.querySelector(".pagination .next");
 
-    if (currentPage === 1) {
-        prevButton.style.display = "none";
-    } else {
-        prevButton.style.display = "inline-block";
+    if (prevButton) {
+        prevButton.style.display = (currentPage === 1) ? "none" : "inline-block";
     }
 
-    if (currentPage === totalPages) {
-        nextButton.style.display = "none";
-    } else {
-        nextButton.style.display = "inline-block";
+    if (nextButton) {
+        nextButton.style.display = (currentPage === totalPages) ? "none" : "inline-block";
     }
 }
+
+function updatePageNumberDisplay() {
+    const pageNumber = document.getElementById("page-number");
+    if (pageNumber) {
+        pageNumber.textContent = `Lapa ${currentPage} no ${totalPages}`;
+    }
+}
+
+window.addEventListener('resize', function() {
+    itemsPerPage = window.innerWidth > 1400 ? 3 : 4;
+    
+    totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    if (currentPage > totalPages) {
+        currentPage = totalPages;
+    }
+
+    showPage(currentPage);
+});
 
 showPage(1);
 
 window.prevPage = prevPage;
 window.nextPage = nextPage;
+
 
 const cardsContainer = document.querySelector('.cards.all-cards');
 if(cardsContainer){
@@ -322,10 +355,10 @@ listItems.forEach(item => {
         
         item.classList.add('selected');
 
-        contents.forEach(content => content.classList.remove('active'));
+        contents.forEach(content => content.classList.remove('active-news'));
         
         const contentId = item.getAttribute('data-content');
-        document.getElementById(contentId).classList.add('active');
+        document.getElementById(contentId).classList.add('active-news');
     });
 });
 

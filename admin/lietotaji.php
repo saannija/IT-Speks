@@ -15,7 +15,7 @@
     <section id="admin-section">
         <div class="table-heading">Lietotāju saraksts
         </div>
-        <table>
+        <table id="liet-table">
             <th>Lietotājvārds</th>
             <th>Vārds</th>
             <th>Uzvārds</th>

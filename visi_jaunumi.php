@@ -20,8 +20,8 @@
                     <a href="jaunumi.php"><i class="fa-solid fa-arrow-left"></i></a>
                     <div class="sorting">
                         <form action="" method="post">
-                            <button type="submit" class="sort-old" name="sort" value="asc"><i class="fa-solid fa-arrow-up-9-1"></i></button>
-                            <button type="submit" class="sort-new" name="sort" value="desc"><i class="fa-solid fa-arrow-up-1-9"></i></button>
+                            <button type="submit" class="sort-news" name="sort-n" value="asc"><i class="fa-solid fa-arrow-up-9-1"></i></button>
+                            <button type="submit" class="sort-news" name="sort-n" value="desc"><i class="fa-solid fa-arrow-up-1-9"></i></button>
                         </form>
                     </div>
                 </div>
@@ -33,12 +33,12 @@
                         
                         $order = 'DESC';
 
-                        if (isset($_POST['sort'])){
-                            if($_POST['sort'] == 'asc'){
-                                $order = 'ASC';
-                            } else if($_POST['sort'] == 'desc'){
-                                $order = 'DESC';
-                            }
+                        if (isset($_POST['sort-n'])) {
+                            $_SESSION['sort_order'] = $_POST['sort-n'];
+                        }
+                        
+                        if (isset($_SESSION['sort_order'])) {
+                            $order = ($_SESSION['sort_order'] == 'asc') ? 'ASC' : 'DESC';
                         }
 
                         $news_sql = "SELECT * FROM it_speks_jaunumi WHERE Izdzests = 0 ORDER BY Datums $order;";

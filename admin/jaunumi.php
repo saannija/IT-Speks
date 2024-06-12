@@ -18,7 +18,7 @@
             </form>
         </div>
         <form action="" method="post">
-            <table>
+            <table id="news-table">
                 <colgroup>
                 <col style="width: 7rem;"><col><col style="width: 45rem;"><col><col style="width: 8rem;"><col style="width: 8rem;">
                 </colgroup>

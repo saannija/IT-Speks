@@ -18,7 +18,7 @@
     <section id="admin-section">
         <div class="table-heading">Pieteikumu saraksts</div>
         <form action="" method="post">
-            <table>
+            <table id="piet-table">
                 <th>Vakance</th>
                 <th>Vārds</th>
                 <th>Uzvārds</th>
