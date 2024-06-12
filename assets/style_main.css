@@ -2019,6 +2019,44 @@ table .name{
     }
 }
 
+@media (max-width: 1225px){
+    /* HEADER */
+    #navbar{
+        display: none;
+    }
+
+    #main .toggle-btn, .toggle-btn{
+        display: block;
+    }
+
+    #navbar.expanded{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 115%;
+        right: 2rem;
+        background: #fff;
+        box-shadow: var(--box-shadow);
+        border: var(--border);
+        border-radius: var(--radius);
+        width: 20rem;
+        padding: 1.5rem;
+    }
+
+    #navbar.expanded a:last-child{
+        text-align: center;
+        background: var(--main-color);
+        color: #fff;
+        border-radius: var(--radius);
+        border: 1px solid var(--main-color);
+    }
+
+    #navbar.expanded a:last-child:hover{
+        background: none;
+        color: var(--main-color);
+    }
+}
+
 @media (max-width: 1125px){
     html{
         font-size: 80%;
@@ -2079,44 +2117,6 @@ table .name{
 
     #latestNews li {
         margin: 0 .5rem;
-    }
-}
-
-@media(max-width: 990px){
-    /* HEADER */
-    #navbar{
-        display: none;
-    }
-
-    #main .toggle-btn, .toggle-btn{
-        display: block;
-    }
-
-    #navbar.expanded{
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 115%;
-        right: 2rem;
-        background: #fff;
-        box-shadow: var(--box-shadow);
-        border: var(--border);
-        border-radius: var(--radius);
-        width: 20rem;
-        padding: 1.5rem;
-    }
-
-    #navbar.expanded a:last-child{
-        text-align: center;
-        background: var(--main-color);
-        color: #fff;
-        border-radius: var(--radius);
-        border: 1px solid var(--main-color);
-    }
-
-    #navbar.expanded a:last-child:hover{
-        background: none;
-        color: var(--main-color);
     }
 }
 
