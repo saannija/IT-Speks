@@ -22,17 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const descButton = document.querySelector('.sort-new');
     const currentSortOrder = localStorage.getItem('sortOrder') || '<?php echo isset($_SESSION["sort_order"]) ? $_SESSION["sort_order"] : "desc"; ?>';
 
-    updateActiveSortButton(currentSortOrder);
+    if(ascButton && descButton){
+        updateActiveSortButton(currentSortOrder);
+        
+        ascButton.addEventListener('click', () => {
+            updateActiveSortButton('asc');
+            localStorage.setItem('sortOrder', 'asc');
+        });
 
-    ascButton.addEventListener('click', () => {
-        updateActiveSortButton('asc');
-        localStorage.setItem('sortOrder', 'asc');
-    });
-
-    descButton.addEventListener('click', () => {
-        updateActiveSortButton('desc');
-        localStorage.setItem('sortOrder', 'desc');
-    });
+        descButton.addEventListener('click', () => {
+            updateActiveSortButton('desc');
+            localStorage.setItem('sortOrder', 'desc');
+        });
+    }
 
     function updateActiveSortButton(order) {
         if (order === 'asc') {

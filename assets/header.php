@@ -14,17 +14,16 @@
             <a href="vakances.php">Vakances</a>
             <a href="jaunumi.php">Jaunumi</a>
             <a href="index.php#about">Kontakti</a>
-            <div id="modes" class="fa-regular fa-moon"></div>
             <?php
                 if(isset($_SESSION["lietotajvards"])){
                     echo "
                         <a href='./admin/index.php'>Administratora panelis</a>
-                        <a href='./assets/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>
+                        <a id='logout' href='./assets/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>
                     ";
                 }elseif(isset($_SESSION["lietotajs"])){
                     echo "
                         <a href='./pieteikumi.php'>Mani pieteikumi</a>
-                        <a href='./assets/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>
+                        <a id='logout' href='./assets/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>
                     ";
                 }else{
                     echo "
@@ -32,8 +31,7 @@
                     ";
                 }
             ?>
-
-
+            <div id="modes" class="fa-regular fa-moon"></div>
         </nav>
         <button class="toggle-btn default-button" onclick="togglePanel('navbar')">
             <i class="fas fa-bars"></i>

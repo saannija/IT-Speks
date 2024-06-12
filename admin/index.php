@@ -73,67 +73,69 @@
 
                 ?>
                 <script>
-                    document.addEventListener('DOMContentLoaded', (event) => {
-                    const ctx = document.getElementById('vacancy-chart')
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const ctx = document.getElementById('vacancy-chart');
 
-                    if(ctx){
-                        ctx.getContext('2d');
+                        if (ctx) {
+                            ctx.getContext('2d');
 
-                        const myChart = new Chart(ctx, {
-                            type: 'pie', // or 'bar', 'pie', etc.
-                            data: {
-                                labels: <?php echo $jsonVacancies; ?>,
-                                datasets: [{
-                                    label: 'Skaits',
-                                    data: <?php echo $jsonVacanciesNum; ?>,
-                                    backgroundColor: [
-                                        'rgba(56, 176, 0, 0.2)',
-                                        'rgba(167, 241, 168, 0.2)',
-                                        'rgba(36, 118, 0, 0.2)',
-                                        'rgba(90, 169, 50, 0.2)', 
-                                        'rgba(159, 213, 141, 0.2)', 
-                                        'rgba(36, 118, 0, 0.2)',
-                                        'rgba(112, 209, 85, 0.2)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(56, 176, 0, 0.5)',
-                                        'rgba(167, 241, 168, 0.5)',
-                                        'rgba(36, 118, 0, 0.5)',
-                                        'rgba(90, 169, 50, 0.5)', 
-                                        'rgba(159, 213, 141, 0.5)', 
-                                        'rgba(36, 118, 0, 0.5)',
-                                        'rgba(112, 209, 85, 0.5)'
-                                    ],
-                                    borderWidth: 1,      
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                maintainAspectRatio: false,
-                        
-                                plugins: {
-                                    legend: {
-                                        display: true,
-                                        position: 'right',
-                                    },
-                        
-                                    datalabels: {
-                                        formatter: (value, ctx) => {
-                                            let sum = 0;
-                                            let dataArr = ctx.chart.data.datasets[0].data;
-                                            dataArr.map(data => {
-                                                sum += data;
-                                            });
-                                            let percentage = (value*100 / sum).toFixed(2)+"%";
-                                            return percentage;
+                            myChart = new Chart(ctx, {
+                                type: 'pie',
+                                data: {
+                                    labels: <?php echo $jsonVacancies; ?>,
+                                    datasets: [{
+                                        label: 'Skaits',
+                                        data: <?php echo $jsonVacanciesNum; ?>,
+                                        backgroundColor: [
+                                            'rgba(56, 176, 0, 0.2)',
+                                            'rgba(167, 241, 168, 0.2)',
+                                            'rgba(36, 118, 0, 0.2)',
+                                            'rgba(90, 169, 50, 0.2)',
+                                            'rgba(159, 213, 141, 0.2)',
+                                            'rgba(36, 118, 0, 0.2)',
+                                            'rgba(112, 209, 85, 0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(56, 176, 0, 0.5)',
+                                            'rgba(167, 241, 168, 0.5)',
+                                            'rgba(36, 118, 0, 0.5)',
+                                            'rgba(90, 169, 50, 0.5)',
+                                            'rgba(159, 213, 141, 0.5)',
+                                            'rgba(36, 118, 0, 0.5)',
+                                            'rgba(112, 209, 85, 0.5)'
+                                        ],
+                                        borderWidth: 1,
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        legend: {
+                                            display: true,
+                                            position: 'right',
+                                            labels: {
+                                                color: '#000'
+                                            }
                                         },
-                                        color: '#000',
+                                        datalabels: {
+                                            formatter: (value, ctx) => {
+                                                let sum = 0;
+                                                let dataArr = ctx.chart.data.datasets[0].data;
+                                                dataArr.forEach(data => {
+                                                    sum += data;
+                                                });
+                                                let percentage = ((value / sum) * 100).toFixed(2) + "%";
+                                                return percentage;
+                                            },
+                                            color: '#000'
+                                        }
                                     }
-                                }
-                            },
-                            plugins: [ChartDataLabels],
-                        });
+                                },
+                                plugins: [ChartDataLabels],
+                            });
                         }
+                        
                     });
                 </script>
             </div>

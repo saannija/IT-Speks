@@ -12,6 +12,7 @@
     --bg: #fff;
     --bg-dark: #f7f7f7;
     --bg-vac: #eee;
+    --bg-mid: #ddd;
     --bg-new: #eee;
     --bg-form: #fff;
     --text: #000;
@@ -26,6 +27,7 @@
 
 .dark-mode {
     --bg: #555;
+    --bg-mid: #4f4f4f;
     --bg-dark: #444;
     --bg-vac: #444;
     --bg-new: #333;
@@ -50,7 +52,7 @@
     text-decoration: none;
     outline: none;
     border: none;
-    transition: all .3s ease-out;
+    transition: all .3s ease-out, color 0s;
 }
 
 html, body{
@@ -66,7 +68,7 @@ body{
 
 main {
     flex-grow: 1;
-    background: var(--bg-form);
+    background: var(--bg-vac);
 }
 
 a{
@@ -90,8 +92,16 @@ a{
     width: 18rem;
     border-radius: var(--radius);
     border: var(--border);
-    color: var(--text-dark);
+    color: var(--text);
     background: var(--bg-form);
+}
+
+input::placeholder {
+    color: var(--text-dark);
+}
+
+textarea::placeholder {
+    color: var(--text-dark);
 }
 
 select option[value=""]{
@@ -101,7 +111,7 @@ select option[value=""]{
 .default-button{
     background: var(--main-color);
     border-radius: var(--radius);
-    color: var(--white);
+    color: var(--light);
     padding: .6rem .9rem;
     font-size: 1rem;
     border: 1px solid var(--main-color);
@@ -163,6 +173,7 @@ header{
 #navbar{
     display: flex;
     gap: 1.5rem;
+    align-items: center;
 }
 
 .logo{
@@ -220,6 +231,11 @@ header a:hover, #nav-content a:hover{
 #modes:hover{
     color: var(--text);
     font-size: 1.55rem;
+}
+
+#navbar.expanded #modes{
+    margin: 0;
+    padding: .7rem;
 }
 
 .left, .right{
@@ -577,7 +593,7 @@ form textarea{
     font-size: 1.4rem;
     font-weight: 700;
     cursor: pointer;
-    color: var(--white);
+    color: var(--light);
     background: var(--main-color);
     border-radius: var(--radius);
     box-shadow: var(--box-shadow);
@@ -593,7 +609,7 @@ form textarea{
 /* footeris */
 
 footer{
-    background: var(--bg-dark);
+    background: var(--bg-mid);
     text-align: center;
     padding: 2rem 9% 0 9%;
 }
@@ -651,6 +667,7 @@ footer h2{
 .info i{
     margin-right: 1rem;
     font-size: 1.3rem;
+    color: var(--text-dark);
 }
 
 /* -----------JAUNUMI------------------------------------------------------------------- */
@@ -1196,12 +1213,12 @@ input[type="radio"]{
 input[type="radio"]:checked + .radio-button{
     border: 1px solid var(--main-color-dark);
     background: var(--main-color);
-    color: var(--white);
+    color: var(--light);
 }
 
 input[type="radio"]:hover + .radio-button{
     background: var(--main-color);
-    color: var(--white);
+    color: var(--light);
     cursor: pointer;
 }
 
@@ -1352,7 +1369,7 @@ button:hover + .radio-button{
 
 /* Main section */
 #vacancy-section{
-    background: var(--bg);
+    background: var(--bg-vac);
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
@@ -1493,7 +1510,7 @@ input[type="file"]{
 
 /* USER APPLICATION HISTORY */
 #user-appl-form{
-    background: #fff;
+    background: var(--bg-form);
     border: none;
     margin-bottom: 2rem;
     border-radius: 0;
@@ -1506,6 +1523,7 @@ input[type="file"]{
 
 #user-appl-form label{
     margin-top: .6rem;
+    color: var(--text-dark);
 }
 
 #admin-section #user-appl-form .wrapper{
@@ -1641,7 +1659,7 @@ input[type="file"]{
 }
 
 #vacancy-chart{
-    background: var(--bg-vac);
+    background: var(--bg-form);
     padding: 1rem;
 }
 
@@ -1665,7 +1683,7 @@ input[type="file"]{
 
 /* elements */
 .stat-box{
-    background: var(--bg-vac);
+    background: var(--bg-form);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1968,7 +1986,7 @@ table .name{
 #login-window a, #reg-banner a{
     font-style: italic;
     text-align: right;
-    color: #555;
+    color: var(--text-dark);
 }
 
 #login-window a:hover, #reg-banner a:hover{
@@ -2149,7 +2167,7 @@ table .name{
     }
 }
 
-@media (max-width: 1225px){
+@media (max-width: 1300px){
     /* HEADER */
     #navbar{
         display: none;
@@ -2171,14 +2189,16 @@ table .name{
         border-radius: var(--radius);
         width: 20rem;
         padding: 1.5rem;
+        align-items: normal;
     }
 
-    #navbar.expanded a:last-child{
+    #navbar.expanded #logout, #navbar.expanded #modes{
         text-align: center;
         background: var(--main-color);
         color: #fff;
         border-radius: var(--radius);
         border: 1px solid var(--main-color);
+        font-size: 1rem;
     }
 
     #navbar.expanded a:last-child:hover{
