@@ -8,7 +8,7 @@
 
     <?php
         require "../assets/connect_db.php" ;
-        $logo = $prof = $comp = $place = $loc = $load = $salary = $desc = $req = $offers = NULL;
+        $logo = $prof = $comp = $place = $loc = $address = $load = $salary = $desc = $req = $offers = NULL;
 
         if (isset($_POST['edit-vac'])) {
             if(!empty($_POST['edit-vac'])){
@@ -24,6 +24,7 @@
                         $comp = $data['Kompanija'];
                         $place = $data['Darba_vieta'];
                         $loc = $data['Atrasanas_vieta'];
+                        $address = $data['Adrese'];
                         $load = $data['Slodze'];
                         $salary = $data['Alga'];
                         $desc = $data['Apraksts'];
@@ -63,6 +64,9 @@
 
                     <label for="avieta">Atrašanās vieta</label>
                     <input type="text" id="avieta" class="default-input" value="<?php echo $loc; ?>" name="loc" required>
+
+                    <label for="adrese">Adrese</label>
+                    <input type="text" id="adrese" class="default-input" value="<?php echo $address; ?>" name="address" required>
                 
                     <label for="dvieta">Darba vieta</label>
                     <?php
@@ -201,7 +205,7 @@
 <?php
 
     if(isset($_POST['save-vac'])){
-        if(!empty($_POST['prof']) && !empty($_POST['comp']) && !empty($_POST['loc']) && !empty($_POST['dvieta']) && !empty($_POST['slodze']) && !empty($_POST['alga']) && !empty($_POST['apraksts'])){
+        if(!empty($_POST['prof']) && !empty($_POST['comp']) && !empty($_POST['loc']) && !empty($_POST['dvieta']) && !empty($_POST['slodze']) && !empty($_POST['alga']) && !empty($_POST['apraksts'])  && !empty($_POST['address'])){
             $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
             $last_id = $_POST['imgId'];
 
@@ -254,13 +258,14 @@
             $prof_ievade = mysqli_real_escape_string($savienojums, $_POST['prof']);
             $comp_ievade = mysqli_real_escape_string($savienojums, $_POST['comp']);
             $loc_ievade = mysqli_real_escape_string($savienojums, $_POST['loc']);
+            $address_ievade = mysqli_real_escape_string($savienojums, $_POST['address']);
             $place_ievade = mysqli_real_escape_string($savienojums, $_POST['dvieta']);
             $load_ievade = mysqli_real_escape_string($savienojums, $_POST['slodze']);
             $salary_ievade = mysqli_real_escape_string($savienojums, $_POST['alga']);
             $desc_ievade = mysqli_real_escape_string($savienojums, $_POST['apraksts']);
 
             if($_SESSION['current_row_id'] != NULL){
-                $sql_query = "UPDATE it_speks_vakances SET Logo = '$last_id', Profesija = '$prof_ievade', Kompanija = '$comp_ievade', Darba_vieta = '$place_ievade', Atrasanas_vieta = '$loc_ievade', Slodze = '$load_ievade', Alga = '$salary_ievade', Apraksts = '$desc_ievade', Prasibas = '$reqResult', Piedavajam = '$offerResult' WHERE Vakance_ID =".$_SESSION['current_row_id'];
+                $sql_query = "UPDATE it_speks_vakances SET Logo = '$last_id', Profesija = '$prof_ievade', Kompanija = '$comp_ievade', Darba_vieta = '$place_ievade', Atrasanas_vieta = '$loc_ievade', Adrese = '$address_ievade', Slodze = '$load_ievade', Alga = '$salary_ievade', Apraksts = '$desc_ievade', Prasibas = '$reqResult', Piedavajam = '$offerResult' WHERE Vakance_ID =".$_SESSION['current_row_id'];
                     
    
                 mysqli_query($savienojums, $sql_query);
@@ -272,7 +277,7 @@
                 </script>";
 
             }else{
-                $sql_query = "INSERT INTO it_speks_vakances(Logo, Profesija, Kompanija, Darba_vieta, Atrasanas_vieta, Slodze, Alga, Apraksts, Prasibas, Piedavajam) VALUES ('$last_id', '$prof_ievade', '$comp_ievade', '$place_ievade', '$loc_ievade', '$load_ievade', '$salary_ievade', '$desc_ievade', '$reqResult', '$offerResult')";
+                $sql_query = "INSERT INTO it_speks_vakances(Logo, Profesija, Kompanija, Darba_vieta, Atrasanas_vieta, Adrese, Slodze, Alga, Apraksts, Prasibas, Piedavajam) VALUES ('$last_id', '$prof_ievade', '$comp_ievade', '$place_ievade', '$loc_ievade', '$address_ievade', '$load_ievade', '$salary_ievade', '$desc_ievade', '$reqResult', '$offerResult')";
 
                 mysqli_query($savienojums, $sql_query);
                 echo "<div class='notif green'><i class='fa-solid fa-circle-exclamation'></i> Vakance ir izveidota!</div>"; 

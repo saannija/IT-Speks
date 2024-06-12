@@ -1116,23 +1116,6 @@ hr{
     }
 }
 
-@media (max-width: 500px){
-    #new img{
-        max-height: 20rem;
-    }
-
-    /* LOGIN WINDOW */
-    .default-popup.show {
-        padding: 1.5rem 1rem;
-    }
-
-    /* HOMEPAGE */
-    .stats{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
 /* -----------VAKANCES------------------------------------------------------------------- */
 /* Searchbar */
 #searchbar-container{
@@ -2119,12 +2102,66 @@ table .name{
     #latestNews{
         padding: 1.5rem !important;
     }
+
+    /* VAKANCE */
+    #summary .wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #summary .logo-container {
+        min-width: 12rem;
+        width: 12rem;
+        height: 12rem;
+    }
+
+    #summary ul{
+        padding-top: 1rem;
+    }
 }
 
 @media(max-width: 1320px){
     /* VAKANCES */
     #headerSimple-vacancies{
         text-align: center;
+    }
+}
+
+@media (max-width: 1225px){
+    /* HEADER */
+    #navbar{
+        display: none;
+    }
+
+    #main .toggle-btn, .toggle-btn{
+        display: block;
+    }
+
+    #navbar.expanded{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 115%;
+        right: 2rem;
+        background: #fff;
+        box-shadow: var(--box-shadow);
+        border: var(--border);
+        border-radius: var(--radius);
+        width: 20rem;
+        padding: 1.5rem;
+    }
+
+    #navbar.expanded a:last-child{
+        text-align: center;
+        background: var(--main-color);
+        color: #fff;
+        border-radius: var(--radius);
+        border: 1px solid var(--main-color);
+    }
+
+    #navbar.expanded a:last-child:hover{
+        background: none;
+        color: var(--main-color);
     }
 }
 
@@ -2174,11 +2211,6 @@ table .name{
     #services{
         margin: 0;
     }
-
-    /* VAKANCE */
-    #summary .logo-container{
-        min-width: 6rem;
-    }
 }
 
 @media(max-width: 1060px){
@@ -2193,44 +2225,6 @@ table .name{
 
     #latestNews li {
         margin: 0 .5rem;
-    }
-}
-
-@media(max-width: 990px){
-    /* HEADER */
-    #navbar{
-        display: none;
-    }
-
-    #main .toggle-btn, .toggle-btn{
-        display: block;
-    }
-
-    #navbar.expanded{
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 115%;
-        right: 2rem;
-        background: #fff;
-        box-shadow: var(--box-shadow);
-        border: var(--border);
-        border-radius: var(--radius);
-        width: 20rem;
-        padding: 1.5rem;
-    }
-
-    #navbar.expanded a:last-child{
-        text-align: center;
-        background: var(--main-color);
-        color: #fff;
-        border-radius: var(--radius);
-        border: 1px solid var(--main-color);
-    }
-
-    #navbar.expanded a:last-child:hover{
-        background: none;
-        color: var(--main-color);
     }
 }
 
@@ -2427,6 +2421,16 @@ table .name{
         flex-direction: column;
     }
 
+    #summary .wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #summary ul {
+        padding-top: 0;
+        padding-right: 0;
+    }
+
     /* FOOTER */
     footer .wrapper-content{
         flex-direction: column;
@@ -2534,6 +2538,30 @@ table .name{
     #user-appl-table th:nth-child(3),
     #user-appl-table td:nth-child(3) {
         display: none;
+    }
+}
+
+@media (max-width: 500px){
+    #new img{
+        max-height: 20rem;
+    }
+
+    /* LOGIN WINDOW */
+    .default-popup.show {
+        padding: 1.5rem 1rem;
+    }
+
+    /* VAKANCE */
+    #summary .logo-container {
+        min-width: 6rem;
+        width: 6rem;
+        height: 6rem;
+    }
+
+    /* HOMEPAGE */
+    .stats{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }
 

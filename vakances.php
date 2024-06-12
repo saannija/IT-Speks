@@ -55,7 +55,9 @@
 
         require "assets/header.php";
         require "assets/statistics.php";
+        
     ?>
+
 
     <section id="headerSimple-vacancies">
         <h1>Izvēlies no vairāk kā <span class="count">

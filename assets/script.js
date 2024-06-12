@@ -19,6 +19,7 @@ modes.addEventListener('click', () => {
 // pagination
 let itemsPerPage = 3;
 
+// Works after refresh
 if (window.innerWidth > 1400){
     itemsPerPage = 3;
 }else{
@@ -341,6 +342,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Set login to initial state
 function refreshLogin(){
     let loginForm = document.getElementById('login-form-admin');
     loginForm.style.display = 'none';
@@ -352,6 +354,7 @@ function refreshLogin(){
     roleForm.style.display = 'flex';
 }
 
+// Enable user info editing
 function enableEditing() {
     const form = document.getElementById('user-appl-form');
     const inputs = form.querySelectorAll('input[type="text"], input[type="email"]');
