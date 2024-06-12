@@ -31,12 +31,12 @@
                 require "../assets/connect_db.php";
                 $order = 'DESC';
 
-                if (isset($_POST['sort'])){
-                    if($_POST['sort'] == 'asc'){
-                        $order = 'ASC';
-                    } else if($_POST['sort'] == 'desc'){
-                        $order = 'DESC';
-                    }
+                if (isset($_POST['sort'])) {
+                    $_SESSION['sort_order'] = $_POST['sort'];
+                }
+                
+                if (isset($_SESSION['sort_order'])) {
+                    $order = ($_SESSION['sort_order'] == 'asc') ? 'ASC' : 'DESC';
                 }
                 
                 $users_SQL = "SELECT * FROM it_speks_lietotaji WHERE Izdzests = 0 ORDER BY Tiessaiste " .$order;

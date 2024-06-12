@@ -88,7 +88,7 @@
                                 <a href='jaunums.php?id={$news['ID']}' class='card-a'>
                                     <div class='card'>
                                         <div class='card-image-container'>
-                                            <img src='images/image.php?id={$news['Attels_ID']}' alt='pic'>
+                                            <img src='images/image.php?id={$news['Attels_ID']}' alt='Attēls'>
                                         </div>
                                         <h3 class='title'>{$news['Virsraksts']}</h3>
                                         <div class='content'> 

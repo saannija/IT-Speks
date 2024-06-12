@@ -1600,6 +1600,7 @@ input[type="file"]{
 
 #admin-section form{
     padding: 0;
+    border: none;
 }
 
 #admin-section #user-appl-form{
