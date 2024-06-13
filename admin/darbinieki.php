@@ -2,6 +2,13 @@
         require "header.php";
         require "darbinieks.php";
 
+        if(isset($_SESSION["darb_role"])){
+            if($_SESSION["darb_role"] == 'Moderators'){
+            header("location:index.php");
+            exit();
+            }
+        }
+
         if(isset($_POST['delete-user'])) {
             $userId = $_POST['delete-user'];
 

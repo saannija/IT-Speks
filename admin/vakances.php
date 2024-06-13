@@ -7,7 +7,11 @@
 
             $sql_query_delete = "UPDATE it_speks_vakances SET Izdzests = 1 WHERE Vakance_ID = '$vacId'";
             mysqli_query($savienojums, $sql_query_delete);
-            header('location: vakances.php');
+            echo "<script>
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 0);
+                </script>";
         }
     ?>
     <main>

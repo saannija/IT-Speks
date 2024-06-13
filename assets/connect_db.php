@@ -1,5 +1,5 @@
 <?php
-    ini_set('display_errors', 1);
+    ini_set('display_errors', 0);
     $serveris = "localhost";
     $lietotajs = "grobina1_romazanova";
     $parole = "8Xzai1FC!";
@@ -25,16 +25,25 @@
                     session_start();
                     $_SESSION["lietotajvards"] = $user['Lietotajvards'];
                     $_SESSION["lietotajvards_show"] = $user['Paradamais_vards'];
+                    $_SESSION["darb_role"] = $user['Tiesibas'];
                     header("location:./admin/index.php");
                     exit;
                 }else{
                     echo "<div class='notif red'>Nepareizs lietotājvārds vai parole!</div>";
-                    header('Refresh:2');
+                    echo "<script>
+                            setTimeout(function() {
+                                window.location.reload();
+                            }, 2000);
+                        </script>";
                 }
             }
         }else{
             echo "<div class='notif red'>Nepareizs lietotājvārds vai parole!</div>";
-            header('Refresh:2');
+            echo "<script>
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+                </script>";
         }
     }
 
@@ -52,12 +61,20 @@
                     mysqli_query($savienojums, $login_date_sql);
                 }else{
                     echo "<div class='notif red'>Nepareizs lietotājvārds vai parole!</div>";
-                    header('Refresh:2');
+                    echo "<script>
+                            setTimeout(function() {
+                                window.location.reload();
+                            }, 2000);
+                        </script>";
                 }
             }
         }else{
             echo "<div class='notif red'>Nepareizs lietotājvārds vai parole!</div>";
-            header('Refresh:2');
+            echo "<script>
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+                </script>";
         }
     }
 
