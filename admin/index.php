@@ -58,13 +58,17 @@
                 <div class="table-heading"><strong>Pieprasītākās vakances</strong></div>
                 <canvas id="vacancy-chart"></canvas>
                 <?php
-                    $vacancies_SQL = "SELECT COUNT(Profesija), Profesija FROM it_speks_vakances WHERE Izdzests = 0 GROUP BY Profesija;";
+                    $vacancies_SQL =  "SELECT COUNT(Pieteikums_ID), it_speks_vakances.Profesija
+                    FROM it_speks_pieteikumi 
+                    INNER JOIN it_speks_vakances ON it_speks_pieteikumi.ID_vakance = it_speks_vakances.Vakance_ID
+                    WHERE it_speks_pieteikumi.Izdzests = 0 GROUP BY Profesija";
+                   
                     $select_vacancies = mysqli_query($savienojums, $vacancies_SQL);
 
                     $vacanciesNum = array();
                     $vacancies = array();
                     while($result = mysqli_fetch_array($select_vacancies)){
-                        array_push($vacanciesNum, (int)$result['COUNT(Profesija)']);
+                        array_push($vacanciesNum, (int)$result['COUNT(Pieteikums_ID)']);
                         array_push($vacancies, $result['Profesija']);
                     }
 
