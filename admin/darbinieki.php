@@ -26,10 +26,6 @@
         </form>
         </div>
         <table id="users-table">
-            <colgroup>
-            <col><col><col><col><col style="width: 8rem;"><col style="width: 8rem;">
-            </colgroup>
-
             <th>Lietotājvārds</th>
             <th>E-pasts</th>
             <th>Parādāmais vārds</th>

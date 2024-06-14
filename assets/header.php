@@ -27,7 +27,7 @@
                     ";
                 }else{
                     echo "
-                        <button class='default-button' onclick=\"showWindow('login-window')\">Autorizācija</button>
+                        <button id='logout' class='default-button' onclick=\"showWindow('login-window')\">Autorizācija</button>
                     ";
                 }
             ?>
